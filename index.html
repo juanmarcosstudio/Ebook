@@ -1,0 +1,2589 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What in the World is Marketing? – Mason's Adventure</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,600;1,700;1,800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.cdnfonts.com/css/riffic-free");
+
+      :root {
+        --blue: #1565c0;
+        --dkblue: #0d47a1;
+        --ltblue: #e3f2fd;
+        --skyblue: #bbdefb;
+        --green: #2e7d32;
+        --ltgreen: #e8f5e9;
+        --bgreen: #43a047;
+        --orange: #e65100;
+        --ltorange: #fff3e0;
+        --amber: #f59e0b;
+        --red: #c62828;
+        --ltred: #ffebee;
+        --font-heading:
+          "Riffic Free", "Fredoka One", "Arial Rounded MT Bold", cursive;
+        --font-body: "Nunito", "Arial Rounded MT Bold", sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: var(--font-body);
+        font-weight: 600;
+        font-size: 1rem;
+        line-height: 1.75;
+        background: #eef2f7;
+        color: #1a1a2e;
+      }
+
+      /* NAV */
+      .topnav {
+        position: sticky;
+        top: 0;
+        z-index: 200;
+        background: var(--blue);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+      }
+      .topnav-title {
+        font-family: var(--font-heading);
+        color: white;
+        font-size: 1.1rem;
+      }
+      .topnav-links {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+      }
+      .topnav-links a {
+        color: white;
+        text-decoration: none;
+        background: rgba(255, 255, 255, 0.18);
+        border-radius: 20px;
+        padding: 3px 12px;
+        font-size: 0.78rem;
+        font-weight: 800;
+        transition: background 0.2s;
+      }
+      .topnav-links a:hover {
+        background: rgba(255, 255, 255, 0.38);
+      }
+
+      .book {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 24px 16px 100px;
+      }
+      .section {
+        display: none;
+      }
+      .section.active {
+        display: block;
+      }
+      .page-card {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 6px 28px rgba(0, 0, 0, 0.13);
+        overflow: hidden;
+      }
+
+      /* BOOK NAVIGATION */
+      .book-nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 300;
+        background: white;
+        border-top: 1px solid #dce3ef;
+        box-shadow: 0 -3px 14px rgba(0, 0, 0, 0.12);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        padding: 12px 20px;
+      }
+      .nav-btn {
+        background: var(--blue);
+        color: white;
+        border: none;
+        border-radius: 30px;
+        padding: 10px 26px;
+        font-family: "Nunito", sans-serif;
+        font-size: 0.95rem;
+        font-weight: 800;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          opacity 0.2s;
+        box-shadow: 0 3px 10px rgba(21, 101, 192, 0.35);
+      }
+      .nav-btn:hover {
+        background: var(--dkblue);
+      }
+      .nav-btn:disabled {
+        opacity: 0.35;
+        cursor: default;
+      }
+      .page-counter {
+        font-family: var(--font-heading);
+        color: var(--blue);
+        font-size: 1.05rem;
+        min-width: 130px;
+        text-align: center;
+      }
+      .pad {
+        padding: 28px;
+      }
+      p {
+        font-weight: 600;
+        line-height: 1.75;
+        margin-bottom: 14px;
+      }
+      p:last-child {
+        margin-bottom: 0;
+      }
+
+      /* MEET MASON */
+      .meet-header {
+        background: var(--blue);
+        padding: 16px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .meet-header h2 {
+        font-family: var(--font-heading);
+        color: white;
+        font-size: 2rem;
+      }
+      .meet-top {
+        background: #e8f4fd;
+        padding: 24px 28px;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+      .mason-circle {
+        width: 200px;
+        height: 200px;
+        min-width: 200px;
+        border-radius: 50%;
+        background: #c8e6ff;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .mason-circle img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        filter: drop-shadow(0 6px 22px rgba(0, 0, 0, 0.13));
+      }
+      .speech-bubble-blue {
+        background: white;
+        border: 2.5px solid var(--blue);
+        border-radius: 16px;
+        padding: 18px 22px;
+        font-weight: 700;
+        color: #1a1a2e;
+        flex: 1;
+        position: relative;
+      }
+      .speech-bubble-blue::before {
+        content: "";
+        position: absolute;
+        left: -14px;
+        top: 30px;
+        border: 7px solid transparent;
+        border-right-color: var(--blue);
+      }
+      .speech-bubble-blue::after {
+        content: "";
+        position: absolute;
+        left: -10px;
+        top: 31px;
+        border: 6px solid transparent;
+        border-right-color: white;
+      }
+      .meet-bottom {
+        border: 2px dashed #f77f00;
+        border-radius: 14px;
+        padding: 22px 28px;
+        margin: 24px 28px;
+        background: #ebf4fb;
+      }
+
+      /* TAKEOFF */
+      .takeoff-header {
+        background: var(--blue);
+        border-radius: 50px;
+        padding: 12px 28px;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 22px;
+      }
+      .takeoff-header h2 {
+        font-family: var(--font-heading);
+        color: white;
+        font-size: 1.7rem;
+      }
+      .quicktip {
+        border: 2px solid var(--amber);
+        border-radius: 14px;
+        padding: 16px 20px;
+        margin-bottom: 20px;
+        background: #fefce8;
+        position: relative;
+      }
+      .quicktip-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 8px;
+      }
+      .quicktip-label {
+        font-family: var(--font-heading);
+        color: #f77f00;
+        font-size: 1.1rem;
+        white-space: nowrap;
+      }
+      .quicktip-line {
+        flex: 1;
+        height: 2px;
+        background: #f77f00;
+      }
+      .quote-block {
+        border-left: 5px solid var(--bgreen);
+        background: #f9fff9;
+        padding: 16px 20px;
+        border-radius: 0 12px 12px 0;
+        margin: 20px 0;
+        font-style: italic;
+        font-weight: 700;
+        font-size: 1.05rem;
+      }
+
+      /* 3 CARDS */
+      .three-cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin: 20px 0;
+      }
+      .m-card {
+        border: 2.5px solid #ddd;
+        border-radius: 14px;
+        padding: 18px 12px;
+        text-align: center;
+        background: white;
+      }
+      .m-card .icon {
+        font-size: 2rem;
+        margin-bottom: 6px;
+      }
+      .m-card .title {
+        font-family: var(--font-heading);
+        font-size: 1.3rem;
+        margin-bottom: 4px;
+      }
+      .m-card .desc {
+        font-size: 0.85rem;
+        color: #555;
+        font-weight: 600;
+      }
+      .m-card.msg {
+        border-color: #ef5350;
+      }
+      .m-card.msg .title {
+        color: var(--orange);
+      }
+      .m-card.mkt {
+        border-color: #66bb6a;
+      }
+      .m-card.mkt .title {
+        color: var(--blue);
+      }
+      .m-card.mmt {
+        border-color: #26c6da;
+      }
+      .m-card.mmt .title {
+        color: var(--green);
+      }
+
+      /* DESTINATION HEADERS */
+      .dest1 {
+        background: linear-gradient(90deg, #b71c1c, #c62828);
+        padding: 18px 80px;
+        text-align: center;
+        font-family: var(--font-heading);
+        color: white;
+        font-size: 1.3rem;
+        position: relative;
+      }
+      .dest2 {
+        background: linear-gradient(90deg, #5d4037, #8d6e63);
+        padding: 18px 80px;
+        text-align: center;
+        font-family: var(--font-heading);
+        color: white;
+        font-size: 1.3rem;
+        position: relative;
+      }
+      .dest3 {
+        background: linear-gradient(90deg, #0277bd, #29b6f6);
+        padding: 18px 80px;
+        text-align: center;
+        font-family: var(--font-heading);
+        color: white;
+        font-size: 1.3rem;
+        position: relative;
+      }
+      .dest-deco {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 2.6rem;
+        line-height: 1;
+      }
+      .dest-deco.left {
+        left: 16px;
+      }
+      .dest-deco.right {
+        right: 16px;
+      }
+
+      .big-word {
+        font-family: var(--font-heading);
+        font-size: clamp(3rem, 9vw, 5rem);
+        text-align: center;
+        margin: 12px 0 22px;
+        letter-spacing: 1px;
+      }
+      .big-word-with-deco {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        justify-content: center;
+        margin: 12px 0 22px;
+      }
+      .big-word-deco {
+        font-size: 1.3rem;
+        color: #888;
+        letter-spacing: 3px;
+      }
+      .big-word-dash {
+        flex: 1;
+        height: 2px;
+        background: repeating-linear-gradient(
+          90deg,
+          #888 0,
+          #888 6px,
+          transparent 6px,
+          transparent 12px
+        );
+        opacity: 0.6;
+      }
+
+      /* CHECKLIST */
+      .checklist {
+        margin: 16px 0;
+        border-top: 1px solid #eee;
+      }
+      .check-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        padding: 14px 0;
+        border-bottom: 1px solid #eee;
+      }
+      .check-circle {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        border-radius: 50%;
+        background: var(--bgreen);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.1rem;
+        font-weight: 900;
+      }
+      .check-label {
+        font-family: var(--font-body);
+        font-weight: 900;
+        font-size: 1rem;
+      }
+      .check-desc {
+        font-weight: 600;
+        font-size: 0.92rem;
+        color: #444;
+        margin-top: 2px;
+      }
+
+      /* PAGE 5 */
+      .p5-top {
+        background: linear-gradient(135deg, #e8f4fd, white);
+        padding: 24px 28px;
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+      }
+      .p5-write-box {
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+        padding: 24px 28px;
+        margin: 24px 28px;
+      }
+      .p5-write-box h3 {
+        font-family: var(--font-heading);
+        color: var(--bgreen);
+        font-size: 1.3rem;
+        margin-bottom: 4px;
+        font-weight: 800;
+      }
+      .write-line {
+        border-bottom: 2px solid #ddd;
+        height: 42px;
+        margin-bottom: 4px;
+      }
+      .p5-footer {
+        background: #e8f4fd;
+        padding: 18px 28px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+      }
+
+      /* PAGE 6 */
+      .p6-bg {
+        background: #faf0dc;
+      }
+      .p6-market-word {
+        font-family: var(--font-heading);
+        font-size: clamp(2.4rem, 7vw, 4rem);
+        color: var(--orange);
+      }
+      .italic-quote {
+        border-left: 5px solid #f44336;
+        background: #fff5f5;
+        padding: 16px 20px;
+        border-radius: 0 12px 12px 0;
+        margin: 20px 0;
+        font-style: italic;
+        font-weight: 800;
+        color: #c62828;
+        font-size: 1.05rem;
+      }
+      .target-box {
+        background: white;
+        border: 2px solid var(--amber);
+        border-radius: 14px;
+        padding: 16px 20px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        font-weight: 700;
+        margin-top: 20px;
+      }
+
+      /* PAGE 7 */
+      .p7-top-row {
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+        margin-bottom: 20px;
+      }
+      .p7-mason-box {
+        background: white;
+        border: 2.5px solid var(--blue);
+        border-radius: 14px;
+        padding: 18px 22px;
+        flex: 1;
+      }
+      .industry-two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin: 16px 0;
+      }
+      .what-industry h3 {
+        font-family: var(--font-heading);
+        color: var(--orange);
+        font-size: 1.3rem;
+        margin-bottom: 6px;
+      }
+      .pill {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        border: 2px solid;
+        border-radius: 30px;
+        padding: 6px 14px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+        width: fit-content;
+      }
+      .pill.health {
+        border-color: #ef9a9a;
+        color: var(--red);
+      }
+      .pill.edu {
+        border-color: #90caf9;
+        color: var(--blue);
+      }
+      .stay-box {
+        border: 2px dashed #f77f00;
+        border-radius: 14px;
+        padding: 18px 22px;
+        background: #fffde7;
+        margin-top: 20px;
+      }
+      .stay-box h3 {
+        font-family: var(--font-heading);
+        color: #f77f00;
+        font-size: 1.2rem;
+        margin-bottom: 6px;
+      }
+
+      /* PAGE 8 */
+      .p8-blue-box {
+        background: #e3f2fd;
+        border-radius: 14px;
+        padding: 18px 22px;
+        margin-bottom: 28px;
+      }
+      .quiz-wrap {
+        position: relative;
+        margin-top: 28px;
+      }
+      .quiz-tab {
+        position: absolute;
+        top: -15px;
+        left: 14px;
+        z-index: 1;
+        background: var(--amber);
+        color: white;
+        font-family: var(--font-heading);
+        font-size: 1rem;
+        padding: 4px 18px;
+        border-radius: 8px 8px 0 0;
+      }
+      .quiz-box {
+        border: 2.5px solid var(--amber);
+        border-bottom: 4px dashed #f77f00;
+        border-radius: 16px;
+        padding: 22px 26px 22px;
+        background: #fffde7;
+        margin-bottom: 20px;
+      }
+      .quiz-q {
+        font-weight: 900;
+        font-size: 1rem;
+        margin: 14px 0 10px;
+      }
+      .comp-title {
+        font-family: var(--font-heading);
+        color: var(--orange);
+        font-size: 1.2rem;
+        margin-bottom: 8px;
+      }
+
+      /* PAGE 9 */
+      .detective-box {
+        background: #fff8f0;
+        border: 2px solid #ffcc80;
+        border-radius: 14px;
+        padding: 22px 26px;
+        margin: 20px 0;
+        position: relative;
+      }
+      .detective-box h3 {
+        font-family: var(--font-heading);
+        color: #f77f00;
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+      .detective-inner {
+        background: #f5f5f5;
+        border-radius: 10px;
+        padding: 16px;
+        margin-top: 12px;
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+      }
+      .detective-inner-text {
+        flex: 1;
+      }
+      .p9-footer {
+        background: #e8f5e9;
+        border-radius: 14px;
+        padding: 18px 22px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        margin-top: 20px;
+      }
+
+      /* PAGE 10 */
+      .moment-dashes {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: 8px 0 20px;
+      }
+      .moment-dash {
+        flex: 1;
+        height: 6px;
+        background: var(--blue);
+        border-radius: 4px;
+      }
+      .moment-word {
+        font-family: var(--font-heading);
+        font-size: clamp(2.4rem, 7vw, 4rem);
+        color: var(--blue);
+        white-space: nowrap;
+      }
+      .compare-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin: 20px 0;
+      }
+      .compare-card {
+        border-radius: 14px;
+        padding: 20px;
+        text-align: center;
+        background: white;
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+      }
+      .compare-card .ci {
+        font-size: 2.4rem;
+        margin-bottom: 8px;
+      }
+      .compare-card .ct {
+        font-weight: 800;
+        font-size: 1rem;
+        margin-bottom: 4px;
+      }
+      .compare-card .cv {
+        font-weight: 800;
+        font-size: 0.88rem;
+        margin-bottom: 8px;
+      }
+      .compare-card .cd {
+        font-size: 0.82rem;
+        color: #555;
+      }
+      .compare-card.good {
+        border: 2px solid var(--bgreen);
+      }
+      .compare-card.good .ct {
+        color: var(--blue);
+      }
+      .compare-card.good .cv {
+        color: var(--bgreen);
+      }
+      .compare-card.bad {
+        border: 2px solid #ef9a9a;
+      }
+      .compare-card.bad .ct {
+        color: var(--blue);
+      }
+      .compare-card.bad .cv {
+        color: var(--red);
+      }
+
+      /* PAGE 11 */
+      .max-header-box {
+        background: #ebf5ff;
+        border-radius: 14px;
+        padding: 22px 28px;
+        text-align: center;
+        margin-bottom: 24px;
+        position: relative;
+      }
+      .max-header-box h2 {
+        font-family: var(--font-heading);
+        color: var(--blue);
+        font-size: 1.6rem;
+        margin-bottom: 8px;
+      }
+      .max-star {
+        position: absolute;
+        left: 16px;
+        top: 16px;
+        font-size: 1.8rem;
+      }
+      .max-clock {
+        position: absolute;
+        right: 16px;
+        top: 16px;
+        font-size: 1.8rem;
+      }
+      .mason-shrug {
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+        margin: 20px 0;
+      }
+      .mason-shrug img {
+        width: 180px;
+        min-width: 140px;
+        filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.1));
+        align-self: center;
+        object-fit: contain;
+      }
+      .shrug-bubble {
+        background: white;
+        border: 2.5px solid var(--blue);
+        border-radius: 16px;
+        padding: 18px 22px;
+        flex: 1;
+        position: relative;
+      }
+      .shrug-bubble::before {
+        content: "";
+        position: absolute;
+        left: -14px;
+        top: 30px;
+        border: 7px solid transparent;
+        border-right-color: var(--blue);
+      }
+      .shrug-bubble::after {
+        content: "";
+        position: absolute;
+        left: -10px;
+        top: 31px;
+        border: 6px solid transparent;
+        border-right-color: white;
+      }
+      .bf-box {
+        border: 2px dashed #bbb;
+        border-radius: 14px;
+        padding: 18px 22px;
+        background: #fafafa;
+        margin: 20px 0;
+      }
+      .bf-box h3 {
+        font-family: var(--font-heading);
+        color: var(--blue);
+        font-size: 1.2rem;
+        margin-bottom: 8px;
+      }
+      .creative-box {
+        background: white;
+        border: 2px solid #80deea;
+        border-radius: 14px;
+        padding: 16px 20px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-top: 20px;
+      }
+
+      /* PAGE 12 */
+      .dog-party-title {
+        font-family: var(--font-heading);
+        color: var(--blue);
+        font-size: 1.6rem;
+        margin-bottom: 16px;
+      }
+      .dog-party-top {
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+        margin-bottom: 24px;
+      }
+      .dog-party-bubble {
+        background: white;
+        border: 2.5px solid var(--blue);
+        border-radius: 14px;
+        padding: 18px 22px;
+        flex: 1;
+      }
+      .your-turn-box {
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        padding: 22px 26px;
+        margin-bottom: 24px;
+      }
+      .your-turn-box h3 {
+        font-family: var(--font-heading);
+        color: var(--blue);
+        font-size: 1.2rem;
+        margin-bottom: 4px;
+      }
+      .sleeping-row {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+      }
+      .sleeping-img {
+        width: 200px;
+        min-width: 160px;
+        border-radius: 12px;
+      }
+
+      /* PAGE 13 */
+      .p13-bg {
+        background: #f1f8e9;
+      }
+      .p13-title {
+        font-family: var(--font-heading);
+        color: var(--bgreen);
+        font-size: clamp(1.6rem, 4vw, 2.2rem);
+        text-align: center;
+        margin-bottom: 24px;
+      }
+      .m-row {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        background: white;
+        border-radius: 12px;
+        padding: 14px 18px;
+        margin: 8px 0;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+        font-weight: 700;
+      }
+      .m-row .ri {
+        font-size: 2rem;
+      }
+      .shine-box {
+        background: white;
+        border: 3px solid #bbdefb;
+        border-radius: 16px;
+        padding: 22px 26px;
+        text-align: center;
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--blue);
+        margin: 20px 0;
+      }
+      .cta-wrap {
+        text-align: center;
+        margin: 20px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+      }
+      .cta-arrow {
+        font-size: 1.8rem;
+        color: #f59e0b;
+      }
+      .cta-btn {
+        display: inline-block;
+        background: #f59e0b;
+        color: white;
+        font-family: var(--font-heading);
+        font-size: 1.2rem;
+        padding: 14px 36px;
+        border-radius: 30px;
+        text-decoration: none;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+        border: none;
+        cursor: pointer;
+      }
+      .p13-big {
+        font-family: var(--font-heading);
+        font-size: clamp(2rem, 6vw, 3.5rem);
+        color: #f77f00;
+        text-align: center;
+        margin-top: 16px;
+        line-height: 1.1;
+      }
+
+      /* PAGE 14 */
+      .p14-bg {
+        background: #dbeafe;
+        min-height: 560px;
+      }
+
+      /* IMAGE POLISH */
+      .float-right {
+        filter: drop-shadow(0 5px 18px rgba(0, 0, 0, 0.13));
+      }
+      .dog-party-top img {
+        filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.1));
+        border-radius: 12px;
+      }
+      .sleeping-img {
+        filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.1));
+      }
+      .p5-top img {
+        filter: drop-shadow(0 6px 22px rgba(0, 0, 0, 0.13));
+        object-fit: contain;
+      }
+
+      /* UTILITIES */
+      .txt-blue {
+        color: var(--blue);
+      }
+      .txt-green {
+        color: var(--green);
+      }
+      .txt-bgreen {
+        color: var(--bgreen);
+      }
+      .txt-orange {
+        color: var(--orange);
+      }
+      .txt-red {
+        color: var(--red);
+      }
+      .txt-amber {
+        color: var(--amber);
+      }
+      .txt-center {
+        text-align: center;
+      }
+      .bold {
+        font-weight: 900;
+      }
+      strong {
+        font-weight: 900;
+      }
+      .italic {
+        font-style: italic;
+      }
+      .clearfix::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+      .float-right {
+        float: right;
+        margin: 0 0 12px 20px;
+      }
+
+      footer {
+        text-align: center;
+        padding: 30px;
+        color: #888;
+        font-size: 0.85rem;
+      }
+
+      /* PROGRESS BAR */
+      .progress-wrap {
+        position: sticky;
+        top: 46px;
+        z-index: 190;
+        background: white;
+        border-bottom: 1px solid #dce3ef;
+        padding: 7px 20px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .progress-track {
+        flex: 1;
+        height: 11px;
+        background: #e3f2fd;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .progress-fill {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(90deg, var(--blue), #42a5f5);
+        border-radius: 10px;
+        transition: width 0.45s ease;
+      }
+      .progress-label {
+        font-family: var(--font-heading);
+        color: var(--blue);
+        font-size: 0.82rem;
+        white-space: nowrap;
+      }
+
+      /* WRITING TEXTAREA */
+      .write-textarea {
+        width: 100%;
+        border: none;
+        outline: none;
+        resize: none;
+        font-family: "Nunito", sans-serif;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #1a1a2e;
+        line-height: 42px;
+        background: repeating-linear-gradient(
+          to bottom,
+          transparent 0px,
+          transparent 40px,
+          #ddd 40px,
+          #ddd 42px
+        );
+        padding: 2px 6px;
+        min-height: 254px;
+        caret-color: var(--blue);
+      }
+      .write-textarea:focus {
+        background: repeating-linear-gradient(
+          to bottom,
+          #ebf5ff 0px,
+          #ebf5ff 40px,
+          var(--blue) 40px,
+          var(--blue) 42px
+        );
+      }
+      .write-textarea::placeholder {
+        color: #bbb;
+        font-style: italic;
+        font-weight: 600;
+      }
+
+      /* QUIZ INTERACTIVE */
+      .quiz-opt {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: white;
+        border-radius: 10px;
+        padding: 10px 14px;
+        margin: 7px 0;
+        font-weight: 700;
+        border: 1.5px solid #ddd;
+        font-size: 0.92rem;
+        font-family: "Nunito", sans-serif;
+        cursor: pointer;
+        width: 100%;
+        text-align: left;
+        transition:
+          border-color 0.15s,
+          background 0.15s,
+          transform 0.1s;
+        color: #1a1a2e;
+      }
+      .quiz-opt:hover {
+        border-color: var(--blue);
+        background: #f0f7ff;
+        transform: translateX(3px);
+      }
+      .quiz-opt.selected {
+        border-color: var(--blue);
+        border-width: 2px;
+        background: #e3f2fd;
+        color: var(--blue);
+      }
+      .quiz-opt span {
+        font-size: 1.3rem;
+      }
+
+      /* Check My Answer button */
+      .quiz-check-btn {
+        display: none;
+        width: 100%;
+        margin-top: 14px;
+        padding: 12px 20px;
+        background: var(--blue);
+        color: white;
+        border: none;
+        border-radius: 30px;
+        font-family: "Nunito", sans-serif;
+        font-size: 1rem;
+        font-weight: 800;
+        cursor: pointer;
+        transition: background 0.2s;
+        box-shadow: 0 3px 10px rgba(21, 101, 192, 0.3);
+      }
+      .quiz-check-btn.visible {
+        display: block;
+      }
+      .quiz-check-btn:hover {
+        background: var(--dkblue);
+      }
+
+      /* Quiz result modal */
+      .quiz-modal-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 2000;
+        background: rgba(0,0,0,0.6);
+        align-items: center;
+        justify-content: center;
+      }
+      .quiz-modal-overlay.open {
+        display: flex;
+        animation: qzFadeIn 0.25s ease;
+      }
+      @keyframes qzFadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .quiz-modal-card {
+        background: white;
+        border-radius: 20px;
+        padding: 32px 28px 24px;
+        max-width: 400px;
+        width: 90%;
+        position: relative;
+        text-align: center;
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
+        animation: qzSlideUp 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+      @keyframes qzSlideUp {
+        from {
+          transform: translateY(30px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      .quiz-modal-close {
+        position: absolute;
+        top: 12px;
+        right: 14px;
+        background: #eee;
+        border: none;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+        cursor: pointer;
+        line-height: 30px;
+        text-align: center;
+        color: #555;
+        transition: background 0.15s;
+      }
+      .quiz-modal-close:hover {
+        background: #ddd;
+      }
+      .quiz-modal-emoji {
+        font-size: 3rem;
+        margin-bottom: 10px;
+      }
+      .quiz-modal-title {
+        font-family: var(--font-heading);
+        font-size: 1.5rem;
+        margin-bottom: 8px;
+      }
+      .quiz-modal-msg {
+        font-size: 0.95rem;
+        font-weight: 600;
+        line-height: 1.65;
+        color: #444;
+        margin-bottom: 22px;
+      }
+      .quiz-modal-try {
+        display: inline-block;
+        padding: 10px 28px;
+        background: var(--blue);
+        color: white;
+        border: none;
+        border-radius: 30px;
+        font-family: "Nunito", sans-serif;
+        font-size: 0.95rem;
+        font-weight: 800;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .quiz-modal-try:hover {
+        background: var(--dkblue);
+      }
+      .quiz-modal-card.green .quiz-modal-title {
+        color: var(--bgreen);
+      }
+      .quiz-modal-card.yellow .quiz-modal-title {
+        color: #e65100;
+      }
+      .quiz-modal-card.red .quiz-modal-title {
+        color: var(--red);
+      }
+
+      /* SAVE ANSWERS */
+      .save-btn {
+        display: block;
+        width: 100%;
+        margin: 20px 0 0;
+        background: var(--blue);
+        color: white;
+        border: none;
+        font-family: var(--font-heading);
+        font-size: 1.2rem;
+        padding: 16px;
+        border-radius: 16px;
+        cursor: pointer;
+        box-shadow: 0 4px 14px rgba(21, 101, 192, 0.3);
+        transition: background 0.2s;
+      }
+      .save-btn:hover {
+        background: var(--dkblue);
+      }
+      .answers-summary {
+        display: none;
+        margin-top: 24px;
+        border: 2.5px solid var(--blue);
+        border-radius: 16px;
+        background: white;
+        overflow: hidden;
+      }
+      .answers-summary-header {
+        background: var(--blue);
+        color: white;
+        font-family: var(--font-heading);
+        font-size: 1.3rem;
+        padding: 14px 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .answer-item {
+        padding: 16px 20px;
+        border-bottom: 1px solid #e3f2fd;
+      }
+      .answer-item:last-child {
+        border-bottom: none;
+      }
+      .answer-item-label {
+        font-family: var(--font-heading);
+        color: var(--blue);
+        font-size: 1rem;
+        margin-bottom: 6px;
+      }
+      .answer-item-text {
+        background: #f5f9ff;
+        border-radius: 10px;
+        padding: 12px 16px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        white-space: pre-wrap;
+        min-height: 40px;
+        color: #1a1a2e;
+        border: 1px solid #e3f2fd;
+      }
+      .answer-item-empty {
+        color: #aaa;
+        font-style: italic;
+      }
+
+      @media (max-width: 600px) {
+        .three-cards,
+        .compare-grid,
+        .industry-two-col {
+          grid-template-columns: 1fr;
+        }
+        .meet-top,
+        .p5-top,
+        .dog-party-top,
+        .mason-shrug,
+        .sleeping-row,
+        .p7-top-row {
+          flex-direction: column;
+        }
+        .mason-circle,
+        .p5-top img,
+        .mason-shrug img,
+        .sleeping-img {
+          width: 100%;
+          max-width: 260px;
+          margin: 0 auto;
+        }
+        .topnav-links {
+          display: none;
+        }
+        .dest1,
+        .dest2,
+        .dest3 {
+          padding: 18px 60px;
+        }
+        .dest-deco {
+          font-size: 2rem;
+        }
+      }
+
+      /* MARKETING LAB MODAL */
+      #lab-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        background: rgba(0, 0, 0, 0.7);
+        align-items: center;
+        justify-content: center;
+      }
+      #lab-overlay.open {
+        display: flex;
+      }
+      #lab-modal {
+        position: relative;
+        background: white;
+        border-radius: 16px;
+        width: 94%;
+        max-width: 900px;
+        max-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+      }
+      #lab-close {
+        position: absolute;
+        top: 10px;
+        right: 14px;
+        z-index: 10;
+        background: rgba(0, 0, 0, 0.18);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        font-size: 1.1rem;
+        font-weight: 900;
+        cursor: pointer;
+        line-height: 36px;
+        text-align: center;
+        transition: background 0.2s;
+      }
+      #lab-close:hover {
+        background: rgba(0, 0, 0, 0.45);
+      }
+      #lab-frame {
+        width: 100%;
+        height: 85vh;
+        border: none;
+        display: block;
+      }
+    #mason-video {
+      cursor: pointer;
+    }
+    .video-wrapper {
+      position: relative;
+      width: 40%;
+      max-width: 220px;
+      margin: 0 auto;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .video-wrapper video {
+      width: 100%;
+      height: auto;
+      display: block;
+      background: transparent;
+      border-radius: 16px;
+    }
+    .video-wrapper video::-webkit-media-controls {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .video-wrapper:hover video::-webkit-media-controls {
+      opacity: 1;
+    }
+    .video-wrapper video::-webkit-media-controls-enclosure {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .video-wrapper:hover video::-webkit-media-controls-enclosure {
+      opacity: 1;
+    }
+    .research-video-wrapper {
+      width: 100%;
+      max-width: 420px;
+      aspect-ratio: 4 / 6;
+      overflow: hidden;
+      border-radius: 16px;
+      margin: 0 auto;
+    }
+    .research-video-wrapper video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      background: transparent;
+      border-radius: 16px;
+    }
+    .research-video-wrapper video::-webkit-media-controls {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .research-video-wrapper:hover video::-webkit-media-controls {
+      opacity: 1;
+    }
+    .research-video-wrapper video::-webkit-media-controls-enclosure {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .research-video-wrapper:hover video::-webkit-media-controls-enclosure {
+      opacity: 1;
+    }
+    </style>
+  </head>
+  <body>
+    <nav class="topnav">
+      <div class="topnav-title">📚 Mason's Marketing Adventure</div>
+      <div class="topnav-links">
+        <a href="#" data-page="0">Cover</a>
+        <a href="#" data-page="1">Meet Mason</a>
+        <a href="#" data-page="2">Takeoff</a>
+        <a href="#" data-page="3">Message</a>
+        <a href="#" data-page="4">Your Turn</a>
+        <a href="#" data-page="5">Market</a>
+        <a href="#" data-page="6">Research</a>
+        <a href="#" data-page="7">Quiz</a>
+        <a href="#" data-page="8">Detective</a>
+        <a href="#" data-page="9">Moment</a>
+        <a href="#" data-page="10">Maximize</a>
+        <a href="#" data-page="11">Dog Party</a>
+        <a href="#" data-page="12">Wrap Up</a>
+        <a href="#" data-page="13">Complete</a>
+      </div>
+    </nav>
+
+    <!-- PROGRESS BAR -->
+    <div class="progress-wrap">
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+      <span class="progress-label" id="progress-label">Page 1 of 14</span>
+    </div>
+
+    <div class="book">
+      <!-- PAGE 1 – COVER -->
+      <div class="section active" id="cover">
+        <img
+          src="assets/page-01-cover.png"
+          style="width: 100%; border-radius: 20px; display: block"
+        />
+      </div>
+
+      <!-- PAGE 2 – MEET MASON -->
+      <div class="section" id="meet">
+        <div class="page-card">
+          <div class="meet-header">
+            <h2>Meet Mason</h2>
+            <span style="font-size: 2.4rem">✅</span>
+          </div>
+          <div style="background:transparent;padding:20px 28px 0 28px;display:flex;justify-content:center;align-items:center;">
+            <div class="video-wrapper">
+              <video
+                id="mason-video"
+                controls
+                autoplay
+                playsinline
+                preload="metadata"
+              >
+                <source src="assets/mason-intro.mp4" type="video/mp4" />
+                Your browser does not support video playback.
+              </video>
+            </div>
+            <div id="video-error" style="display:none; color:red; margin-top:8px; font-size:0.9rem;">
+              ⚠️ Video could not be loaded. Make sure the file is in the assets folder.
+            </div>
+          </div>
+          <div class="pad">
+            <div class="meet-bottom">
+              <p>
+                Here's some good news:
+                <span class="txt-blue bold"
+                  >Good marketing can seriously help Mason sell his shampoo, and
+                  it can help you too!</span
+                >
+                In fact, when you do marketing right, it's like switching on a
+                huge spotlight for your business. But what is marketing exactly,
+                and what's the best way to use it?
+              </p>
+              <div class="clearfix" style="margin-top: 14px">
+                <img
+                  class="float-right"
+                  src="assets/suitcase.png"
+                  alt="Suitcase"
+                  style="
+                    width: 200px;
+                    filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.12));
+                    object-fit: contain;
+                  "
+                />
+                <p>
+                  To find the answers we're looking for requires us to get out
+                  of our seats and explore!
+                </p>
+                <p>
+                  Let's take a trip around the globe with Mason to understand
+                  marketing and then use it to smash business goals!
+                </p>
+              </div>
+              <p class="txt-blue bold txt-center" style="margin-top: 16px">
+                So grab your suitcase and your imagination, and let's go
+                everywhere and anywhere to figure out:
+              </p>
+              <div
+                style="
+                  font-family: var(--font-heading);
+                  font-size: clamp(2rem, 6vw, 3.2rem);
+                  color: #f77f00;
+                  text-align: center;
+                  margin-top: 12px;
+                  line-height: 1.1;
+                "
+              >
+                WHAT IN THE WORLD<br />IS MARKETING?
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAGE 3 – TAKEOFF -->
+      <div class="section" id="takeoff">
+        <div class="page-card">
+          <div class="pad" style="background: #f4fbf4">
+            <div style="margin-bottom: 22px">
+              <div class="takeoff-header">
+                <span style="font-size: 2.2rem">🌍</span>
+                <h2>Time for Takeoff!</h2>
+              </div>
+            </div>
+            <div class="quicktip">
+              <div
+                style="
+                  position: absolute;
+                  left: -12px;
+                  top: 50%;
+                  transform: translateY(-50%);
+                  font-size: 1.8rem;
+                "
+              >
+                📖
+              </div>
+              <div class="quicktip-header" style="padding-left: 28px">
+                <span class="quicktip-label">Quick Tip</span>
+                <div class="quicktip-line"></div>
+              </div>
+              <p style="margin-top: 0; padding-left: 28px">
+                The average person is exposed to around
+                <strong>5,000 logos or brand messages</strong> per day.
+              </p>
+            </div>
+            <p>
+              What do you know about marketing? What does it mean to you? Does
+              it mean promotion? Is it fun TV commercials and big billboards? Is
+              it colorful social media posts and exciting reels?
+            </p>
+            <p class="bold">Marketing is all of these things and more!</p>
+            <div class="quote-block">
+              <span class="italic"
+                ><span class="txt-orange bold"
+                  >But overall, marketing is creating, communicating,
+                  delivering, and exchanging</span
+                >
+                products or services that have value for customers. It's making
+                sure the <span class="txt-blue">right people</span> receive the
+                <span class="txt-blue">right message</span> at the
+                <span class="txt-orange">right time.</span></span
+              >
+            </div>
+            <p>
+              And because marketing is getting the right message to the right
+              people at the right time, we'll visit three places on our travel
+              schedule to best illustrate and explain marketing.
+            </p>
+            <div class="three-cards">
+              <div class="m-card msg">
+                <div class="icon">💬</div>
+                <div class="title">Message</div>
+                <div class="desc">What you say and how you say it</div>
+              </div>
+              <div class="m-card mkt">
+                <div class="icon">🎯</div>
+                <div class="title">Market</div>
+                <div class="desc">Who you're talking to</div>
+              </div>
+              <div class="m-card mmt">
+                <div class="icon">📅</div>
+                <div class="title">Moment</div>
+                <div class="desc">The best time to share it</div>
+              </div>
+            </div>
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 12px;
+                margin-top: 4px;
+              "
+            >
+              <p class="txt-blue bold" style="font-size: 1.05rem; margin: 0">
+                Buckle up, and let's head to our first destination!
+              </p>
+              <span style="font-size: 2.2rem; flex-shrink: 0">✈️</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAGE 4 – DESTINATION 1: MESSAGE -->
+      <div class="section" id="message">
+        <div class="page-card" style="overflow: hidden">
+          <img
+            src="assets/page-04-message.png"
+            style="width: 100%; display: block"
+            alt="Destination 1 - Message"
+          />
+        </div>
+      </div>
+
+      <!-- PAGE 5 – YOUR MESSAGE -->
+      <div class="section" id="yourmsg">
+        <div class="page-card">
+          <div style="background:transparent;padding:20px 28px 0 28px;display:flex;justify-content:center;align-items:center;">
+            <div class="video-wrapper">
+              <video
+                id="yourmsg-video"
+                controls
+                autoplay
+                playsinline
+                preload="metadata"
+              >
+                <source src="assets/thinking-video.mp4" type="video/mp4" />
+                Your browser does not support video playback.
+              </video>
+            </div>
+          </div>
+          <div class="p5-write-box">
+            <h3>It's now your turn to make your own message!</h3>
+            <p
+              class="italic"
+              style="color: #555; margin-bottom: 16px; font-size: 0.92rem"
+            >
+              Remember: A good message speaks directly to the right person.
+            </p>
+            <textarea
+              id="answer-message"
+              class="write-textarea"
+              rows="6"
+              placeholder="Write your message here…"
+            ></textarea>
+          </div>
+          <div class="p5-footer">
+            <p class="txt-blue bold" style="font-size: 1.05rem; margin: 0">
+              Now that you've got your message, let's head to the next
+              destination!
+            </p>
+            <span style="font-size: 2.8rem; flex-shrink: 0">🗺️</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAGE 6 – DESTINATION 2: MARKET -->
+      <div class="section" id="market">
+        <div class="page-card" style="overflow: hidden">
+          <img
+            src="assets/page-06-market.png"
+            style="width: 100%; display: block"
+            alt="Destination 2 - Market"
+          />
+        </div>
+      </div>
+
+      <!-- PAGE 7 – MARKET RESEARCH -->
+      <div class="section" id="research">
+        <div class="page-card">
+          <div style="background:transparent;padding:0 28px 0 28px;display:flex;justify-content:center;align-items:center;">
+            <div class="video-wrapper research-video-wrapper">
+              <video
+                id="research-video"
+                controls
+                autoplay
+                playsinline
+                preload="metadata"
+              >
+                <source src="assets/research-video.mp4" type="video/mp4" />
+                Your browser does not support video playback.
+              </video>
+            </div>
+          </div>
+          <div class="pad">
+            <p>
+              So Mason's got a target market to deliver his message to. Because
+              he helps groom customers with all kinds of dogs, if the shampoo is
+              for easy detangling, it should <em>not</em> go to people who have
+              dogs with short hair. Why? They probably won't see much value in
+              that product, and it probably won't fulfill a need. You want to
+              direct your message to the people who are <em>most likely</em> to
+              buy your product or service, so in Mason's case, only dog owners
+              who have long haired dogs makes sense.
+            </p>
+            <p>
+              Performing market research is not all about researching your
+              customer and their needs; it is also about researching your
+              industry. An industry is a group of businesses that produce
+              similar goods, services, or related economic activities. For
+              instance, a doctor is in the healthcare industry and a teacher is
+              in the education industry.
+            </p>
+            <p>
+              Researching your industry will keep you on top of the changes that
+              take place so that you are always offering the most current and up
+              to date products and services. For Mason and his Magic Suds, he
+              will want to know the latest industry standards for dog grooming,
+              like how products may help or harm the environment, or the quality
+              of the ingredients in the formula. If his customers are not aware
+              about new trends in the market, when Mason tells them about it, he
+              will look like a rockstar and an industry expert for introducing
+              clients to the latest and greatest!
+            </p>
+            <div class="industry-two-col">
+              <div class="what-industry">
+                <h3>What is an industry?</h3>
+                <p>
+                  An industry is a group of businesses that produce similar
+                  goods, services, or related economic activities.
+                </p>
+              </div>
+              <div>
+                <p class="bold">For instance:</p>
+                <div class="pill health">👨‍⚕️ Doctor → 🏥 Healthcare</div>
+                <div class="pill edu">👩‍🏫 Teacher → 📚 Education</div>
+              </div>
+            </div>
+            <div class="stay-box">
+              <h3>🌟 Stay ahead of the game!</h3>
+              <p style="margin: 0">
+                Knowing your industry helps you stay up-to-date on trends,
+                tools, and best practices so your business stays fresh and
+                competitive.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAGE 8 – QUIZ -->
+      <div class="section" id="quiz">
+        <div class="page-card">
+          <div class="pad">
+            <div class="p8-blue-box">
+              <p>For Mason and his Magic Suds, that means learning about</p>
+              <ul
+                style="margin: 8px 0 0 20px; line-height: 2; font-weight: 600"
+              >
+                <li>new grooming standards</li>
+                <li>eco-friendly ingredients</li>
+                <li>what other shampoos offer</li>
+                <li>what customers are asking for</li>
+              </ul>
+              <p style="margin-top: 10px">
+                If his customers don't know about new trends, Mason can teach
+                them about it and look like a rockstar for it!
+              </p>
+            </div>
+            <div class="quiz-wrap">
+              <div class="quiz-tab">Quick Quiz!</div>
+              <div class="quiz-box">
+                <div class="quiz-q">
+                  What's an example of staying aware of the changes in your
+                  industry?
+                </div>
+                <button type="button" class="quiz-opt" data-correct="true" data-key="a" data-answer="a">
+                  <span>📺</span> a) Attending webinars and workshops
+                </button>
+                <button type="button" class="quiz-opt" data-correct="false" data-key="b" data-answer="b">
+                  <span>🙈</span> b) Only looking at your own product
+                </button>
+                <button type="button" class="quiz-opt" data-correct="true" data-key="c" data-answer="c">
+                  <span>📊</span> c) Reviewing marketplace reports
+                </button>
+                <button type="button" class="quiz-opt" data-correct="false" data-key="d" data-answer="d">
+                  <span>🚫</span> d) Ignoring customer complaints
+                </button>
+                <button type="button" class="quiz-check-btn" id="quiz-check-btn" style="display:none;">
+                  Check My Answer ✅
+                </button>
+                <div id="quiz-result" style="display:none;margin-top:16px;border-radius:14px;padding:18px 20px;text-align:center;transition:all 0.3s ease;">
+                  <div id="quiz-result-emoji" style="font-size:2.5rem;margin-bottom:8px;"></div>
+                  <div id="quiz-result-title" style="font-family:var(--font-heading);font-size:1.4rem;margin-bottom:8px;"></div>
+                  <div id="quiz-result-msg" style="font-size:0.95rem;font-weight:600;line-height:1.65;margin-bottom:16px;"></div>
+                  <button type="button" id="quiz-try-again" style="padding:10px 28px;border-radius:30px;border:none;font-family:var(--font-body);font-size:0.95rem;font-weight:800;cursor:pointer;background:var(--blue);color:white;">Try Again 🔄</button>
+                </div>
+              </div>
+            </div>
+            <p>
+              Staying aware of the changes in your industry simply means paying
+              attention to what's happening around you and your market so that
+              your business stays fresh, creative, and ahead of the game.
+            </p>
+            <h3 class="comp-title">Researching Your Competitors</h3>
+            <p>
+              In addition to informing you about changes in your industry,
+              research will also help you keep up with your competitors.
+              Researching your competitors is a cheat code to helping your
+              product or service be the best it can be, while appealing to more
+              potential customers.
+            </p>
+            <p>
+              That's because you'll come to understand what your competitors do
+              well, what they're not so good at, and how you can address
+              customer needs that they can't or aren't addressing. That's your
+              chance to stand out in the marketplace.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAGE 9 – BUSINESS DETECTIVE -->
+      <div class="section" id="detective">
+        <div class="page-card">
+          <div class="pad">
+            <p>
+              Knowing who and what your business is up against will help you
+              level up your ideas and make your business stronger.
+            </p>
+            <p>
+              But don't let research scare you! It doesn't have to involve
+              spending tons of hours on the computer, or reading long, boring
+              articles. <strong>Research can be an adventure</strong> (like the
+              one you're on right now!)
+            </p>
+            <p>
+              You can get up, go outside, and discover answers in the real
+              world.
+            </p>
+            <div class="detective-box">
+              <div
+                style="
+                  display: flex;
+                  align-items: flex-start;
+                  justify-content: space-between;
+                  gap: 16px;
+                  margin-bottom: 10px;
+                "
+              >
+                <h3 style="margin-bottom: 0">Be a Business Detective!</h3>
+                <img
+                  src="assets/mason-detective.png"
+                  alt="Detective hat"
+                  style="
+                    width: 140px;
+                    min-width: 100px;
+                    object-fit: contain;
+                    filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.1));
+                    flex-shrink: 0;
+                  "
+                />
+              </div>
+              <p>
+                Think of yourself as a detective for your business. Instead of
+                looking for clues to solve a mystery, you're looking for
+                <u>clues</u> about <u>what people want.</u>
+              </p>
+              <div class="detective-inner">
+                <span style="font-size: 2rem; flex-shrink: 0">🔍</span>
+                <div class="detective-inner-text">
+                  <p>
+                    For Mason, that might mean visiting dog parks around the
+                    community and asking owners simple questions, like:
+                  </p>
+                  <p class="txt-orange bold" style="margin: 6px 0">
+                    "What do you wish your dog's shampoo did better?"
+                  </p>
+                  <p class="txt-orange bold" style="margin: 6px 0">
+                    "What scents do you like for your dog?"
+                  </p>
+                  <p style="margin-top: 8px; font-size: 0.92rem">
+                    These answers help you improve your product and understand
+                    your customer better.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <p>
+              Suddenly, research becomes a fun adventure that ends with
+              gathering ideas that help make your product or service even
+              better.
+            </p>
+            <p><span class="txt-orange bold">The best part?</span></p>
+            <p>
+              Real-world research helps you create something people actually
+              want. And when you know what your customers care about, your
+              message and your marketing become stronger, smarter, and way more
+              successful.
+            </p>
+            <div class="p9-footer">
+              <p class="txt-bgreen bold" style="font-size: 1.05rem; margin: 0">
+                So we've got our message, and we know our market. Let's head to
+                our final destination!
+              </p>
+              <span style="font-size: 2.2rem; flex-shrink: 0">🌍✈️</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAGE 10 – DESTINATION 3: MOMENT -->
+      <div class="section" id="moment">
+        <div class="page-card" style="overflow: hidden">
+          <img
+            src="assets/page-10-moment.png"
+            style="width: 100%; display: block"
+            alt="Destination 3 - Moment"
+          />
+        </div>
+      </div>
+
+      <!-- PAGE 11 – MAXIMIZING YOUR MOMENT -->
+      <div class="section" id="maximize">
+        <div class="page-card">
+          <div class="pad">
+            <div class="max-header-box">
+              <span class="max-star">⭐</span>
+              <span class="max-clock">🕐</span>
+              <h2>Maximizing Your Moment</h2>
+              <p>
+                Identifying when the <strong>BEST time</strong> is to present
+                your message to your market — that is your moment. And for this
+                reason, use everything you know about your product or service to
+                maximize your moment!
+              </p>
+            </div>
+            <div class="mason-shrug">
+              <div class="video-wrapper">
+                <video
+                  id="question-video"
+                  controls
+                  autoplay
+                  playsinline
+                  preload="metadata"
+                >
+                  <source src="assets/question-video.mp4" type="video/mp4" />
+                  Your browser does not support video playback.
+                </video>
+              </div>
+              <div>
+                <p style="margin-top: 14px; padding: 0 4px">
+                  That means, consider all of the ways you can best appeal to
+                  your market so that they can receive your message.
+                  <strong>That usually equals a sale!</strong>
+                </p>
+              </div>
+            </div>
+            <div class="bf-box">
+              <h3>Think about Black Friday...</h3>
+              <p>
+                The Friday after Thanksgiving when all of your favorite products
+                are discounted and more affordable. Maximizing this moment looks
+                like discounting products right before Christmas, the biggest
+                shopping season of the year!
+              </p>
+              <p style="margin-top: 10px">
+                Businesses develop cool messages and discounted prices to
+                <strong>best appeal</strong> to their market to influence buying
+                when they are buying gifts for Christmas.
+              </p>
+            </div>
+            <div class="creative-box">
+              <span style="font-size: 2.4rem">💡</span>
+              <p class="txt-blue bold" style="margin: 0; font-size: 1.05rem">
+                And when it comes to maximizing the moment, don't forget to get
+                creative!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAGE 12 – DOG PARTY PLAN -->
+      <div class="section" id="dogparty">
+        <div class="page-card">
+          <div class="pad">
+            <h2 class="dog-party-title">Mason's Dog Party Plan:</h2>
+            <div class="dog-party-top">
+              <div class="video-wrapper" style="flex:1;">
+                <video
+                  id="dogparty-video"
+                  controls
+                  autoplay
+                  playsinline
+                  preload="metadata"
+                >
+                  <source src="assets/dogparty-video.mp4" type="video/mp4" />
+                  Your browser does not support video playback.
+                </video>
+              </div>
+            </div>
+            <div class="your-turn-box">
+              <h3>Now it's your turn — how will you maximize your moment?</h3>
+              <p
+                class="italic"
+                style="color: #555; font-size: 0.92rem; margin-bottom: 16px"
+              >
+                Test your timing! You know your moment — now let's see how much
+                hype you can actually create. Go to the Hype Machine in your
+                Marketing Lab and find out your Hype Impact score!
+              </p>
+              <textarea
+                id="answer-moment"
+                class="write-textarea"
+                rows="4"
+                style="min-height: 170px"
+                placeholder="Describe your plan to maximize your moment…"
+              ></textarea>
+            </div>
+            <p style="text-align:center;font-weight:700;color:#1a1a2e;padding:20px 28px;font-size:1.05rem;line-height:1.8;">
+              Except when you're in a great place in your business. When your business is in a really good place, everything feels <strong>exciting</strong>—like anything is possible! And it is! But getting there takes more than luck. It takes smart, creative, and thoughtful marketing.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAGE 13 – WRAP UP -->
+      <div class="section" id="wrap">
+        <div class="page-card p13-bg">
+          <div style="background:transparent;padding:20px 28px 0 28px;display:flex;justify-content:center;align-items:center;">
+            <div class="video-wrapper">
+              <video
+                id="sleeping-video"
+                controls
+                autoplay
+                playsinline
+                preload="metadata"
+              >
+                <source src="assets/sleeping-video.mp4" type="video/mp4" />
+                Your browser does not support video playback.
+              </video>
+            </div>
+          </div>
+          <div class="pad">
+            <h2 class="p13-title">Good marketing starts with three Ms:</h2>
+            <div class="m-row">
+              <span class="ri">💬</span>
+              <span class="rt"
+                >Knowing exactly what you want to say (your
+                <span class="txt-orange bold">Message</span>)</span
+              >
+            </div>
+            <div class="m-row" style="justify-content: space-between">
+              <span class="rt"
+                >Knowing who you're talking to (your
+                <span class="txt-blue bold">Market</span>)</span
+              >
+              <span class="ri">🎯</span>
+            </div>
+            <div class="m-row">
+              <span class="ri">📅</span>
+              <span class="rt"
+                >And knowing the best time to share it (your
+                <span class="txt-amber bold">Moment</span>)</span
+              >
+            </div>
+            <p class="txt-center" style="margin: 24px 0; font-weight: 700">
+              Knowing your message, who your market is, and when your moment is
+              to share it will set you on the right path to good marketing. When
+              you understand all of that, your business has a
+              <strong>strong foundation to grow.</strong>
+            </p>
+            <div class="shine-box">
+              Because when your message is clear and your market can hear you in
+              the moment when it matters, your business doesn't just stand out…
+              <strong>it shines! ✨</strong>
+            </div>
+            <p
+              class="txt-center bold"
+              style="margin: 20px 0 4px; font-size: 1.05rem"
+            >
+              You've got all three M's — now bring it all together!
+            </p>
+            <p
+              class="txt-center"
+              style="
+                font-family: var(--font-heading);
+                font-size: 1.6rem;
+                color: var(--blue);
+                margin-bottom: 16px;
+              "
+            >
+              Message. Market. Moment.
+            </p>
+            <p class="txt-center" style="font-weight: 600; margin-bottom: 20px">
+              You know all three. Go to your Marketing Lab with all four
+              complete modules, and generate your full Marketing Report!
+            </p>
+            <div class="cta-wrap">
+              <span class="cta-arrow">↙</span>
+              <button id="open-lab-btn" class="cta-btn">
+                Go to my Marketing Lab
+              </button>
+            </div>
+            <button class="save-btn" id="save-btn">📋 Save My Answers</button>
+            <div class="answers-summary" id="answers-summary">
+              <div class="answers-summary-header">
+                📖 Your Adventure Answers
+              </div>
+              <div class="answer-item">
+                <div class="answer-item-label">💬 Your Marketing Message</div>
+                <div class="answer-item-text" id="summary-message"></div>
+              </div>
+              <div class="answer-item">
+                <div class="answer-item-label">
+                  📅 How You'll Maximize Your Moment
+                </div>
+                <div class="answer-item-text" id="summary-moment"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAGE 14 – COMPLETE -->
+      <div class="section" id="complete">
+        <div class="page-card p14-bg">
+          <div
+            class="pad"
+            style="
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              text-align: center;
+              min-height: 520px;
+            "
+          >
+            <div
+              style="
+                border: 3px solid #22c55e;
+                border-radius: 30px;
+                padding: 10px 28px;
+                margin-bottom: 28px;
+                display: inline-block;
+              "
+            >
+              <span
+                style="
+                  font-family: var(--font-heading);
+                  color: #22c55e;
+                  font-size: 1.2rem;
+                "
+                >You've completed part one!</span
+              >
+            </div>
+            <div style="font-size: 5.5rem; margin-bottom: 16px; line-height: 1">
+              🏅
+            </div>
+            <p
+              style="
+                font-size: 1.1rem;
+                font-weight: 800;
+                color: #444;
+                margin-bottom: 4px;
+              "
+            >
+              You're now a
+            </p>
+            <div
+              style="
+                font-family: var(--font-heading);
+                font-size: clamp(2.2rem, 7vw, 3.2rem);
+                color: #1565c0;
+                margin-bottom: 16px;
+                line-height: 1.1;
+              "
+            >
+              Marketing Explorer!
+            </div>
+            <div
+              style="
+                width: 80px;
+                height: 3px;
+                background: #22c55e;
+                border-radius: 4px;
+                margin-bottom: 28px;
+              "
+            ></div>
+            <p
+              style="
+                color: #1b5e20;
+                font-weight: 700;
+                margin-bottom: 8px;
+                max-width: 480px;
+              "
+            >
+              Until our next adventure!, thank you for traveling around the
+              world to discover:
+            </p>
+            <div
+              style="
+                font-family: var(--font-heading);
+                font-size: clamp(1.8rem, 6vw, 3rem);
+                color: #f77f00;
+                line-height: 1.15;
+                margin-top: 8px;
+              "
+            >
+              WHAT IN THE WORLD<br />IS MARKETING?
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end .book -->
+
+    <footer>
+      © Mason's Marketing Adventure Series — Part One: What in the World is
+      Marketing?
+    </footer>
+
+    <!-- BOOK NAVIGATION BAR -->
+    <div class="book-nav">
+      <button class="nav-btn" id="btn-prev">&#8592; Previous</button>
+      <span class="page-counter" id="page-counter">Page 1 of 14</span>
+      <button class="nav-btn" id="btn-next">Next &#8594;</button>
+    </div>
+
+    <script>
+      (function () {
+        const sections = Array.from(
+          document.querySelectorAll(".book > .section"),
+        );
+        const total = sections.length;
+        let current = 0;
+        let maxVisited = 0;
+
+        const btnPrev = document.getElementById("btn-prev");
+        const btnNext = document.getElementById("btn-next");
+        const pageCounter = document.getElementById("page-counter");
+        const progressFill = document.getElementById("progress-fill");
+        const progressLbl = document.getElementById("progress-label");
+
+        function updateProgress(idx) {
+          if (idx > maxVisited) maxVisited = idx;
+          var pct = Math.round(((maxVisited + 1) / total) * 100);
+          progressFill.style.width = pct + "%";
+          progressLbl.textContent = "Page " + (idx + 1) + " of " + total;
+        }
+
+        function goTo(n) {
+          sections[current].classList.remove("active");
+          current = Math.max(0, Math.min(n, total - 1));
+          sections[current].classList.add("active");
+          pageCounter.textContent = "Page " + (current + 1) + " of " + total;
+          btnPrev.disabled = current === 0;
+          btnNext.disabled = current === total - 1;
+          updateProgress(current);
+          window.scrollTo({ top: 0, behavior: "smooth" });
+          // Auto play/pause video when navigating pages
+          var masonVideo = document.getElementById("mason-video");
+          if (masonVideo) {
+            if (sections[current].id === "meet") {
+              masonVideo.currentTime = 0;
+              masonVideo.muted = false;
+              var p = masonVideo.play();
+              if (p !== undefined) {
+                p.catch(function () {
+                  masonVideo.muted = true;
+                  masonVideo.play();
+                });
+              }
+            } else {
+              masonVideo.pause();
+              masonVideo.currentTime = 0;
+            }
+          }
+          var yourmsgVideo = document.getElementById("yourmsg-video");
+          if (yourmsgVideo) {
+            if (sections[current].id === "yourmsg") {
+              yourmsgVideo.currentTime = 0;
+              yourmsgVideo.muted = false;
+              var p2 = yourmsgVideo.play();
+              if (p2 !== undefined) {
+                p2.catch(function () {
+                  yourmsgVideo.muted = true;
+                  yourmsgVideo.play();
+                });
+              }
+            } else {
+              yourmsgVideo.pause();
+              yourmsgVideo.currentTime = 0;
+            }
+          }
+          var researchVideo = document.getElementById("research-video");
+          if (researchVideo) {
+            if (sections[current].id === "research") {
+              researchVideo.currentTime = 0;
+              researchVideo.muted = false;
+              var p3 = researchVideo.play();
+              if (p3 !== undefined) {
+                p3.catch(function () {
+                  researchVideo.muted = true;
+                  researchVideo.play();
+                });
+              }
+            } else {
+              researchVideo.pause();
+              researchVideo.currentTime = 0;
+            }
+          }
+          var questionVideo = document.getElementById("question-video");
+          if (questionVideo) {
+            if (sections[current].id === "maximize") {
+              questionVideo.currentTime = 0;
+              questionVideo.muted = false;
+              var p4 = questionVideo.play();
+              if (p4 !== undefined) {
+                p4.catch(function () {
+                  questionVideo.muted = true;
+                  questionVideo.play();
+                });
+              }
+            } else {
+              questionVideo.pause();
+              questionVideo.currentTime = 0;
+            }
+          }
+          var dogpartyVideo = document.getElementById("dogparty-video");
+          if (dogpartyVideo) {
+            if (sections[current].id === "dogparty") {
+              dogpartyVideo.currentTime = 0;
+              dogpartyVideo.muted = false;
+              var p5 = dogpartyVideo.play();
+              if (p5 !== undefined) {
+                p5.catch(function () {
+                  dogpartyVideo.muted = true;
+                  dogpartyVideo.play();
+                });
+              }
+            } else {
+              dogpartyVideo.pause();
+              dogpartyVideo.currentTime = 0;
+            }
+          }
+          var sleepingVideo = document.getElementById("sleeping-video");
+          if (sleepingVideo) {
+            if (sections[current].id === "wrap") {
+              sleepingVideo.currentTime = 0;
+              sleepingVideo.muted = false;
+              var p6 = sleepingVideo.play();
+              if (p6 !== undefined) {
+                p6.catch(function () {
+                  sleepingVideo.muted = true;
+                  sleepingVideo.play();
+                });
+              }
+            } else {
+              sleepingVideo.pause();
+              sleepingVideo.currentTime = 0;
+            }
+          }
+        }
+
+        btnPrev.addEventListener("click", function () {
+          goTo(current - 1);
+        });
+        btnNext.addEventListener("click", function () {
+          goTo(current + 1);
+        });
+
+        document
+          .querySelectorAll(".topnav-links a[data-page]")
+          .forEach(function (a) {
+            a.addEventListener("click", function (e) {
+              e.preventDefault();
+              goTo(parseInt(this.dataset.page, 10));
+            });
+          });
+
+        /* QUIZ */
+        (function() {
+          var quizOpts = Array.from(document.querySelectorAll('.quiz-opt'));
+          var quizCheckBtn = document.getElementById('quiz-check-btn');
+          var quizResult = document.getElementById('quiz-result');
+          var quizResultEmoji = document.getElementById('quiz-result-emoji');
+          var quizResultTitle = document.getElementById('quiz-result-title');
+          var quizResultMsg = document.getElementById('quiz-result-msg');
+          var quizTryAgain = document.getElementById('quiz-try-again');
+
+          function showResult(type, emoji, title, msg) {
+            quizResultEmoji.textContent = emoji;
+            quizResultTitle.textContent = title;
+            quizResultMsg.textContent = msg;
+            if (type === 'green') {
+              quizResult.style.background = '#EBF5FF';
+              quizResult.style.border = '2.5px solid var(--blue)';
+              quizResultTitle.style.color = 'var(--blue)';
+              quizTryAgain.style.background = 'var(--blue)';
+            } else if (type === 'yellow') {
+              quizResult.style.background = '#FFF3E0';
+              quizResult.style.border = '2.5px solid #E65100';
+              quizResultTitle.style.color = '#E65100';
+              quizTryAgain.style.background = '#E65100';
+            } else {
+              quizResult.style.background = '#FFEBEE';
+              quizResult.style.border = '2.5px solid var(--red)';
+              quizResultTitle.style.color = 'var(--red)';
+              quizTryAgain.style.background = 'var(--red)';
+            }
+            quizResult.style.display = 'block';
+            quizResult.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+
+          function hideResult() {
+            quizResult.style.display = 'none';
+          }
+
+          quizOpts.forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+              e.stopPropagation();
+              e.preventDefault();
+              this.classList.toggle('selected');
+              hideResult();
+              var anySelected = quizOpts.some(function(b) {
+                return b.classList.contains('selected');
+              });
+              if (quizCheckBtn) {
+                quizCheckBtn.style.display = anySelected ? 'block' : 'none';
+              }
+            });
+          });
+
+          if (quizCheckBtn) {
+            quizCheckBtn.addEventListener('click', function(e) {
+              e.stopPropagation();
+              e.preventDefault();
+              var selected = quizOpts
+                .filter(function(b) { return b.classList.contains('selected'); })
+                .map(function(b) { return b.getAttribute('data-answer'); });
+
+              var hasA = selected.indexOf('a') > -1;
+              var hasB = selected.indexOf('b') > -1;
+              var hasC = selected.indexOf('c') > -1;
+              var hasD = selected.indexOf('d') > -1;
+
+              if (hasA && hasC && !hasB && !hasD) {
+                showResult('green', '🎉', 'Correct! Great Job!', 'Attending webinars and reviewing marketplace reports are both great ways to stay current in your industry!');
+              } else if ((hasA || hasC) && (hasB || hasD)) {
+                showResult('yellow', '🤔', 'Almost There!', 'You found some right answers but also picked some wrong ones. Remember — only A and C are correct!');
+              } else if (hasA && !hasC && !hasB && !hasD) {
+                showResult('yellow', '🌟', 'Half Right!', 'That\'s one correct answer! But there are TWO correct answers. Can you find the other one?');
+              } else if (hasC && !hasA && !hasB && !hasD) {
+                showResult('yellow', '🌟', 'Half Right!', 'That\'s one correct answer! But there are TWO correct answers. Can you find the other one?');
+              } else {
+                showResult('red', '❌', 'Not Quite!', 'Those are not the best ways to stay updated. Think about actions that keep you informed — try again!');
+              }
+            });
+          }
+
+          if (quizTryAgain) {
+            quizTryAgain.addEventListener('click', function(e) {
+              e.stopPropagation();
+              hideResult();
+              quizOpts.forEach(function(b) { b.classList.remove('selected'); });
+              if (quizCheckBtn) quizCheckBtn.style.display = 'none';
+            });
+          }
+        })();
+
+        /* SAVE MY ANSWERS */
+        var saveBtn = document.getElementById("save-btn");
+        var summary = document.getElementById("answers-summary");
+        var summaryMsg = document.getElementById("summary-message");
+        var summaryMoment = document.getElementById("summary-moment");
+
+        saveBtn.addEventListener("click", function () {
+          var msgVal = (
+            document.getElementById("answer-message").value || ""
+          ).trim();
+          var momentVal = (
+            document.getElementById("answer-moment").value || ""
+          ).trim();
+
+          function renderAnswer(el, val) {
+            if (val) {
+              el.textContent = val;
+              el.classList.remove("answer-item-empty");
+            } else {
+              el.textContent = "(no answer written yet)";
+              el.classList.add("answer-item-empty");
+            }
+          }
+
+          renderAnswer(summaryMsg, msgVal);
+          renderAnswer(summaryMoment, momentVal);
+          summary.style.display = "block";
+          summary.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+
+        goTo(0);
+      })();
+    </script>
+
+    <!-- MARKETING LAB MODAL -->
+    <div id="lab-overlay">
+      <div id="lab-modal">
+        <button id="lab-close" aria-label="Close">✕</button>
+        <iframe id="lab-frame" src="" title="Marketing Lab"></iframe>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        var overlay = document.getElementById("lab-overlay");
+        var frame = document.getElementById("lab-frame");
+        var openBtn = document.getElementById("open-lab-btn");
+        var closeBtn = document.getElementById("lab-close");
+
+        function openModal() {
+          frame.src = "marketing-lab.html";
+          overlay.classList.add("open");
+          document.body.style.overflow = "hidden";
+        }
+        function closeModal() {
+          overlay.classList.remove("open");
+          frame.src = "";
+          document.body.style.overflow = "";
+        }
+
+        openBtn.addEventListener("click", openModal);
+        closeBtn.addEventListener("click", closeModal);
+        overlay.addEventListener("click", function (e) {
+          if (e.target === overlay) closeModal();
+        });
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") closeModal();
+        });
+      })();
+    </script>
+    <script>
+      (function () {
+        var vid = document.getElementById("mason-video");
+        var errDiv = document.getElementById("video-error");
+        if (vid) {
+          vid.addEventListener("error", function () {
+            console.error("Video error:", vid.error);
+            if (errDiv) errDiv.style.display = "block";
+          });
+          vid.addEventListener("canplay", function () {
+            if (errDiv) errDiv.style.display = "none";
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

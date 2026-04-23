@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marketing Lab — What in the World is Marketing?</title>
+<style>
+  /* ===== E-BOOK COLOR PALETTE ===== */
+  :root {
+    --ebook-green:  #00A84F;
+    --ebook-blue:   #1B5EC7;
+    --ebook-orange: #F77F00;
+    --ebook-yellow: #FFB800;
+    --ebook-red:    #E8192C;
+    --ebook-teal:   #00BFAE;
+    --ebook-bg:     #F2F7FF;
+    --ebook-card:   #FFFFFF;
+    --ebook-text:   #1A2E5A;
+    --ebook-muted:  #6B7B9A;
+    --ebook-border: rgba(27, 94, 199, 0.15);
+    --ebook-shadow: 0 4px 20px rgba(27, 94, 199, 0.10);
+    /* keep legacy names for JS references */
+    --navy:      #1A2E5A;
+    --yellow:    #FFB800;
+    --blue:      #1B5EC7;
+    --green:     #00A84F;
+    --pink:      #E8192C;
+    --white:     #ffffff;
+    --card-bg:   #FFFFFF;
+    --border:    rgba(27,94,199,0.15);
+    --text-muted:#6B7B9A;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    background: var(--ebook-bg);
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(0,168,79,0.06) 0%, transparent 50%),
+      radial-gradient(circle at 85% 75%, rgba(27,94,199,0.06) 0%, transparent 50%),
+      radial-gradient(circle at 50% 50%, rgba(247,127,0,0.04) 0%, transparent 60%);
+    color: var(--ebook-text);
+    font-family: 'Nunito','Segoe UI','Arial Rounded MT Bold','Helvetica Neue',Arial,sans-serif;
+    min-height: 100vh;
+  }
+
+  .container { max-width:900px; margin:0 auto; padding:36px 20px 60px; }
+
+  /* ===== HEADER ===== */
+  header { text-align:center; margin-bottom:8px; animation:slideDown 0.6s ease; }
+  @keyframes slideDown { from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);} }
+
+  .ebook-banner {
+    display:inline-flex; align-items:center; gap:10px;
+    background:linear-gradient(135deg, var(--ebook-green), #00C862);
+    color:white; padding:8px 22px; border-radius:50px;
+    font-size:12px; font-weight:900; letter-spacing:0.08em; text-transform:uppercase;
+    margin-bottom:16px; box-shadow:0 4px 16px rgba(0,168,79,0.3);
+    animation: popIn 0.5s cubic-bezier(0.34,1.56,0.64,1) 0.2s both;
+  }
+  @keyframes popIn { from{opacity:0;transform:scale(0.8);}to{opacity:1;transform:scale(1);} }
+
+  .ebook-banner-plane { font-size:16px; animation: flyIn 0.8s ease 0.4s both; display:inline-block; }
+  @keyframes flyIn { from{opacity:0;transform:translateX(-20px);}to{opacity:1;transform:translateX(0);} }
+
+  h1 {
+    font-size:clamp(26px,5vw,40px); font-weight:900; line-height:1.15;
+    color:var(--ebook-text); margin-bottom:8px;
+  }
+  h1 .h1-green { color:var(--ebook-green); }
+  h1 .h1-blue  { color:var(--ebook-blue);  }
+
+  .subtitle {
+    color:var(--ebook-muted); font-size:15px; font-weight:600; margin-bottom:0;
+  }
+
+  /* ===== 3 M BADGES ===== */
+  .three-m-strip {
+    display:flex; justify-content:center; gap:10px; flex-wrap:wrap;
+    margin:20px 0 4px;
+  }
+  .m-badge {
+    display:flex; align-items:center; gap:7px; padding:8px 18px;
+    border-radius:50px; font-size:12px; font-weight:800;
+    letter-spacing:0.04em; border:2px solid;
+    animation: popIn 0.5s cubic-bezier(0.34,1.56,0.64,1) both;
+  }
+  .m-badge-msg  { background:rgba(0,168,79,0.1);  border-color:var(--ebook-green); color:var(--ebook-green);  animation-delay:0.3s; }
+  .m-badge-mkt  { background:rgba(247,127,0,0.1); border-color:var(--ebook-orange);color:var(--ebook-orange); animation-delay:0.45s; }
+  .m-badge-mom  { background:rgba(27,94,199,0.1); border-color:var(--ebook-blue);  color:var(--ebook-blue);   animation-delay:0.6s; }
+
+  /* ===== SCREENS ===== */
+  .screen { display:none; }
+  .screen.active { display:block; animation:fadeIn 0.4s ease; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);} }
+
+  /* ===== BACK BUTTON ===== */
+  .back-btn {
+    display:inline-flex; align-items:center; gap:8px; padding:9px 20px;
+    border-radius:50px; background:white; border:2px solid var(--ebook-border);
+    color:var(--ebook-muted); font-size:13px; font-weight:700; cursor:pointer;
+    font-family:inherit; margin-bottom:20px; transition:all 0.2s;
+    box-shadow:0 2px 8px rgba(27,94,199,0.08);
+  }
+  .back-btn:hover { color:var(--ebook-blue); border-color:var(--ebook-blue); background:#F0F5FF; }
+
+  /* ===== CARDS ===== */
+  .card {
+    background:var(--ebook-card); border:1.5px solid var(--ebook-border);
+    border-radius:20px; padding:28px; margin-bottom:20px;
+    box-shadow:var(--ebook-shadow);
+  }
+
+  .card-title {
+    font-size:11px; font-weight:900; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--ebook-orange); margin-bottom:6px;
+  }
+  /* override per-module */
+  .msg-module  .card-title { color:var(--ebook-green);  }
+  .mkt-module  .card-title { color:var(--ebook-orange); }
+  .mom-module  .card-title { color:var(--ebook-blue);   }
+
+  .card h2 { font-size:22px; font-weight:900; margin-bottom:18px; line-height:1.2; color:var(--ebook-text); }
+  .hint    { font-size:13px; color:var(--ebook-muted); font-weight:600; }
+
+  /* ===== BUTTONS ===== */
+  .btn { padding:13px 28px; border-radius:50px; font-size:15px; font-weight:800; border:none; cursor:pointer; transition:all 0.2s ease; font-family:inherit; }
+  .btn-primary { background:var(--ebook-green); color:white; box-shadow:0 4px 16px rgba(0,168,79,0.3); }
+  .btn-primary:hover { background:#009040; transform:scale(1.02); }
+
+  .nav-row { display:flex; gap:12px; justify-content:space-between; flex-wrap:wrap; margin-top:24px; }
+
+  /* ===== INPUTS ===== */
+  .big-input {
+    width:100%; padding:13px 18px; border-radius:12px;
+    background:#F8FAFF; border:2px solid var(--ebook-border);
+    color:var(--ebook-text); font-size:15px; font-weight:600; font-family:inherit;
+    outline:none; transition:all 0.2s; resize:vertical;
+  }
+  .big-input:focus { border-color:var(--ebook-green); background:rgba(0,168,79,0.04); box-shadow:0 0 0 3px rgba(0,168,79,0.1); }
+  .big-input::placeholder { color:var(--ebook-muted); font-weight:500; }
+
+  .input-group  { margin-bottom:20px; }
+  .input-label  { font-size:12px; font-weight:800; color:var(--ebook-muted); margin-bottom:8px; display:block; text-transform:uppercase; letter-spacing:0.07em; }
+  .slider-val   { font-size:18px; font-weight:900; color:var(--ebook-green); min-width:80px; text-align:right; }
+
+  /* ===== TAGS ===== */
+  .tag { display:inline-block; padding:5px 16px; border-radius:50px; font-size:12px; font-weight:800; margin-bottom:12px; }
+  .divider { border:none; border-top:1.5px solid var(--ebook-border); margin:20px 0; }
+
+  /* ===== MODULE TABS ===== */
+  .fl-module-tabs {
+    display:flex; gap:8px; margin-bottom:24px; flex-wrap:wrap;
+    background:#EDF3FF; border-radius:16px; padding:6px;
+  }
+  .fl-tab {
+    padding:9px 18px; border-radius:12px; font-size:13px; font-weight:800;
+    border:none; background:transparent; color:var(--ebook-muted);
+    cursor:pointer; transition:all 0.22s ease; font-family:inherit; flex:1; text-align:center;
+    white-space:nowrap;
+  }
+  .fl-tab:hover { color:var(--ebook-blue); background:rgba(27,94,199,0.08); }
+  .fl-tab.active {
+    background:white; color:var(--ebook-blue);
+    box-shadow:0 2px 12px rgba(27,94,199,0.15);
+    animation: tabPop 0.25s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  @keyframes tabPop { from{transform:scale(0.95);}to{transform:scale(1);} }
+
+  .fl-module { display:none; }
+  .fl-module.active { display:block; animation:fadeIn 0.3s ease; }
+
+  /* ===== COACH BOXES ===== */
+  .coach {
+    display:flex; gap:14px; background:#EBF8F1; border:1.5px solid rgba(0,168,79,0.25);
+    border-radius:16px; padding:18px; font-size:14px; font-weight:600; line-height:1.6;
+    align-items:flex-start; color:var(--ebook-text);
+  }
+  .coach.blue-coach  { background:#EBF0FF; border-color:rgba(27,94,199,0.25); }
+  .coach.orange-coach{ background:#FFF4E8; border-color:rgba(247,127,0,0.25); }
+  .coach-avatar { font-size:28px; flex-shrink:0; }
+  .disclosure { font-size:10px; color:var(--ebook-muted); font-weight:600; text-align:center; margin-top:28px; line-height:1.6; padding:0 10px; opacity:0.6; }
+
+  /* ===== CHOICE BUTTONS ===== */
+  .choice-btn {
+    background:white; border:2px solid var(--ebook-border); border-radius:14px;
+    padding:14px 10px; cursor:pointer; text-align:center;
+    transition:all 0.2s ease; font-family:inherit; color:var(--ebook-text);
+    font-size:12px; font-weight:800; box-shadow:0 2px 8px rgba(27,94,199,0.05);
+  }
+  .choice-btn:hover { border-color:var(--ebook-green); background:#F0FBF5; transform:translateY(-2px); box-shadow:0 4px 16px rgba(0,168,79,0.15); }
+  .choice-btn.selected {
+    border-color:var(--ebook-green); background:#E8F8EF; color:var(--ebook-green);
+    animation:selectBounce 0.3s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  @keyframes selectBounce { 0%{transform:scale(1);}50%{transform:scale(1.08);}100%{transform:scale(1);} }
+  .choice-btn .c-icon { font-size:26px; display:block; margin-bottom:6px; }
+  .choice-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(110px,1fr)); gap:10px; margin-bottom:16px; }
+
+  /* ===== BRAND PREVIEW ===== */
+  .brand-preview { border-radius:20px; padding:28px; margin:16px 0; text-align:center; transition:all 0.4s ease; }
+  .brand-preview-name     { font-size:26px; font-weight:900; margin-bottom:6px; }
+  .brand-preview-tagline  { font-size:14px; font-weight:600; opacity:0.85; margin-bottom:16px; }
+  .brand-preview-swatches { display:flex; gap:10px; justify-content:center; margin-bottom:14px; }
+  .brand-swatch { width:40px; height:40px; border-radius:50%; border:3px solid rgba(255,255,255,0.3); }
+  .brand-preview-vibe { font-size:12px; font-weight:700; opacity:0.7; text-transform:uppercase; letter-spacing:0.1em; }
+
+  /* ===== PITCH BUILDER ===== */
+  .pitch-step { display:none; animation:fadeIn 0.3s ease; }
+  .pitch-step.active { display:block; }
+  .pitch-progress-wrap { background:#EDF3FF; border-radius:50px; height:8px; margin-bottom:6px; overflow:hidden; }
+  .pitch-progress-fill { height:8px; background:linear-gradient(90deg,var(--ebook-green),var(--ebook-teal)); border-radius:50px; transition:width 0.4s ease; }
+  .pitch-mason-box {
+    background:#EBF8F1; border:1.5px solid rgba(0,168,79,0.25);
+    border-radius:14px; padding:14px 16px; margin-bottom:18px;
+    display:flex; gap:12px; align-items:flex-start; font-size:13px; line-height:1.6; color:var(--ebook-text);
+  }
+  .pitch-mason-icon  { font-size:24px; flex-shrink:0; margin-top:2px; }
+  .pitch-mason-label { font-weight:900; color:var(--ebook-green); }
+  .pitch-output {
+    background:linear-gradient(135deg,#E8F4FF,#EBF8F1);
+    border:1.5px solid rgba(27,94,199,0.2); border-radius:20px; padding:24px; margin:16px 0;
+  }
+  .pitch-line { margin-bottom:14px; font-size:15px; font-weight:600; line-height:1.7; color:var(--ebook-text); }
+  .pitch-line strong { color:var(--ebook-blue); }
+
+  /* ===== MODULE NAV ===== */
+  .module-bottom-nav { text-align:center; margin-top:24px; padding-top:20px; border-top:1.5px solid var(--ebook-border); }
+  .btn-next-module {
+    background:white; border:2px solid var(--ebook-green); color:var(--ebook-green);
+    font-weight:800; padding:12px 28px; border-radius:50px;
+    cursor:pointer; font-size:13px; transition:all 0.2s; font-family:inherit;
+    box-shadow:0 2px 12px rgba(0,168,79,0.15);
+  }
+  .btn-next-module:hover { background:var(--ebook-green); color:white; transform:translateY(-2px); box-shadow:0 4px 20px rgba(0,168,79,0.3); }
+  .btn-report {
+    background:linear-gradient(135deg,var(--ebook-blue),#1648A8);
+    color:white; font-weight:900; padding:14px 36px;
+    border-radius:50px; cursor:pointer; font-size:15px; border:none; transition:all 0.2s;
+    box-shadow:0 4px 20px rgba(27,94,199,0.35); font-family:inherit;
+  }
+  .btn-report:hover { transform:translateY(-2px); box-shadow:0 6px 24px rgba(27,94,199,0.45); }
+
+  /* ===== BUSINESS DETECTIVE ===== */
+  #ml-detective .choice-btn.selected { border-color:var(--ebook-orange); background:#FFF4E8; color:var(--ebook-orange); }
+  #ml-detective .choice-btn:hover    { border-color:var(--ebook-orange); background:#FFF8F0; }
+  .detective-case {
+    background:linear-gradient(135deg,#FFF8EE,#FFFBF5);
+    border:1.5px solid rgba(247,127,0,0.3); border-radius:16px; padding:20px; line-height:1.7;
+  }
+  .detective-case .case-name           { font-size:18px; font-weight:900; color:var(--ebook-orange); margin-bottom:4px; }
+  .detective-case .case-subtitle       { font-size:12px; font-weight:700; color:var(--ebook-muted); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:14px; }
+  .detective-case .case-section        { margin-top:16px; }
+  .detective-case .case-section-label  { font-size:11px; font-weight:900; text-transform:uppercase; letter-spacing:0.08em; color:var(--ebook-orange); margin-bottom:6px; }
+  .detective-case .case-body           { font-size:14px; color:var(--ebook-muted); }
+  .detective-case .case-highlight      { background:rgba(247,127,0,0.1); border-left:4px solid var(--ebook-orange); padding:10px 14px; border-radius:0 10px 10px 0; margin-top:8px; font-size:13px; font-weight:700; color:var(--ebook-text); }
+  .detective-tip-box                   { background:#FFF4E8; border:1.5px solid rgba(247,127,0,0.2); border-radius:12px; padding:12px 16px; font-size:13px; color:var(--ebook-muted); line-height:1.6; margin-top:12px; }
+  .det-fact-grid                       { display:grid; grid-template-columns:1fr; gap:12px; }
+  .det-fact-card                       { background:white; border:1.5px solid rgba(247,127,0,0.2); border-radius:14px; padding:16px; display:flex; gap:14px; align-items:flex-start; box-shadow:0 2px 8px rgba(247,127,0,0.06); }
+  .det-fact-icon                       { font-size:28px; flex-shrink:0; margin-top:2px; }
+  .det-fact-title                      { font-size:13px; font-weight:900; color:var(--ebook-text); margin-bottom:4px; }
+  .det-fact-body                       { font-size:13px; color:var(--ebook-muted); line-height:1.6; }
+
+  /* ===== MARKETING REPORT ===== */
+  .mreport-card {
+    background:linear-gradient(135deg,#EBF0FF,#F0FBF5);
+    border:2px solid rgba(27,94,199,0.2); border-radius:20px; padding:24px; margin-bottom:20px;
+    box-shadow:0 4px 20px rgba(27,94,199,0.1);
+  }
+  .mreport-section       { margin-bottom:22px; }
+  .mreport-section:last-child { margin-bottom:0; }
+  .mreport-label         { font-size:11px; font-weight:900; text-transform:uppercase; letter-spacing:0.12em; color:var(--ebook-blue); margin-bottom:8px; }
+  .mreport-value         { font-size:14px; color:var(--ebook-text); font-weight:600; line-height:1.7; background:white; border-radius:10px; padding:12px 14px; border:1px solid var(--ebook-border); }
+  .mreport-value.muted   { color:var(--ebook-muted); font-style:italic; font-weight:400; }
+  .mreport-tag           { display:inline-block; background:#EBF0FF; color:var(--ebook-blue); font-size:11px; font-weight:800; padding:4px 12px; border-radius:50px; letter-spacing:0.06em; text-transform:uppercase; margin-right:6px; margin-bottom:6px; border:1px solid rgba(27,94,199,0.2); }
+  .mreport-pitch-block   { font-size:14px; color:var(--ebook-text); line-height:1.9; background:white; border-radius:10px; padding:16px 18px; border-left:4px solid var(--ebook-green); border:1px solid var(--ebook-border); border-left:4px solid var(--ebook-green); }
+
+  /* Tags override */
+  .tag.pink-tag { background:#EBF0FF; color:var(--ebook-blue); border:1.5px solid rgba(27,94,199,0.25); }
+  .tag.green    { background:rgba(0,168,79,0.1); color:var(--ebook-green); border:1.5px solid rgba(0,168,79,0.25); }
+
+  /* Hype slider override */
+  input[type=range]::-webkit-slider-thumb { background:var(--ebook-blue) !important; }
+  #screen-ml .slider-val { color:var(--ebook-blue); }
+
+  .mmmf-footer { display:none; text-align:center; padding:16px; font-size:12px; color:var(--ebook-muted); }
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:600px) {
+    .fl-module-tabs { gap:4px; padding:4px; }
+    .fl-tab { font-size:11px; padding:8px 10px; }
+    .three-m-strip { gap:6px; }
+    .m-badge { font-size:11px; padding:6px 12px; }
+  }
+
+  /* ===== PRINT ===== */
+  @media print {
+    body { background:#fff; background-image:none; }
+    .fl-module-tabs,.back-btn,.btn-next-module,.btn-report,.btn,.three-m-strip,.ebook-banner { display:none!important; }
+    .screen { display:none!important; }
+    #screen-mreport { display:block!important; }
+    .card { box-shadow:none!important; border-color:#dde!important; }
+    .mmmf-footer { display:block!important; }
+    .container { padding:0; }
+    header { display:none; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div id="screen-ml" class="screen active">
+    <header style="margin-bottom:20px;">
+      <div class="ebook-banner"><span class="ebook-banner-plane">✈️</span> Marketing Lab</div>
+      <h1>Build Your <em class="h1-green">Brand</em></h1>
+      <div class="three-m-strip">
+        <div class="m-badge m-badge-msg">✉️ Message</div>
+        <div class="m-badge m-badge-mkt">🎯 Market</div>
+        <div class="m-badge m-badge-mom">⏰ Moment</div>
+      </div>
+      <p class="subtitle">Your interactive toolkit from <strong style="color:var(--ebook-blue);">What in the World is Marketing?</strong></p>
+    </header>
+
+    <div class="fl-module-tabs">
+      <button class="fl-tab active" onclick="showMLModule('brand',this)">🎨 Brand Builder</button>
+      <button class="fl-tab" onclick="showMLModule('pitch',this)">🎤 Pitch Builder</button>
+      <button class="fl-tab" onclick="showMLModule('detective',this)">🔍 Business Detective</button>
+      <button class="fl-tab" onclick="showMLModule('hype',this)">🔥 Hype Machine</button>
+    </div>
+
+    <!-- BRAND BUILDER -->
+    <div id="ml-brand" class="fl-module active msg-module">
+      <div class="card">
+        <div class="card-title">✉️ Message — Module 1</div>
+        <h2>Brand Builder 🎨</h2>
+        <p class="hint" style="margin-bottom:20px;">Your brand is more than a name — it's how people feel about you.</p>
+
+        <div class="input-group">
+          <label class="input-label">Business Name</label>
+          <input type="text" class="big-input" id="brand-name" placeholder="e.g. Mason's Fresh Lemonade" maxlength="40" oninput="updateBrandPreview()">
+        </div>
+        <div class="input-group">
+          <label class="input-label">What do you do in one sentence?</label>
+          <input type="text" class="big-input" id="brand-tagline" placeholder="e.g. Fresh lemonade made with love, every cup" maxlength="60" oninput="updateBrandPreview()">
+        </div>
+        <div class="input-group">
+          <div class="input-label">Brand Personality — pick one</div>
+          <div class="choice-grid">
+            <button class="choice-btn" onclick="mlChoice(this,'brand-vibe','bold')"><span class="c-icon">🔥</span>Bold &amp; Loud</button>
+            <button class="choice-btn" onclick="mlChoice(this,'brand-vibe','fun')"><span class="c-icon">🎉</span>Fun &amp; Playful</button>
+            <button class="choice-btn" onclick="mlChoice(this,'brand-vibe','calm')"><span class="c-icon">🌿</span>Calm &amp; Natural</button>
+            <button class="choice-btn" onclick="mlChoice(this,'brand-vibe','smart')"><span class="c-icon">💡</span>Smart &amp; Clean</button>
+            <button class="choice-btn" onclick="mlChoice(this,'brand-vibe','warm')"><span class="c-icon">❤️</span>Warm &amp; Caring</button>
+            <button class="choice-btn" onclick="mlChoice(this,'brand-vibe','edgy')"><span class="c-icon">⚡</span>Edgy &amp; Cool</button>
+          </div>
+        </div>
+        <div class="input-group">
+          <div class="input-label">Color Palette</div>
+          <div class="choice-grid">
+            <button class="choice-btn" onclick="mlChoice(this,'brand-colors','fire')"><span class="c-icon">🟠</span>Fire</button>
+            <button class="choice-btn" onclick="mlChoice(this,'brand-colors','ocean')"><span class="c-icon">🔵</span>Ocean</button>
+            <button class="choice-btn" onclick="mlChoice(this,'brand-colors','forest')"><span class="c-icon">🟢</span>Forest</button>
+            <button class="choice-btn" onclick="mlChoice(this,'brand-colors','candy')"><span class="c-icon">🩷</span>Candy</button>
+            <button class="choice-btn" onclick="mlChoice(this,'brand-colors','midnight')"><span class="c-icon">🟣</span>Midnight</button>
+            <button class="choice-btn" onclick="mlChoice(this,'brand-colors','solar')"><span class="c-icon">🟡</span>Solar</button>
+          </div>
+        </div>
+
+        <div class="brand-preview" id="brand-preview-box" style="background:rgba(255,255,255,0.04);border:1px solid var(--border);">
+          <div class="brand-preview-name" id="bp-name" style="color:var(--ebook-green);">Your Business Name</div>
+          <div class="brand-preview-tagline" id="bp-tagline">Your tagline will appear here</div>
+          <div class="brand-preview-swatches" id="bp-swatches">
+            <div class="brand-swatch" style="background:#444;"></div>
+            <div class="brand-swatch" style="background:#666;"></div>
+            <div class="brand-swatch" style="background:#888;"></div>
+          </div>
+          <div class="brand-preview-vibe" id="bp-vibe">Choose a personality above</div>
+        </div>
+
+        <div class="coach" style="margin-top:16px;">
+          <div class="coach-avatar">🧑‍🏫</div>
+          <div id="brand-coach-text">Fill in your brand details above to see your brand card come to life!</div>
+        </div>
+        <div class="disclosure">This tool is for learning purposes. Brand identity in the real world involves deeper strategy and research.</div>
+        <div class="module-bottom-nav">
+          <button class="btn-next-module" onclick="navToMLModule('pitch')">Next Module: Pitch Builder 🎤</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- HYPE MACHINE -->
+    <div id="ml-hype" class="fl-module mom-module">
+      <div class="card">
+        <div class="card-title">⏰ Moment — Module 2</div>
+        <h2>Hype Machine 🔥</h2>
+        <p class="hint" style="margin-bottom:20px;">Can you make your business go viral? Build your content strategy and find out your Hype Impact.</p>
+
+        <div id="hype-brand-pull" style="margin-bottom:20px;"></div>
+
+        <div class="input-group">
+          <div class="input-label">Stage 2 — Pick Your Platform</div>
+          <div class="choice-grid">
+            <button class="choice-btn" data-group="hype-platform" data-value="instagram" onclick="mlMultiChoice(this,'hype-platform')"><span class="c-icon">📸</span>Instagram</button>
+            <button class="choice-btn" data-group="hype-platform" data-value="tiktok"    onclick="mlMultiChoice(this,'hype-platform')"><span class="c-icon">🎵</span>TikTok</button>
+            <button class="choice-btn" data-group="hype-platform" data-value="youtube"   onclick="mlMultiChoice(this,'hype-platform')"><span class="c-icon">▶️</span>YouTube</button>
+            <button class="choice-btn" data-group="hype-platform" data-value="x"         onclick="mlMultiChoice(this,'hype-platform')"><span class="c-icon">✖️</span>X / Twitter</button>
+            <button class="choice-btn" data-group="hype-platform" data-value="facebook"  onclick="mlMultiChoice(this,'hype-platform')"><span class="c-icon">📘</span>Facebook</button>
+          </div>
+        </div>
+
+        <div class="input-group" id="hype-format-group" style="display:none;">
+          <div class="input-label">Stage 3 — Pick Your Format</div>
+          <div class="choice-grid" id="hype-format-grid"></div>
+        </div>
+
+        <div class="input-group" id="hype-timing-group" style="display:none;">
+          <div class="input-label">Stage 4 — When Will You Post?</div>
+          <p class="hint" style="margin-bottom:12px;">Timing affects how many people see your content. Pick the day and time you plan to post.</p>
+          <div style="margin-bottom:14px;">
+            <div class="input-label" style="font-size:11px;margin-bottom:8px;">Day</div>
+            <div class="choice-grid" style="grid-template-columns:repeat(7,1fr);">
+              <button class="choice-btn" data-group="hype-day" data-value="mon" onclick="mlMultiChoice(this,'hype-day')"><span class="c-icon" style="font-size:16px;">Mo</span></button>
+              <button class="choice-btn" data-group="hype-day" data-value="tue" onclick="mlMultiChoice(this,'hype-day')"><span class="c-icon" style="font-size:16px;">Tu</span></button>
+              <button class="choice-btn" data-group="hype-day" data-value="wed" onclick="mlMultiChoice(this,'hype-day')"><span class="c-icon" style="font-size:16px;">We</span></button>
+              <button class="choice-btn" data-group="hype-day" data-value="thu" onclick="mlMultiChoice(this,'hype-day')"><span class="c-icon" style="font-size:16px;">Th</span></button>
+              <button class="choice-btn" data-group="hype-day" data-value="fri" onclick="mlMultiChoice(this,'hype-day')"><span class="c-icon" style="font-size:16px;">Fr</span></button>
+              <button class="choice-btn" data-group="hype-day" data-value="sat" onclick="mlMultiChoice(this,'hype-day')"><span class="c-icon" style="font-size:16px;">Sa</span></button>
+              <button class="choice-btn" data-group="hype-day" data-value="sun" onclick="mlMultiChoice(this,'hype-day')"><span class="c-icon" style="font-size:16px;">Su</span></button>
+            </div>
+          </div>
+          <div>
+            <div class="input-label" style="font-size:11px;margin-bottom:8px;">Time of Day</div>
+            <div class="choice-grid" style="grid-template-columns:repeat(auto-fit,minmax(100px,1fr));">
+              <button class="choice-btn" data-group="hype-time" data-value="earlymorning" onclick="mlMultiChoice(this,'hype-time')"><span class="c-icon">🌅</span>Early Morning<div style="font-size:10px;color:var(--text-muted);margin-top:3px;">6–9 AM</div></button>
+              <button class="choice-btn" data-group="hype-time" data-value="morning"      onclick="mlMultiChoice(this,'hype-time')"><span class="c-icon">☀️</span>Morning<div style="font-size:10px;color:var(--text-muted);margin-top:3px;">9 AM–12 PM</div></button>
+              <button class="choice-btn" data-group="hype-time" data-value="afternoon"    onclick="mlMultiChoice(this,'hype-time')"><span class="c-icon">🌤️</span>Afternoon<div style="font-size:10px;color:var(--text-muted);margin-top:3px;">12–4 PM</div></button>
+              <button class="choice-btn" data-group="hype-time" data-value="evening"      onclick="mlMultiChoice(this,'hype-time')"><span class="c-icon">🌆</span>Evening<div style="font-size:10px;color:var(--text-muted);margin-top:3px;">4–9 PM</div></button>
+              <button class="choice-btn" data-group="hype-time" data-value="latenight"    onclick="mlMultiChoice(this,'hype-time')"><span class="c-icon">🌙</span>Late Night<div style="font-size:10px;color:var(--text-muted);margin-top:3px;">9 PM+</div></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group" id="hype-hook-group" style="display:none;">
+          <div class="input-label">Stage 5 — Write Your Hook</div>
+          <p class="hint" style="margin-bottom:10px;">The first line that makes someone stop scrolling.</p>
+          <textarea class="big-input" id="hype-hook" placeholder="e.g. You've never tasted lemonade like this before 🍋" maxlength="140" rows="3" oninput="hypeUpdate()"></textarea>
+          <div style="display:flex;justify-content:space-between;margin-top:4px;">
+            <span id="hype-hook-tip" style="font-size:12px;color:var(--text-muted);font-weight:600;"></span>
+            <span id="hype-hook-count" style="font-size:12px;color:var(--text-muted);font-weight:600;">0 / 140</span>
+          </div>
+        </div>
+
+        <div id="hype-score-section" style="display:none;">
+          <hr class="divider">
+          <div class="card-title" style="text-align:center;font-size:14px;margin-bottom:20px;">Your Hype Impact</div>
+          <div style="text-align:center;margin-bottom:24px;">
+            <div id="hype-impact-badge" style="display:inline-block;padding:16px 48px;border-radius:50px;font-size:32px;font-weight:900;letter-spacing:0.06em;"></div>
+            <div id="hype-timing-insight" style="font-size:13px;font-weight:600;color:var(--text-muted);margin-top:12px;max-width:400px;margin-left:auto;margin-right:auto;line-height:1.6;"></div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:20px;" id="hype-breakdown"></div>
+          <div class="coach" id="hype-coach">
+            <div class="coach-avatar">🔥</div>
+            <div id="hype-coach-text"></div>
+          </div>
+          <div style="text-align:center;margin-top:20px;">
+            <button class="btn btn-primary" onclick="hypeReset()">Try Again 🔄</button>
+          </div>
+        </div>
+
+        <div class="disclosure">Hype Impact ratings are based on published social media engagement research. Real-world performance depends on your specific audience, content quality, and platform algorithm.</div>
+        <div class="module-bottom-nav">
+          <button class="btn-report" onclick="generateMarketingReport()">Get My Marketing Report 📋</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PITCH BUILDER -->
+    <div id="ml-pitch" class="fl-module msg-module">
+      <div class="card">
+        <div class="card-title">✉️ Message — Module 2</div>
+        <h2>Pitch Builder 🎤</h2>
+        <p class="hint" style="margin-bottom:16px;">Build your 60-second pitch one question at a time. Mason will show you how it's done!</p>
+
+        <div class="pitch-progress-wrap">
+          <div class="pitch-progress-fill" id="pitch-progress-fill"></div>
+        </div>
+        <div id="pitch-step-label" style="font-size:12px;font-weight:700;color:var(--text-muted);margin:8px 0 20px;">Step 1 of 7</div>
+
+        <!-- Step 1 -->
+        <div class="pitch-step active" id="ps-1">
+          <div class="pitch-mason-box"><span class="pitch-mason-icon">🐾</span><div><span class="pitch-mason-label">Mason's answer:</span> "Mason's Magic Suds"</div></div>
+          <label class="input-label">What is your business called?</label>
+          <input type="text" class="big-input" id="pitch-name" placeholder="e.g. Zoe's Zesty Lemonade" maxlength="50" oninput="buildPitch()">
+          <div id="pitch-brand-hint" style="font-size:12px;font-weight:600;margin-top:6px;"></div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="pitch-step" id="ps-2">
+          <div class="pitch-mason-box"><span class="pitch-mason-icon">🐾</span><div><span class="pitch-mason-label">Mason's answer:</span> "Dog owners with long-haired breeds like poodles and collies deal with painful tangles during grooming."</div></div>
+          <label class="input-label">What problem does your customer have?</label>
+          <input type="text" class="big-input" id="pitch-problem" placeholder="e.g. People want fresh drinks at events but choices are limited" maxlength="120" oninput="buildPitch()">
+        </div>
+
+        <!-- Step 3 -->
+        <div class="pitch-step" id="ps-3">
+          <div class="pitch-mason-box"><span class="pitch-mason-icon">🐾</span><div><span class="pitch-mason-label">Mason's answer:</span> "My detangling shampoo and grooming service makes wash time smooth and stress-free for dogs and their owners."</div></div>
+          <label class="input-label">What is your solution?</label>
+          <input type="text" class="big-input" id="pitch-solution" placeholder="e.g. Fresh-squeezed lemonade in exciting flavors at community events" maxlength="120" oninput="buildPitch()">
+        </div>
+
+        <!-- Step 4 -->
+        <div class="pitch-step" id="ps-4">
+          <div class="pitch-mason-box"><span class="pitch-mason-icon">🐾</span><div><span class="pitch-mason-label">Mason's answer:</span> "Dog owners in my neighborhood with long-haired breeds who want affordable, personal care."</div></div>
+          <label class="input-label">Who is your target customer?</label>
+          <input type="text" class="big-input" id="pitch-customer" placeholder="e.g. Families and kids at community events" maxlength="80" oninput="buildPitch()">
+        </div>
+
+        <!-- Step 5 -->
+        <div class="pitch-step" id="ps-5">
+          <div class="pitch-mason-box"><span class="pitch-mason-icon">🐾</span><div><span class="pitch-mason-label">Mason's answer:</span> "$5 for a basic wash — plus a Magic Suds shampoo treatment for tangle-prone coats."</div></div>
+          <label class="input-label">How much does it cost?</label>
+          <input type="text" class="big-input" id="pitch-price" placeholder="e.g. $3 per cup, $5 for a large" maxlength="60" oninput="buildPitch()">
+        </div>
+
+        <!-- Step 6 -->
+        <div class="pitch-step" id="ps-6">
+          <div class="pitch-mason-box"><span class="pitch-mason-icon">🐾</span><div><span class="pitch-mason-label">Mason's answer:</span> "I come to your home and use Magic Suds — made specifically for tangle-prone coats — so every wash is personal and stress-free."</div></div>
+          <label class="input-label">Why should they choose YOU?</label>
+          <input type="text" class="big-input" id="pitch-why" placeholder="e.g. Homemade, fresh, and made with love by a young entrepreneur" maxlength="120" oninput="buildPitch()">
+        </div>
+
+        <!-- Step 7 -->
+        <div class="pitch-step" id="ps-7">
+          <div class="pitch-mason-box"><span class="pitch-mason-icon">🐾</span><div><span class="pitch-mason-label">Mason's answer:</span> "Book your dog's first wash this weekend — your pup will thank you!"</div></div>
+          <label class="input-label">What do you want them to do next?</label>
+          <input type="text" class="big-input" id="pitch-ask" placeholder="e.g. Find me at the Saturday market or DM me on Instagram" maxlength="100" oninput="buildPitch()">
+        </div>
+
+        <!-- Step navigation -->
+        <div style="display:flex;gap:12px;margin-top:20px;align-items:center;">
+          <button class="btn" id="pitch-prev-btn" onclick="pitchPrev()" style="display:none;background:rgba(0,168,79,0.1);border:1.5px solid var(--ebook-green);color:var(--ebook-green);font-weight:700;">← Back</button>
+          <button class="btn btn-primary" id="pitch-next-btn" onclick="pitchNext()" style="background:var(--ebook-green);color:#fff;margin-left:auto;">Next →</button>
+        </div>
+
+        <!-- Live pitch output -->
+        <div id="pitch-output" style="margin-top:24px;">
+          <div class="coach"><div class="coach-avatar">🧑‍🏫</div><div>Fill in your answers and your pitch will build here — step by step!</div></div>
+        </div>
+
+        <div style="text-align:center;margin-top:16px;" id="pitch-module-next" style="display:none;">
+          <button class="btn" style="background:rgba(247,127,0,0.1);border:1.5px solid var(--ebook-orange);color:var(--ebook-orange);font-weight:700;" onclick="navToMLModule('detective')">Next Module: Business Detective 🔍</button>
+        </div>
+        <div class="disclosure">This tool is for learning purposes. Real pitches benefit from practice, feedback, and refinement over time.</div>
+      </div>
+    </div>
+    <!-- BUSINESS DETECTIVE -->
+    <div id="ml-detective" class="fl-module mkt-module">
+      <div class="card">
+        <div class="card-title">🎯 Market — Module 3</div>
+        <h2>Business Detective 🔍</h2>
+        <p class="hint" style="margin-bottom:20px;">Pick a business type below to see how a real young entrepreneur investigated their market — their customer, their industry, and their competition.</p>
+
+        <div class="input-label" style="margin-bottom:12px;">Which type of business do you want to explore?</div>
+        <div class="choice-grid" style="grid-template-columns:repeat(3,1fr);">
+          <button class="choice-btn" onclick="detectivePick(this,'product')"><span class="c-icon">🧁</span>Food / Treats</button>
+          <button class="choice-btn" onclick="detectivePick(this,'craft')"><span class="c-icon">🎨</span>Crafts / Art</button>
+          <button class="choice-btn" onclick="detectivePick(this,'service')"><span class="c-icon">✂️</span>A Service</button>
+          <button class="choice-btn" onclick="detectivePick(this,'digital')"><span class="c-icon">💻</span>Digital / App</button>
+          <button class="choice-btn" onclick="detectivePick(this,'clothing')"><span class="c-icon">👕</span>Clothing</button>
+          <button class="choice-btn" onclick="detectivePick(this,'other')"><span class="c-icon">⭐</span>Something Else</button>
+        </div>
+
+        <div id="det-content" style="display:none;margin-top:28px;">
+
+          <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:var(--ebook-orange);margin-bottom:10px;">The Story</div>
+          <div id="det-case-box" class="detective-case"></div>
+
+          <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:var(--ebook-orange);margin:24px 0 10px;">What Is Happening in This Industry</div>
+          <div id="det-fact-grid" class="det-fact-grid"></div>
+
+          <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:var(--ebook-orange);margin:24px 0 10px;">Finding the Edge</div>
+          <div id="det-comp-box" class="detective-case"></div>
+
+          <div id="det-summary-box" style="margin-top:20px;"></div>
+        </div>
+
+        <div class="module-bottom-nav" id="det-module-nav" style="display:none;">
+          <button class="btn-next-module" onclick="navToMLModule('hype')">Next Module: Hype Machine 🔥</button>
+        </div>
+        <div class="disclosure">Industry facts are based on published market research and reports. Real business conditions vary and change over time.</div>
+      </div>
+    </div>
+
+  </div><!-- end screen-ml -->
+
+  <!-- ============ MARKETING REPORT ============ -->
+  <div id="screen-mreport" class="screen">
+    <button class="back-btn" onclick="showMLScreen()">← Back to Marketing Lab</button>
+    <header style="margin-bottom:20px;">
+      <div class="ebook-banner">📋 Marketing Plan</div>
+      <h1>Your <em class="h1-blue">Marketing Report</em></h1>
+      <p class="subtitle">Everything you built — in one place.</p>
+    </header>
+    <div id="mreport-content"></div>
+    <div style="text-align:center;margin-top:8px;margin-bottom:32px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <button class="btn btn-primary" style="background:var(--ebook-blue);color:#fff;" onclick="window.print()">Save My Report 🖨️</button>
+      <button class="btn" style="background:rgba(27,94,199,0.08);border:1.5px solid var(--ebook-blue);color:var(--ebook-blue);font-weight:700;" onclick="showMLScreen()">Back to Marketing Lab</button>
+    </div>
+  </div>
+
+</div>
+</div>
+<div id="print-footer" class="mmmf-footer">Generated by Mason Makes Money Fund | masonmakesmoneyfund.org</div>
+
+<script>
+  function showMLScreen() {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById('screen-ml').classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+
+  const mlState = {};
+
+  function showMLModule(mod, btn) {
+    document.querySelectorAll('#screen-ml .fl-module').forEach(m => m.classList.remove('active'));
+    document.querySelectorAll('#screen-ml .fl-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('ml-' + mod).classList.add('active');
+    btn.classList.add('active');
+    if (mod === 'hype') initHypeMachine();
+    if (mod === 'pitch') initPitchBuilder();
+    if (mod === 'detective') detectiveReset();
+  }
+
+  function initPitchBuilder() {
+    pitchCurrentStep = 1;
+    for (let i = 1; i <= PITCH_TOTAL; i++) {
+      const el = document.getElementById('ps-' + i);
+      if (el) { el.classList.toggle('active', i === 1); }
+    }
+    updatePitchNav();
+    const moduleNav = document.getElementById('pitch-module-next');
+    if (moduleNav) moduleNav.style.display = 'none';
+    const nameEl = document.getElementById('pitch-name');
+    if (!nameEl || nameEl.value.trim()) return;
+    const brandName = document.getElementById('brand-name') ? document.getElementById('brand-name').value.trim() : '';
+    if (brandName) {
+      nameEl.value = brandName;
+      const hint = document.getElementById('pitch-brand-hint');
+      if (hint) { hint.textContent = '✓ Business name pulled from Brand Builder'; hint.style.color = 'var(--green)'; }
+      buildPitch();
+    }
+  }
+
+  // ======== HYPE MACHINE ========
+  const platformFormats = {
+    instagram: [
+      { val:'reel',      icon:'🎬', label:'Reel',             desc:'Short video, max energy' },
+      { val:'carousel',  icon:'🖼️', label:'Carousel Post',    desc:'Swipe-through storytelling' },
+      { val:'story',     icon:'⭕', label:'Story',            desc:'24hr behind the scenes' },
+      { val:'collab',    icon:'🤝', label:'Collab Post',      desc:'Partner with another creator' },
+    ],
+    tiktok: [
+      { val:'challenge', icon:'🏆', label:'Challenge',        desc:'Dare people to try it' },
+      { val:'duet',      icon:'👯', label:'Duet / Stitch',    desc:'React to trending content' },
+      { val:'tutorial',  icon:'🎓', label:'Tutorial',         desc:'Teach something step by step' },
+      { val:'pov',       icon:'👀', label:'POV Video',        desc:'Put viewers in the moment' },
+    ],
+    youtube: [
+      { val:'unboxing',  icon:'📦', label:'Unboxing',         desc:'First look, pure reaction' },
+      { val:'dayinlife', icon:'📅', label:'Day in My Life',   desc:'Show your entrepreneur journey' },
+      { val:'behind',    icon:'🎥', label:'Behind the Scenes',desc:'How you make your product' },
+      { val:'review',    icon:'⭐', label:'Customer Review',  desc:'Let happy customers talk' },
+    ],
+    x: [
+      { val:'thread',    icon:'🧵', label:'Thread',           desc:'Tell a story in multiple posts' },
+      { val:'poll',      icon:'🗳️', label:'Poll',             desc:'Get your audience to vote' },
+      { val:'hotake',    icon:'🌶️', label:'Hot Take',         desc:'Bold opinion about your niche' },
+      { val:'milestone', icon:'🎯', label:'Milestone Post',   desc:'Celebrate a win publicly' },
+    ],
+  };
+
+  // Timing impact matrix — based on Sprout Social, Buffer, Hootsuite, Metricool 2025-2026 data
+  // Values: 'high', 'medium', 'low'
+  // Weekdays: mon/tue/wed/thu/fri  |  Weekend: sat/sun
+  const timingMatrix = {
+    instagram: {
+      mon: { earlymorning:'medium', morning:'medium', afternoon:'medium', evening:'high',   latenight:'low'   },
+      tue: { earlymorning:'medium', morning:'high',   afternoon:'high',   evening:'high',   latenight:'low'   },
+      wed: { earlymorning:'medium', morning:'high',   afternoon:'high',   evening:'high',   latenight:'low'   },
+      thu: { earlymorning:'medium', morning:'high',   afternoon:'medium', evening:'high',   latenight:'low'   },
+      fri: { earlymorning:'low',    morning:'medium', afternoon:'medium', evening:'medium', latenight:'low'   },
+      sat: { earlymorning:'low',    morning:'low',    afternoon:'low',    evening:'medium', latenight:'low'   },
+      sun: { earlymorning:'low',    morning:'low',    afternoon:'low',    evening:'medium', latenight:'low'   },
+    },
+    tiktok: {
+      mon: { earlymorning:'low',    morning:'medium', afternoon:'medium', evening:'high',   latenight:'high'  },
+      tue: { earlymorning:'low',    morning:'medium', afternoon:'high',   evening:'high',   latenight:'high'  },
+      wed: { earlymorning:'low',    morning:'medium', afternoon:'medium', evening:'high',   latenight:'high'  },
+      thu: { earlymorning:'low',    morning:'medium', afternoon:'high',   evening:'high',   latenight:'medium'},
+      fri: { earlymorning:'low',    morning:'low',    afternoon:'medium', evening:'medium', latenight:'medium'},
+      sat: { earlymorning:'low',    morning:'low',    afternoon:'low',    evening:'medium', latenight:'low'   },
+      sun: { earlymorning:'low',    morning:'low',    afternoon:'low',    evening:'medium', latenight:'low'   },
+    },
+    youtube: {
+      mon: { earlymorning:'low',    morning:'low',    afternoon:'medium', evening:'high',   latenight:'medium'},
+      tue: { earlymorning:'low',    morning:'low',    afternoon:'high',   evening:'high',   latenight:'medium'},
+      wed: { earlymorning:'low',    morning:'low',    afternoon:'high',   evening:'high',   latenight:'low'   },
+      thu: { earlymorning:'low',    morning:'low',    afternoon:'medium', evening:'high',   latenight:'low'   },
+      fri: { earlymorning:'low',    morning:'low',    afternoon:'medium', evening:'medium', latenight:'low'   },
+      sat: { earlymorning:'low',    morning:'medium', afternoon:'medium', evening:'medium', latenight:'low'   },
+      sun: { earlymorning:'low',    morning:'high',   afternoon:'high',   evening:'medium', latenight:'low'   },
+    },
+    x: {
+      mon: { earlymorning:'low',    morning:'medium', afternoon:'medium', evening:'low',    latenight:'low'   },
+      tue: { earlymorning:'low',    morning:'high',   afternoon:'medium', evening:'medium', latenight:'medium'},
+      wed: { earlymorning:'low',    morning:'high',   afternoon:'medium', evening:'low',    latenight:'low'   },
+      thu: { earlymorning:'low',    morning:'high',   afternoon:'medium', evening:'low',    latenight:'low'   },
+      fri: { earlymorning:'low',    morning:'medium', afternoon:'low',    evening:'low',    latenight:'low'   },
+      sat: { earlymorning:'low',    morning:'low',    afternoon:'low',    evening:'low',    latenight:'low'   },
+      sun: { earlymorning:'low',    morning:'low',    afternoon:'low',    evening:'low',    latenight:'low'   },
+    },
+  };
+
+  const timingInsights = {
+    instagram: {
+      high:   'Instagram engagement peaks on Tuesday–Thursday mornings (9–11 AM) and evenings (7–10 PM). Your timing is right in the sweet spot.',
+      medium: 'Decent timing for Instagram. For stronger reach, try Tuesday–Thursday between 9 AM–11 AM or 7–10 PM.',
+      low:    'This is a low-engagement window on Instagram. Weekends and late night typically underperform. Consider shifting to a weekday evening.',
+    },
+    tiktok: {
+      high:   'TikTok thrives in the evening and late night — especially Monday and Tuesday. Your content is lined up to hit the For You Page at peak scroll time.',
+      medium: 'Okay timing for TikTok. The platform really lights up evenings (6–10 PM) on Monday and Tuesday for maximum reach.',
+      low:    'Low engagement window on TikTok. Weekends and mornings tend to underperform. Target Monday–Tuesday evenings for the best shot at going viral.',
+    },
+    youtube: {
+      high:   'YouTube peaks Tuesday–Wednesday afternoons and evenings (4–9 PM), plus Sunday mornings. You picked a prime upload window.',
+      medium: 'Solid timing for YouTube. Remember to upload 2–3 hours before your target viewing time so the algorithm has time to index your video.',
+      low:    'Low-traffic window on YouTube. Aim for Tuesday–Wednesday 4–9 PM or Sunday morning — those are the highest-engagement slots.',
+    },
+    x: {
+      high:   'X/Twitter moves fast and rewards morning posts. Tuesday–Thursday at 9–11 AM catches people checking their feeds at the start of the day.',
+      medium: 'Decent timing for X. The platform peaks midweek mornings — Tuesday through Thursday between 9 AM and 1 PM is the sweet spot.',
+      low:    'Weak timing for X. Weekends and evenings see low engagement. Shift to a weekday morning — Tuesday or Wednesday 9–11 AM is your best bet.',
+    },
+  };
+
+  const impactColors = {
+    high:   { bg:'linear-gradient(135deg,#FF61C7,#c44eff)', text:'#0a1628', label:'HIGH 🔥' },
+    medium: { bg:'linear-gradient(135deg,#1E90FF,#00C896)', text:'#ffffff', label:'MEDIUM ⚡' },
+    low:    { bg:'linear-gradient(135deg,#444,#666)',        text:'#ffffff', label:'LOW 📉' },
+  };
+
+  function initHypeMachine() {
+    const name    = document.getElementById('brand-name') ? document.getElementById('brand-name').value.trim() : '';
+    const tagline = document.getElementById('brand-tagline') ? document.getElementById('brand-tagline').value.trim() : '';
+    const vibe    = mlState['brand-vibe'];
+    const colors  = mlState['brand-colors'];
+    const pullEl  = document.getElementById('hype-brand-pull');
+
+    if (name || vibe || colors) {
+      const palette = brandPalettes[colors] || { bg:'rgba(0,168,79,0.08)', text:'#FF61C7', swatches:[] };
+      pullEl.innerHTML = `
+        <div class="input-label">Stage 1 — Your Brand</div>
+        <div style="background:${palette.bg};border-radius:16px;padding:16px 20px;border:1px solid rgba(27,94,199,0.2);display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+          <div style="font-size:28px;">🎨</div>
+          <div>
+            <div style="font-weight:900;font-size:16px;color:${palette.text};">${name || 'Your Business'}</div>
+            ${tagline ? `<div style="font-size:12px;color:var(--text-muted);font-weight:600;margin-top:2px;">${tagline}</div>` : ''}
+            ${vibe ? `<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--ebook-green);margin-top:4px;">${vibe} brand</div>` : ''}
+          </div>
+          <div style="margin-left:auto;font-size:12px;color:var(--green);font-weight:700;">✓ Pulled from Brand Builder</div>
+        </div>`;
+    } else {
+      pullEl.innerHTML = `
+        <div class="input-label">Stage 1 — Your Brand</div>
+        <div class="coach" style="margin-bottom:4px;">
+          <div class="coach-avatar">💡</div>
+          <div>Complete <strong>Brand Builder</strong> first to auto-fill your brand info here — or continue without it.</div>
+        </div>`;
+    }
+  }
+
+  function hypeUpdate() {
+    // Read ALL selected values for each multi-select group
+    const platforms = Array.from(document.querySelectorAll('.choice-btn.selected[data-group="hype-platform"]')).map(b => b.dataset.value);
+    const formats   = Array.from(document.querySelectorAll('.choice-btn.selected[data-group="hype-format"]')).map(b => b.dataset.value);
+    const days      = Array.from(document.querySelectorAll('.choice-btn.selected[data-group="hype-day"]')).map(b => b.dataset.value);
+    const times     = Array.from(document.querySelectorAll('.choice-btn.selected[data-group="hype-time"]')).map(b => b.dataset.value);
+    const hook      = (document.getElementById('hype-hook') || {}).value || '';
+
+    // Keep mlState in sync (first value) for generateMarketingReport compatibility
+    mlState['hype-platform'] = platforms[0] || '';
+    mlState['hype-format']   = formats[0]   || '';
+    mlState['hype-day']      = days[0]       || '';
+    mlState['hype-time']     = times[0]      || '';
+
+    // Show format stage — union of formats for all selected platforms
+    const fmtGroup = document.getElementById('hype-format-group');
+    if (platforms.length > 0) {
+      fmtGroup.style.display = 'block';
+      const fmtGrid = document.getElementById('hype-format-grid');
+      const platformKey = platforms.slice().sort().join(',');
+      if (fmtGrid.dataset.platform !== platformKey) {
+        fmtGrid.dataset.platform = platformKey;
+        // Build union of formats across all selected platforms
+        const seen = new Set();
+        const allFormats = [];
+        platforms.forEach(p => {
+          (platformFormats[p] || []).forEach(f => {
+            if (!seen.has(f.val)) { seen.add(f.val); allFormats.push(f); }
+          });
+        });
+        fmtGrid.innerHTML = allFormats.map(f =>
+          `<button class="choice-btn" data-group="hype-format" data-value="${f.val}" onclick="mlMultiChoice(this,'hype-format')">
+            <span class="c-icon">${f.icon}</span>
+            <strong>${f.label}</strong>
+            <div style="font-size:10px;color:var(--text-muted);margin-top:3px;font-weight:600;">${f.desc}</div>
+          </button>`
+        ).join('');
+      }
+    } else {
+      fmtGroup.style.display = 'none';
+    }
+
+    // Show timing stage
+    const timingGroup = document.getElementById('hype-timing-group');
+    if (timingGroup && platforms.length > 0 && formats.length > 0) {
+      timingGroup.style.display = 'block';
+    }
+
+    // Show impact as soon as at least one of each group is selected
+    if (platforms.length > 0 && formats.length > 0 && days.length > 0 && times.length > 0) {
+      const hookGroup = document.getElementById('hype-hook-group');
+      if (hookGroup) hookGroup.style.display = 'block';
+      document.getElementById('hype-score-section').style.display = 'block';
+      calcHypeImpact(platforms, formats, days, times);
+    }
+
+    // Hook feedback — cosmetic only
+    if (hook.length > 0) {
+      const countEl = document.getElementById('hype-hook-count');
+      const tipEl   = document.getElementById('hype-hook-tip');
+      countEl.textContent = hook.length + ' / 140';
+      if (hook.endsWith('?'))                                      tipEl.textContent = '❓ Question hooks drive comments — nice!';
+      else if (hook.includes('you') || hook.includes('your'))     tipEl.textContent = '👤 Speaking directly to your audience — strong!';
+      else if (hook.match(/[!🔥💥⚡🚀😱🤯]/))                    tipEl.textContent = '⚡ High energy opener — great for TikTok & Reels!';
+      else if (hook.length < 30)                                   tipEl.textContent = '✂️ Short and punchy — great scroll-stopper!';
+      else if (hook.length > 100)                                  tipEl.textContent = '📏 A bit long — try trimming to the sharpest line.';
+      else                                                         tipEl.textContent = '👍 Solid hook — make sure the first 3 words hit hard.';
+    }
+  }
+
+  function calcHypeImpact(platforms, formats, days, times) {
+    const dayLabels  = { mon:'Monday',tue:'Tuesday',wed:'Wednesday',thu:'Thursday',fri:'Friday',sat:'Saturday',sun:'Sunday' };
+    const timeLabels = { earlymorning:'6–9 AM', morning:'9 AM–12 PM', afternoon:'12–4 PM', evening:'4–9 PM', latenight:'9 PM+' };
+    const impactRank = { high:2, medium:1, low:0 };
+
+    // Find the best impact across all selected platform × day × time combos
+    let bestImpact = 'low', bestPlatform = platforms[0], bestDay = days[0], bestTime = times[0];
+    platforms.forEach(p => {
+      days.forEach(d => {
+        times.forEach(t => {
+          const imp = (timingMatrix[p] && timingMatrix[p][d]) ? timingMatrix[p][d][t] || 'medium' : 'medium';
+          if (impactRank[imp] > impactRank[bestImpact]) {
+            bestImpact = imp; bestPlatform = p; bestDay = d; bestTime = t;
+          }
+        });
+      });
+    });
+
+    // Display badge
+    const ic = impactColors[bestImpact];
+    const badge = document.getElementById('hype-impact-badge');
+    badge.style.background = ic.bg;
+    badge.style.color      = ic.text;
+    badge.textContent      = ic.label;
+
+    // Timing insight (use best platform)
+    document.getElementById('hype-timing-insight').textContent =
+      (timingInsights[bestPlatform] && timingInsights[bestPlatform][bestImpact])
+        ? timingInsights[bestPlatform][bestImpact] : '';
+
+    // Breakdown cards — show all selected values joined
+    const platformDisplay = platforms.map(p => p.charAt(0).toUpperCase() + p.slice(1)).join(', ');
+    const allFormats = [];
+    const seen = new Set();
+    platforms.forEach(p => (platformFormats[p]||[]).forEach(f => { if (!seen.has(f.val)) { seen.add(f.val); allFormats.push(f); } }));
+    const formatDisplay = formats.map(val => { const f = allFormats.find(x => x.val === val); return f ? f.label : val; }).join(', ');
+    const dayDisplay  = days.map(d  => dayLabels[d]   || d).join(', ');
+    const timeDisplay = times.map(t => timeLabels[t]  || t).join(', ');
+
+    document.getElementById('hype-breakdown').innerHTML = [
+      { label:'Platform',   value: platformDisplay, icon:'📱', color:'var(--ebook-text)' },
+      { label:'Format',     value: formatDisplay,   icon:'🎬', color:'var(--yellow)'     },
+      { label:'Best Day',   value: dayDisplay,       icon:'📅', color:'var(--blue)'       },
+      { label:'Best Time',  value: timeDisplay,      icon:'⏰', color:'var(--blue)'       },
+    ].map(b => `
+      <div style="background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:14px;padding:16px;text-align:center;">
+        <div style="font-size:22px;margin-bottom:6px;">${b.icon}</div>
+        <div style="font-size:12px;font-weight:900;color:${b.color};margin-bottom:4px;">${b.value}</div>
+        <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);">${b.label}</div>
+      </div>`
+    ).join('');
+
+    // Coach message based on best combo found
+    const platformName = bestPlatform.charAt(0).toUpperCase() + bestPlatform.slice(1);
+    let coach = '';
+    if (bestImpact === 'high') {
+      coach = `You nailed it! Your best window is ${platformName} on ${dayLabels[bestDay]} at ${timeLabels[bestTime]} — a peak engagement slot. Post there for maximum reach!`;
+    } else if (bestImpact === 'medium') {
+      coach = `Decent setup. Your best combo is ${platformName} on ${dayLabels[bestDay]} at ${timeLabels[bestTime]}. Push to High Impact by adding peak-hour slots${bestPlatform === 'tiktok' ? ' (Mon–Tue evenings)' : bestPlatform === 'instagram' ? ' (Tue–Thu 9–11 AM or 7–10 PM)' : bestPlatform === 'youtube' ? ' (Tue–Wed 4–9 PM)' : bestPlatform === 'facebook' ? ' (Wed–Thu 1–4 PM)' : ' (Tue–Thu 9 AM–1 PM)'}.`;
+    } else {
+      coach = `Low impact across your selected windows. Try adding peak times — ${bestPlatform === 'tiktok' ? 'Monday or Tuesday evening' : bestPlatform === 'instagram' ? 'Tuesday–Thursday morning or evening' : bestPlatform === 'youtube' ? 'Tuesday or Wednesday afternoon/evening' : bestPlatform === 'facebook' ? 'Wednesday or Thursday afternoon' : 'Tuesday–Thursday morning'} — for a much stronger reach.`;
+    }
+    document.getElementById('hype-coach-text').textContent = coach;
+  }
+
+  function hypeReset() {
+    delete mlState['hype-format'];
+    delete mlState['hype-platform'];
+    delete mlState['hype-day'];
+    delete mlState['hype-time'];
+    document.getElementById('hype-format-group').style.display  = 'none';
+    document.getElementById('hype-timing-group').style.display  = 'none';
+    document.getElementById('hype-hook-group').style.display    = 'none';
+    document.getElementById('hype-score-section').style.display = 'none';
+    if (document.getElementById('hype-hook')) document.getElementById('hype-hook').value = '';
+    document.querySelectorAll('#ml-hype .choice-btn').forEach(b => b.classList.remove('selected'));
+    const fmtGrid = document.getElementById('hype-format-grid');
+    if (fmtGrid) fmtGrid.dataset.platform = '';
+  }
+
+    function mlChoice(btn, group, value) {
+    const container = btn.closest('.choice-grid');
+    if (container) container.querySelectorAll('.choice-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    mlState[group] = value;
+    if (group.startsWith('brand')) updateBrandPreview();
+    if (group.startsWith('psych')) updatePricingLab();
+  }
+
+  function mlMultiChoice(btn, group) {
+    btn.classList.toggle('selected');
+    hypeUpdate();
+  }
+
+  // BRAND BUILDER
+  const brandPalettes = {
+    fire:    { bg:'linear-gradient(135deg,#ff5500,#cc0000)', swatches:['#FF5500','#CC0000','#FF8800'], text:'#fff' },
+    ocean:   { bg:'linear-gradient(135deg,#0066ff,#00b4d8)', swatches:['#0066FF','#00B4D8','#90E0EF'], text:'#fff' },
+    forest:  { bg:'linear-gradient(135deg,#2d6a4f,#d4a017)', swatches:['#2D6A4F','#52B788','#D4A017'], text:'#fff' },
+    candy:   { bg:'linear-gradient(135deg,#ff61c7,#9426ff)', swatches:['#FF61C7','#C44EFF','#9426FF'], text:'#fff' },
+    midnight:{ bg:'linear-gradient(135deg,#0a1628,#1e3a8a)', swatches:['#0A1628','#1E3A8A','#FFD700'], text:'#FFD700' },
+    solar:   { bg:'linear-gradient(135deg,#ffd700,#ff8800)', swatches:['#FFD700','#FF8800','#1a1a1a'], text:'#1a1a1a' },
+  };
+  const vibeMessages = {
+    bold:'Your brand is confident and loud. Use strong visuals, big fonts, and bold colors to stand out.',
+    fun:'Your brand is energetic and approachable. Use bright colors, humor, and excitement to connect.',
+    calm:'Your brand feels trustworthy and grounded. Use natural imagery and simple, honest language.',
+    smart:'Your brand is polished and professional. Keep things clean, minimal, and clear.',
+    warm:'Your brand feels personal and caring. Tell stories, show gratitude, and make customers feel valued.',
+    edgy:'Your brand is different and unexpected. Take creative risks and embrace what makes you unique.',
+  };
+
+  function updateBrandPreview() {
+    const name    = document.getElementById('brand-name').value || 'Your Business Name';
+    const tagline = document.getElementById('brand-tagline').value || 'Your tagline will appear here';
+    const vibe    = mlState['brand-vibe'];
+    const colors  = mlState['brand-colors'];
+    document.getElementById('bp-name').textContent    = name;
+    document.getElementById('bp-tagline').textContent = tagline;
+    const box = document.getElementById('brand-preview-box');
+    if (colors && brandPalettes[colors]) {
+      const p = brandPalettes[colors];
+      box.style.background = p.bg;
+      box.style.color      = p.text;
+      document.getElementById('bp-name').style.color    = p.text;
+      document.getElementById('bp-tagline').style.color = p.text;
+      document.getElementById('bp-swatches').innerHTML  = p.swatches.map(c=>`<div class="brand-swatch" style="background:${c};"></div>`).join('');
+    }
+    if (vibe) {
+      document.getElementById('bp-vibe').textContent      = vibe.toUpperCase() + ' BRAND';
+      document.getElementById('brand-coach-text').textContent = vibeMessages[vibe];
+    }
+  }
+
+  // PRICING PSYCHOLOGY
+  const psychProfiles = {
+    everyday:{ lowVal:45,lowBuy:75,midVal:60,midBuy:65,highVal:70,highBuy:30,
+      lowMsg:"Feels affordable. Some may wonder if the quality is good enough.",
+      midMsg:"Feels fair. Most customers see this as the right price.",
+      highMsg:"Feels expensive for an everyday item. Customers may look elsewhere." },
+    treat:   { lowVal:35,lowBuy:55,midVal:65,midBuy:60,highVal:80,highBuy:45,
+      lowMsg:"Might feel too cheap for something special — customers may doubt quality.",
+      midMsg:"Feels like a reasonable treat. Good balance of value and affordability.",
+      highMsg:"Feels indulgent — some customers enjoy paying more for special items." },
+    luxury:  { lowVal:20,lowBuy:40,midVal:55,midBuy:50,highVal:85,highBuy:55,
+      lowMsg:"Low price hurts you here — luxury buyers expect to pay more. This signals low quality.",
+      midMsg:"Decent, but luxury customers may expect a higher price to confirm prestige.",
+      highMsg:"Sweet spot for luxury. Higher prices signal quality and exclusivity." },
+    service: { lowVal:40,lowBuy:65,midVal:70,midBuy:60,highVal:75,highBuy:35,
+      lowMsg:"Accessible, but customers may wonder if you're experienced enough.",
+      midMsg:"Feels professional and fair. Customers feel confident at this price.",
+      highMsg:"Signals expertise. Works well if you can back it up with results." },
+  };
+
+  function updatePricingLab() {
+    const base = parseInt(document.getElementById('psych-price').value) || 20;
+    const type = mlState['psych-type'] || 'everyday';
+    document.getElementById('psych-price-val').textContent = '$' + base;
+    const low  = Math.round(base * 0.65);
+    const high = Math.round(base * 1.45);
+    const lowC  = low  % 10 === 0 ? low  - 1 : low;
+    const midC  = base % 10 === 0 ? base - 1 : base;
+    const highC = high % 10 === 0 ? high - 1 : high;
+    document.getElementById('price-low-val').textContent  = '$' + lowC;
+    document.getElementById('price-mid-val').textContent  = '$' + midC;
+    document.getElementById('price-high-val').textContent = '$' + highC;
+    const p = psychProfiles[type] || psychProfiles.everyday;
+    document.getElementById('bar-low').style.width      = p.lowVal  + '%';
+    document.getElementById('bar-low-buy').style.width  = p.lowBuy  + '%';
+    document.getElementById('bar-mid').style.width      = p.midVal  + '%';
+    document.getElementById('bar-mid-buy').style.width  = p.midBuy  + '%';
+    document.getElementById('bar-high').style.width     = p.highVal + '%';
+    document.getElementById('bar-high-buy').style.width = p.highBuy + '%';
+    document.getElementById('reaction-low').textContent  = p.lowMsg;
+    document.getElementById('reaction-mid').textContent  = p.midMsg;
+    document.getElementById('reaction-high').textContent = p.highMsg;
+    let coach = '';
+    if (type === 'luxury') {
+      coach = `For a premium product, don't be afraid to charge more. Pricing at $${highC} signals quality and exclusivity — that's part of what customers are buying.`;
+    } else if (p.midBuy >= p.lowBuy && p.midBuy >= p.highBuy) {
+      coach = `Your current price of $${midC} hits the sweet spot — highest likelihood of purchase. This is the "Goldilocks" price: not too cheap, not too expensive, just right.`;
+    } else if (p.lowBuy > p.midBuy) {
+      coach = `For this type of product, a lower price like $${lowC} gets more buyers. Consider whether you can reduce costs to make that price work.`;
+    } else {
+      coach = `Customers for this product are willing to pay more. Your higher option at $${highC} could work if you clearly communicate quality.`;
+    }
+    document.getElementById('psych-coach-text').textContent = coach;
+  }
+
+  // PITCH BUILDER
+  function buildPitch() {
+    const name     = document.getElementById('pitch-name').value.trim();
+    const problem  = document.getElementById('pitch-problem').value.trim();
+    const solution = document.getElementById('pitch-solution').value.trim();
+    const customer = document.getElementById('pitch-customer').value.trim();
+    const price    = document.getElementById('pitch-price').value.trim();
+    const why      = document.getElementById('pitch-why').value.trim();
+    const ask      = document.getElementById('pitch-ask').value.trim();
+    const outputEl = document.getElementById('pitch-output');
+    if (!name && !problem && !solution) {
+      outputEl.innerHTML = `<div class="coach"><div class="coach-avatar">🧑‍🏫</div><div>Fill in your answers above and your pitch will appear here!</div></div>`;
+      return;
+    }
+    const lines = [];
+    if (name)     lines.push(`<div class="pitch-line"><strong>Hi, I'm the founder of ${name}.</strong></div>`);
+    if (problem)  lines.push(`<div class="pitch-line"><span style="opacity:0.6;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;">The Problem</span><br>${problem}.</div>`);
+    if (solution) lines.push(`<div class="pitch-line"><span style="opacity:0.6;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;">Our Solution</span><br>${solution}.</div>`);
+    if (customer) lines.push(`<div class="pitch-line"><span style="opacity:0.6;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;">Who We Serve</span><br>We serve ${customer}.</div>`);
+    if (price)    lines.push(`<div class="pitch-line"><span style="opacity:0.6;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;">Pricing</span><br>${price}.</div>`);
+    if (why)      lines.push(`<div class="pitch-line"><span style="opacity:0.6;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;">Why Us</span><br>${why}.</div>`);
+    if (ask)      lines.push(`<div class="pitch-line"><strong>${ask}.</strong></div>`);
+    const wc      = [problem,solution,customer,price,why,ask].join(' ').split(' ').filter(w=>w).length;
+    const seconds = Math.round(wc / 2.5);
+    const lenTag  = wc < 80 ? 'Great length ✅' : wc < 130 ? 'Good length 👍' : 'A bit long — try tightening ✂️';
+    let coach = '';
+    if (!problem || !solution) coach = 'A strong pitch always starts with a problem and a solution. Make sure both are clear and specific.';
+    else if (!ask)             coach = 'Great start! End with a clear ask — what do you want them to do right now?';
+    else if (wc > 130)         coach = 'Your pitch is a little long. Try to get under 100 words — every second counts when you\'re pitching.';
+    else                       coach = `Solid pitch${name ? ' for ' + name : ''}. Practice it out loud until it feels like a conversation, not a speech.`;
+    outputEl.innerHTML = `
+      <div class="pitch-output">${lines.join('')}</div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;">
+        <span class="tag pink-tag">~${seconds} seconds</span>
+        <span class="tag pink-tag">${lenTag}</span>
+      </div>
+      <div class="coach"><div class="coach-avatar">🧑‍🏫</div><div>${coach}</div></div>`;
+  }
+
+  // ======== ATOM LANDING ========
+
+  // ======== PITCH BUILDER STEPS ========
+  let pitchCurrentStep = 1;
+  const PITCH_TOTAL = 7;
+
+  function pitchNext() {
+    if (pitchCurrentStep === PITCH_TOTAL) {
+      buildPitch();
+      const nav = document.getElementById('pitch-module-next');
+      if (nav) nav.style.display = 'block';
+      const out = document.getElementById('pitch-output');
+      if (out) out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      return;
+    }
+    const cur = document.getElementById('ps-' + pitchCurrentStep);
+    if (cur) cur.classList.remove('active');
+    pitchCurrentStep++;
+    const next = document.getElementById('ps-' + pitchCurrentStep);
+    if (next) {
+      next.classList.add('active');
+      const inp = next.querySelector('input,textarea');
+      if (inp) setTimeout(() => inp.focus(), 80);
+    }
+    updatePitchNav();
+  }
+
+  function pitchPrev() {
+    if (pitchCurrentStep <= 1) return;
+    const cur = document.getElementById('ps-' + pitchCurrentStep);
+    if (cur) cur.classList.remove('active');
+    pitchCurrentStep--;
+    const prev = document.getElementById('ps-' + pitchCurrentStep);
+    if (prev) prev.classList.add('active');
+    updatePitchNav();
+  }
+
+  function updatePitchNav() {
+    const label = document.getElementById('pitch-step-label');
+    if (label) label.textContent = 'Step ' + pitchCurrentStep + ' of ' + PITCH_TOTAL;
+    const fill = document.getElementById('pitch-progress-fill');
+    if (fill) fill.style.width = Math.round((pitchCurrentStep / PITCH_TOTAL) * 100) + '%';
+    const prevBtn = document.getElementById('pitch-prev-btn');
+    if (prevBtn) prevBtn.style.display = pitchCurrentStep > 1 ? 'inline-flex' : 'none';
+    const nextBtn = document.getElementById('pitch-next-btn');
+    if (nextBtn) nextBtn.textContent = pitchCurrentStep === PITCH_TOTAL ? 'Build My Pitch! 🎤' : 'Next →';
+  }
+
+  // ======== MODULE NAVIGATION HELPER ========
+  function navToMLModule(mod) {
+    const order = ['brand','pitch','detective','hype'];
+    const idx = order.indexOf(mod);
+    const tabs = document.querySelectorAll('#screen-ml .fl-tab');
+    if (idx >= 0 && tabs[idx]) showMLModule(mod, tabs[idx]);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ======== BUSINESS DETECTIVE DATA ========
+  const detectiveData = {
+    product: {
+      label:'Food / Treats',
+      case: {
+        name:"Zoe's Zesty Lemonade", subtitle:'Food and Beverage Business',
+        story:"Zoe started selling fresh-squeezed lemonade at her neighborhood's outdoor movie nights. At first she thought everyone would want it — but she noticed half the crowd brought their own drinks. After paying attention, she realized her best customers were families with young kids who arrived early and stayed late.",
+        customerFind:"Zoe stopped trying to sell to everyone. She focused on families at community events — people who were already out, already in a fun mood, and already looking for something refreshing. She even added a mango flavor after asking kids what they wished lemonade tasted like.",
+        customerHighlight:"Her market: Families at outdoor community events — NOT people sitting at home.",
+        comp:"Zoe's competition was vending machines and store-bought canned drinks. They were convenient and cheap, but they couldn't offer fresh flavor, warmth, or a personal story. Zoe's edge was the experience — something cold, homemade, and made by a kid in the community. That combination is something no machine can replicate."
+      },
+      facts:[
+        {icon:'📈',title:'Specialty drinks outsell basic ones',body:'Flavored and craft beverages are one of the fastest-growing segments in the U.S. food market. Customers consistently pay 2 to 3 times more for a fresh, homemade drink than a canned one.'},
+        {icon:'🎯',title:'Limited flavors create excitement',body:'Research on consumer behavior shows that seasonal or limited-time offerings drive urgency. When people know a flavor will not be there next week, they buy it now.'},
+        {icon:'🌱',title:'Your story is a selling point',body:'Studies on youth entrepreneurship show that customers — especially in communities — are more likely to buy from a young entrepreneur they know. Your "made from scratch" story is a real competitive advantage.'},
+        {icon:'📦',title:'Packaging affects how people value your product',body:'Consumer research consistently shows that attractive, thoughtful packaging increases perceived value — even before someone tastes the product. A simple branded cup or label can make a real difference.'}
+      ]
+    },
+    craft: {
+      label:'Crafts / Art',
+      case: {
+        name:"Jordan's Custom Bracelets", subtitle:'Handmade Crafts Business',
+        story:"Jordan made beaded bracelets in school colors and sold them before games. They sold out every time — but when Jordan tried selling the same bracelets at a different school, almost nobody bought them. That was the lesson: the market was specific. It was not 'kids who like bracelets.' It was 'kids who want to show pride for their own school.'",
+        customerFind:"Jordan started making bracelets in each school's specific colors and letting buyers add name initials. Suddenly the product felt personal — and personal things are much harder to say no to.",
+        customerHighlight:"Her market: Students who want to show school spirit — NOT general jewelry shoppers.",
+        comp:"Jordan's competition was dollar store bracelets and mall jewelry. They were cheaper, but they were made for everyone — which meant they were made for no one in particular. Jordan's edge was that every bracelet was made for a specific person, school, or moment. Generic products cannot compete with that feeling."
+      },
+      facts:[
+        {icon:'✨',title:'Personalization drives sales',body:'Market research on handmade goods shows that customized products sell significantly faster than identical items without personalization. Buyers feel like it was made for them — because it was.'},
+        {icon:'🎁',title:'Gifting drives most craft purchases',body:'Studies show that over 60% of handmade craft purchases are made as gifts — for birthdays, holidays, or special occasions. Positioning your product as a great gift is a smart marketing move.'},
+        {icon:'🏷️',title:'"Made by a young entrepreneur" is a real selling point',body:'Research on consumer preferences shows that buyers — especially parents and community members — are more likely to purchase from youth-owned businesses when they know the story.'},
+        {icon:'📱',title:'Social media drives discoverability for handmade goods',body:'Short videos showing the creation process consistently outperform plain product photos in engagement. Showing how you make it connects customers to the work behind it.'}
+      ]
+    },
+    service: {
+      label:'A Service',
+      case: {
+        name:"Mason's Magic Suds", subtitle:'Pet Care Service — from the book!',
+        story:"You already know Mason. He washes dogs in his neighborhood and created a new detangling shampoo. His first instinct was to tell every dog owner about it — but then he did his research. Some dogs have short, smooth coats. They never get tangles. Magic Suds would mean nothing to their owners.",
+        customerFind:"Mason looked up which breeds have long hair that tangles easily — poodles, Afghan hounds, Yorkshire terriers, collies, cocker spaniels. Those were his people. He focused his message entirely on them.",
+        customerHighlight:"His market: Owners of long-haired dog breeds — NOT all dog owners.",
+        comp:"Mason's competition was professional groomers and pet stores. Groomers were thorough but expensive. Pet stores were convenient but sold generic products for all dogs. Mason's edge was specialization and personal service — he came to your home, knew your dog, and used a product made specifically for tangle-prone coats. That combination is something a grooming salon cannot easily offer."
+      },
+      facts:[
+        {icon:'🐾',title:'Pet care is a growing industry',body:'The U.S. pet grooming industry is valued at over $9 billion and grows every year. More pet owners are treating grooming as a regular expense — meaning steady, repeat customers for service providers.'},
+        {icon:'💰',title:'Specialization earns more',body:'Research on service businesses shows that specialists consistently charge more than generalists. A provider known for a specific skill builds stronger word-of-mouth and loyalty than one who does everything.'},
+        {icon:'🏠',title:'At-home services are in high demand',body:'Mobile and at-home pet grooming services are the fastest-growing segment of the industry, outpacing traditional salon-based grooming. Convenience is one of the top reasons customers switch providers.'},
+        {icon:'🌿',title:'Natural products command a price premium',body:'70% of pet owners in consumer surveys say they are willing to pay more for natural, eco-friendly, or specialized products. Positioning Magic Suds as a specialized solution — not just another shampoo — is a key pricing advantage.'}
+      ]
+    },
+    digital: {
+      label:'Digital / App',
+      case: {
+        name:"Aaliyah's Sticker Studio", subtitle:'Digital Products Business',
+        story:"Aaliyah designed sticker packs for messaging apps. She started with general designs — smiley faces, stars, hearts. They got some downloads but nothing exciting. Then she made a pack themed around her school's mascot as a test. It spread through her entire grade in two days.",
+        customerFind:"Aaliyah realized her market was not 'people who like stickers.' It was people who wanted something that reflected their specific world — their school, their hobby, their culture. She started making niche packs and each one found its audience faster than her generic ones ever did.",
+        customerHighlight:"Her market: Kids who want stickers that reflect their specific identity — NOT general emoji users.",
+        comp:"Aaliyah's competition was free emoji packs and generic sticker apps. They had lots of options, but nothing that felt personal or specific. Aaliyah's edge was niche — she made designs for communities that felt invisible everywhere else. When someone sees a sticker that looks like their world, they share it without being asked."
+      },
+      facts:[
+        {icon:'♾️',title:'Digital products cost almost nothing to reproduce',body:'Unlike physical products, digital goods can be sold unlimited times with no additional cost after creation. Every sale after your first few is nearly pure profit.'},
+        {icon:'🎯',title:'Niche designs consistently outsell generic ones',body:'Analysis of digital marketplace data shows that highly specific themed products — tied to a particular fandom, culture, sport, or community — outsell generic equivalents by a wide margin.'},
+        {icon:'👾',title:'Youth are a growing force in digital creation',body:'Research on the creator economy shows that people ages 10-18 are one of the fastest-growing groups of both digital content creators and buyers. Being young is an advantage — you understand the audience because you are the audience.'},
+        {icon:'🔍',title:'Discoverability is everything in digital markets',body:'For digital products, being found is often more important than the product itself. Consistent, niche-focused output builds visibility faster than occasional general releases.'}
+      ]
+    },
+    clothing: {
+      label:'Clothing',
+      case: {
+        name:"Marcus's Fresh Fits", subtitle:'Custom Clothing Business',
+        story:"Marcus used fabric paint and iron-on letters to customize plain t-shirts. He wore one to school and three people asked where he got it. When he said he made it, they immediately asked if he could make one for them. He realized the product was not just a shirt — it was the feeling of wearing something nobody else had.",
+        customerFind:"Marcus figured out his customer was not someone who needed a shirt. It was someone who wanted to feel one-of-a-kind. He started doing small drops — only three or four of each design — which made them feel rare and worth having.",
+        customerHighlight:"His market: Kids who want to express their unique identity — NOT people shopping for basic everyday clothes.",
+        comp:"Marcus's competition was fast fashion brands and custom print shops. Fast fashion was cheap but everyone had the same thing. Print shops were professional but required minimum orders of 20 or more. Marcus's edge was that he made truly one-of-a-kind pieces at an accessible price — and the scarcity of his small drops made them feel special in a way a store shelf never could."
+      },
+      facts:[
+        {icon:'🎨',title:'Personalized clothing is a fast-growing market',body:'The custom and personalized clothing market has grown significantly in recent years. Research shows that the desire for self-expression through clothing is a primary driver of purchase decisions for teens.'},
+        {icon:'🦄',title:'Teens want clothes nobody else has',body:'Consumer surveys show that 65% or more of teens prefer clothing that feels unique to them over mass-produced alternatives. The idea of wearing something "only I have" carries real value.'},
+        {icon:'⚡',title:'Scarcity drives demand',body:'Research on consumer psychology confirms that limited availability increases perceived desirability. Businesses that release small quantities consistently see faster sellouts and higher demand than those with unlimited stock.'},
+        {icon:'♻️',title:'Customized and upcycled clothing is trending',body:'Sustainable fashion research shows that customizing existing pieces — rather than buying new — is one of the fastest-growing trends among youth consumers. It combines creativity, sustainability, and uniqueness.'}
+      ]
+    },
+    other: {
+      label:'Something Else',
+      case: {
+        name:"Sofia's Study Squad", subtitle:'Tutoring and Teaching Business',
+        story:"Sofia was really good at math and started tutoring a younger student in her building for $5 a session. Word spread quickly. But she noticed something: parents kept asking her to cover every subject. When she tried, she felt scattered and her results slipped. She went back to just math and reading — what she was great at — and her reputation got even stronger.",
+        customerFind:"Sofia's best customers were not students who were doing fine. They were students in grades 2 through 5 who were falling behind specifically in math or reading, and parents who wanted affordable, personal help — not expensive tutoring centers. That specificity made her the obvious choice for that group.",
+        customerHighlight:"Her market: Students falling behind in math or reading, ages 7-11 — NOT students who already excel.",
+        comp:"Sofia's competition was professional tutoring centers and YouTube tutorials. Centers were structured but charged $40-80 per hour. YouTube was free but completely impersonal. Sofia's edge was the combination of affordability, a personal relationship, and a targeted focus on exactly what the student needed. Neither a center nor a video could replicate that combination."
+      },
+      facts:[
+        {icon:'🤝',title:'Peer tutoring produces strong results',body:'Educational research consistently shows that peer-to-peer tutoring can be highly effective. Studies have found that it improves outcomes for both the student being helped and the tutor themselves.'},
+        {icon:'💸',title:'Affordable tutoring is in high demand',body:'Market research shows a significant gap between the cost of professional tutoring ($40-80 per hour on average) and what many families can afford. Youth tutors who offer sessions at accessible prices fill a real need.'},
+        {icon:'🧮',title:'STEM subjects have the highest demand',body:'Education industry research consistently identifies math and science as the subjects with the greatest demand for tutoring and supplemental support.'},
+        {icon:'⏱️',title:'Shorter sessions work better for young learners',body:'Research on learning retention shows that focused sessions of 30 to 45 minutes produce better outcomes for children ages 7-12 than longer sessions. Short and focused is both more effective and easier to schedule.'}
+      ]
+    }
+  };
+
+  let detCategory = '';
+
+  function detectivePick(btn, category) {
+    document.querySelectorAll('#ml-detective .choice-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    detCategory = category;
+    const d = detectiveData[category];
+    const c = d.case;
+
+    document.getElementById('det-case-box').innerHTML = `
+      <div class="case-name">${c.name}</div>
+      <div class="case-subtitle">${c.subtitle}</div>
+      <div class="case-section">
+        <div class="case-section-label">The Business</div>
+        <div class="case-body">${c.story}</div>
+      </div>
+      <div class="case-section">
+        <div class="case-section-label">Who They Targeted</div>
+        <div class="case-body">${c.customerFind}</div>
+        <div class="case-highlight">🔍 ${c.customerHighlight}</div>
+      </div>`;
+
+    document.getElementById('det-fact-grid').innerHTML = d.facts.map(f =>
+      `<div class="det-fact-card"><div class="det-fact-icon">${f.icon}</div><div><div class="det-fact-title">${f.title}</div><div class="det-fact-body">${f.body}</div></div></div>`
+    ).join('');
+
+    document.getElementById('det-comp-box').innerHTML = `
+      <div class="case-section">
+        <div class="case-section-label">How ${c.name.split("'")[0]} Found Their Edge</div>
+        <div class="case-body">${c.comp}</div>
+      </div>`;
+
+    document.getElementById('det-summary-box').innerHTML = `
+      <div class="detective-tip-box">
+        💡 <strong>The big idea:</strong> ${c.name.split("'")[0]} didn't try to sell to everyone. They found the specific group of people who needed what they had most — and built their whole message around them. That's the detective work every great marketer does.
+      </div>`;
+
+    document.getElementById('det-content').style.display = 'block';
+    document.getElementById('det-module-nav').style.display = 'block';
+    setTimeout(() => {
+      document.getElementById('det-content').scrollIntoView({ behavior:'smooth', block:'start' });
+    }, 100);
+  }
+
+  function detectiveReset() {
+    detCategory = '';
+    document.querySelectorAll('#ml-detective .choice-btn').forEach(b => b.classList.remove('selected'));
+    const content = document.getElementById('det-content');
+    const nav = document.getElementById('det-module-nav');
+    if (content) content.style.display = 'none';
+    if (nav) nav.style.display = 'none';
+  }
+
+  // ======== MARKETING REPORT ========
+  function generateMarketingReport() {
+    const brandName    = (document.getElementById('brand-name')    || {}).value || '';
+    const brandTagline = (document.getElementById('brand-tagline') || {}).value || '';
+    const brandVibe    = mlState['brand-vibe']   || '';
+    const brandColors  = mlState['brand-colors'] || '';
+    const pitchName     = (document.getElementById('pitch-name')     || {}).value || '';
+    const pitchProblem  = (document.getElementById('pitch-problem')  || {}).value || '';
+    const pitchSolution = (document.getElementById('pitch-solution') || {}).value || '';
+    const pitchCustomer = (document.getElementById('pitch-customer') || {}).value || '';
+    const pitchPrice    = (document.getElementById('pitch-price')    || {}).value || '';
+    const pitchWhy      = (document.getElementById('pitch-why')      || {}).value || '';
+    const pitchAsk      = (document.getElementById('pitch-ask')      || {}).value || '';
+    const _sel = (g) => Array.from(document.querySelectorAll(`.choice-btn.selected[data-group="${g}"]`)).map(b => b.dataset.value);
+    const hypePlatforms = _sel('hype-platform');
+    const hypeFormats   = _sel('hype-format');
+    const hypeDays      = _sel('hype-day');
+    const hypeTimes     = _sel('hype-time');
+    const hypePlatform = hypePlatforms.join(', ');
+    const hypeFormat   = hypeFormats.join(', ');
+    const hypeDay      = hypeDays.map(d => ({mon:'Monday',tue:'Tuesday',wed:'Wednesday',thu:'Thursday',fri:'Friday',sat:'Saturday',sun:'Sunday'}[d]||d)).join(', ');
+    const hypeTime     = hypeTimes.map(t => ({earlymorning:'Early Morning (6-9 AM)',morning:'Morning (9 AM-12 PM)',afternoon:'Afternoon (12-4 PM)',evening:'Evening (4-9 PM)',latenight:'Late Night (9 PM+)'}[t]||t)).join(', ');
+    const dayLabels  = {mon:'Monday',tue:'Tuesday',wed:'Wednesday',thu:'Thursday',fri:'Friday',sat:'Saturday',sun:'Sunday'};
+    const timeLabels = {earlymorning:'Early Morning (6-9 AM)',morning:'Morning (9 AM-12 PM)',afternoon:'Afternoon (12-4 PM)',evening:'Evening (4-9 PM)',latenight:'Late Night (9 PM+)'};
+    const nameDisplay = brandName || pitchName || 'Your Business';
+    const hasAny = brandName || pitchProblem || detCategory || hypePlatform;
+    let pitchText = '';
+    if (pitchProblem && pitchSolution) {
+      pitchText = `Hi! I'm the founder of ${pitchName || nameDisplay}. ${pitchProblem}. That's why I created ${pitchSolution}${pitchCustomer ? ' — perfect for ' + pitchCustomer : ''}. ${pitchPrice ? 'You can get started for ' + pitchPrice + '.' : ''} ${pitchWhy ? 'What makes me different: ' + pitchWhy + '.' : ''} ${pitchAsk || ''}`.trim();
+    }
+    const detData  = detCategory ? detectiveData[detCategory] : null;
+    document.getElementById('mreport-content').innerHTML = `
+      <div class="mreport-card">
+        <div style="text-align:center;margin-bottom:24px;">
+          <div style="font-size:40px;margin-bottom:8px;">📋</div>
+          <div style="font-size:22px;font-weight:900;color:var(--ebook-blue);">${nameDisplay}</div>
+          ${brandTagline ? `<div style="font-size:14px;color:var(--text-muted);margin-top:6px;font-style:italic;">"${brandTagline}"</div>` : ''}
+        </div>
+
+        <div class="mreport-section">
+          <div class="mreport-label">🎨 Brand Identity</div>
+          ${(brandVibe || brandColors)
+            ? `<div class="mreport-value">${brandVibe ? '<span class="mreport-tag">' + brandVibe + '</span>' : ''}${brandColors ? '<span class="mreport-tag">' + brandColors + ' palette</span>' : ''}</div>`
+            : `<div class="mreport-value muted">Complete Brand Builder to add your brand identity.</div>`}
+        </div>
+
+        <div class="mreport-section">
+          <div class="mreport-label">🎤 Your Elevator Pitch</div>
+          ${pitchText
+            ? `<div class="mreport-pitch-block">${pitchText}</div>`
+            : `<div class="mreport-value muted">Complete Pitch Builder to add your elevator pitch.</div>`}
+        </div>
+
+        <div class="mreport-section">
+          <div class="mreport-label">🔍 Market Research</div>
+          ${detData
+            ? `<div class="mreport-value">Explored: <strong>${detData.label}</strong> — studied the example of <strong>${detData.case.name}</strong>.<br><span style="font-size:13px;color:var(--text-muted);">${detData.case.customerHighlight}</span></div>`
+            : `<div class="mreport-value muted">Complete Business Detective to add your market research.</div>`}
+        </div>
+
+        <div class="mreport-section">
+          <div class="mreport-label">🔥 Content Strategy</div>
+          ${hypePlatform
+            ? `<div class="mreport-value">${hypePlatform ? '<span class="mreport-tag">' + hypePlatform + '</span>' : ''}${hypeFormat ? '<span class="mreport-tag">' + hypeFormat + '</span>' : ''}${hypeDay ? '<span class="mreport-tag">Post ' + (dayLabels[hypeDay] || hypeDay) + '</span>' : ''}${hypeTime ? '<span class="mreport-tag">' + (timeLabels[hypeTime] || hypeTime) + '</span>' : ''}</div>`
+            : `<div class="mreport-value muted">Complete Hype Machine to add your content strategy.</div>`}
+        </div>
+      </div>
+      <div class="coach" style="margin-bottom:24px;">
+        <div class="coach-avatar">🧑‍🏫</div>
+        <div>${hasAny
+          ? 'This is your marketing foundation. The more complete each section is, the stronger your plan becomes. Keep going!'
+          : 'Go back through all four modules and fill in your answers — your full marketing plan will appear here!'
+        }</div>
+      </div>`;
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById('screen-mreport').classList.add('active');
+    window.scrollTo({ top:0, behavior:'smooth' });
+  }
+
+</script>
+</body>
+</html>
