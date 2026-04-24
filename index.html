@@ -1382,6 +1382,7 @@
       margin: 0 auto;
       border-radius: 16px;
       overflow: hidden;
+      cursor: pointer;
     }
     .video-wrapper video {
       width: 100%;
@@ -1391,18 +1392,31 @@
       border-radius: 16px;
     }
     .video-wrapper video::-webkit-media-controls {
-      opacity: 0;
-      transition: opacity 0.3s ease;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
     }
     .video-wrapper:hover video::-webkit-media-controls {
-      opacity: 1;
+      opacity: 1 !important;
+      visibility: visible !important;
     }
     .video-wrapper video::-webkit-media-controls-enclosure {
-      opacity: 0;
-      transition: opacity 0.3s ease;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
     }
     .video-wrapper:hover video::-webkit-media-controls-enclosure {
-      opacity: 1;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+    .video-wrapper video::-webkit-media-controls-panel {
+      opacity: 0 !important;
+      visibility: hidden !important;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .video-wrapper:hover video::-webkit-media-controls-panel {
+      opacity: 1 !important;
+      visibility: visible !important;
     }
     .research-video-wrapper {
       width: 100%;
@@ -1422,18 +1436,31 @@
       border-radius: 16px;
     }
     .research-video-wrapper video::-webkit-media-controls {
-      opacity: 0;
-      transition: opacity 0.3s ease;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
     }
     .research-video-wrapper:hover video::-webkit-media-controls {
-      opacity: 1;
+      opacity: 1 !important;
+      visibility: visible !important;
     }
     .research-video-wrapper video::-webkit-media-controls-enclosure {
-      opacity: 0;
-      transition: opacity 0.3s ease;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
     }
     .research-video-wrapper:hover video::-webkit-media-controls-enclosure {
-      opacity: 1;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+    .research-video-wrapper video::-webkit-media-controls-panel {
+      opacity: 0 !important;
+      visibility: hidden !important;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .research-video-wrapper:hover video::-webkit-media-controls-panel {
+      opacity: 1 !important;
+      visibility: visible !important;
     }
     </style>
   </head>
