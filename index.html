@@ -917,7 +917,11 @@
       /* PAGE 14 */
       .p14-bg {
         background: #EBF5FF;
-        min-height: 560px;
+        min-height: 80vw;
+        max-height: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
 
       /* IMAGE POLISH */
@@ -1618,12 +1622,7 @@
       <div class="section" id="takeoff">
         <div class="page-card">
           <div class="pad" style="background: #f4fbf4">
-            <div style="margin-bottom: 22px">
-              <div class="takeoff-header">
-                <span style="font-size: 2.2rem">🌍</span>
-                <h2>Time for Takeoff!</h2>
-              </div>
-            </div>
+            <img src="assets/takeoff.png" style="width:100%;display:block;border-radius:12px;margin-bottom:22px;mix-blend-mode:multiply;" alt="Time for Takeoff"/>
             <div class="quicktip">
               <div
                 style="
@@ -2275,7 +2274,7 @@
               align-items: center;
               justify-content: center;
               text-align: center;
-              min-height: 520px;
+              flex: 1;
             "
           >
             <div style="background:white;border:2.5px solid #43A047;border-radius:30px;padding:10px 28px;display:inline-block;font-family:var(--font-heading);color:#43A047;font-size:1.1rem;margin-bottom:28px;">
