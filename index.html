@@ -916,7 +916,7 @@
 
       /* PAGE 14 */
       .p14-bg {
-        background: #dbeafe;
+        background: #EBF5FF;
         min-height: 560px;
       }
 
@@ -1462,6 +1462,41 @@
       opacity: 1 !important;
       visibility: visible !important;
     }
+    .wrap-video-wrapper {
+      width: 100%;
+      max-width: 480px;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border-radius: 16px;
+      margin: 0 auto;
+    }
+    .wrap-video-wrapper video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+      background: transparent;
+      border-radius: 16px;
+    }
+    .wrap-video-wrapper video::-webkit-media-controls {
+      opacity: 0 !important;
+      visibility: hidden !important;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .wrap-video-wrapper:hover video::-webkit-media-controls {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+    .wrap-video-wrapper video::-webkit-media-controls-enclosure {
+      opacity: 0 !important;
+      visibility: hidden !important;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .wrap-video-wrapper:hover video::-webkit-media-controls-enclosure {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
     </style>
   </head>
   <body>
@@ -1671,19 +1706,11 @@
       <!-- PAGE 4 – DESTINATION 1: MESSAGE -->
       <div class="section" id="message">
         <div class="page-card">
-          <!-- Red Chinese destination header -->
-          <div style="background:linear-gradient(90deg,#B71C1C,#C62828);padding:18px 24px;text-align:center;font-family:var(--font-heading);color:white;font-size:1.3rem;border-radius:20px 20px 0 0;">
-            🏮 Welcome to your 1st destination! 🏮
+          <img src="assets/page4.png" style="width:100%;display:block;border-radius:20px 20px 0 0;" alt="Message"/>
+          <div style="background:white;padding:8px 24px 20px;text-align:center;">
+            <span style="font-family:var(--font-heading);font-size:clamp(2.4rem,7vw,4rem);color:#C62828;">Message</span>
           </div>
           <div class="pad">
-            <!-- Chat bubble icon -->
-            <div style="text-align:center;font-size:2.8rem;margin-bottom:4px;">💬</div>
-            <!-- Decorative border + Message word -->
-            <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:20px;">
-              <span style="font-size:0.75rem;letter-spacing:1px;color:#888;">回回回回回回回回回回回回</span>
-              <span style="font-family:var(--font-heading);font-size:clamp(2.4rem,7vw,4rem);color:#C62828;">Message</span>
-              <span style="font-size:0.75rem;letter-spacing:1px;color:#888;">回回回回回回回回回回回回</span>
-            </div>
             <!-- Intro paragraph -->
             <p>Our journey starts with <span style="color:#E65100;font-weight:800;">your message</span>. Your message should state <strong>what</strong> you are offering, <strong>why</strong> you're offering it and <strong>who</strong> benefits from it. It is relaying the value of your business's products or services in a way that best appeals to the potential customer.</p>
             <!-- Quote block -->
@@ -1759,19 +1786,11 @@
       <!-- PAGE 6 – DESTINATION 2: MARKET -->
       <div class="section" id="market">
         <div class="page-card" style="background:#FAF0DC;">
-          <!-- African destination header -->
-          <div style="background:linear-gradient(90deg,#5D4037,#8D6E63);padding:18px 24px;text-align:center;font-family:var(--font-heading);color:white;font-size:1.3rem;border-radius:20px 20px 0 0;">
-            🌍 You're now on your 2nd destination! 🐘
+          <img src="assets/page6.png" style="width:100%;display:block;border-radius:20px 20px 0 0;" alt="Market"/>
+          <div style="background:#FAF0DC;padding:8px 24px 20px;text-align:center;">
+            <span style="font-family:var(--font-heading);font-size:clamp(2.4rem,7vw,4rem);color:#C17A3A;">Market</span>
           </div>
           <div class="pad" style="background:#FAF0DC;">
-            <!-- Target icon -->
-            <div style="text-align:center;font-size:2.8rem;margin-bottom:4px;">🎯</div>
-            <!-- Decorative border + Market word -->
-            <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:20px;">
-              <span style="font-size:0.8rem;color:#C17A3A;letter-spacing:2px;">«•»»×•»»×««•»»×•»</span>
-              <span style="font-family:var(--font-heading);font-size:clamp(2.4rem,7vw,4rem);color:#C17A3A;">Market</span>
-              <span style="font-size:0.8rem;color:#C17A3A;letter-spacing:2px;">«•»»×•»»×««•»»×•»</span>
-            </div>
             <!-- Italic quote -->
             <div style="border-left:5px solid #F44336;background:#FFF5F5;padding:16px 20px;border-radius:0 12px 12px 0;margin:0 0 20px;font-style:italic;font-weight:800;color:#C62828;font-size:1.05rem;">
               To be successful, businesses must identify a specific audience or market based on shared traits, needs, and behaviors.
@@ -1965,17 +1984,6 @@
                 "
               >
                 <h3 style="margin-bottom: 0">Be a Business Detective!</h3>
-                <img
-                  src="assets/mason-detective.png"
-                  alt="Detective hat"
-                  style="
-                    width: 140px;
-                    min-width: 100px;
-                    object-fit: contain;
-                    filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.1));
-                    flex-shrink: 0;
-                  "
-                />
               </div>
               <p>
                 Think of yourself as a detective for your business. Instead of
@@ -2028,19 +2036,11 @@
       <!-- PAGE 10 – DESTINATION 3: MOMENT -->
       <div class="section" id="moment">
         <div class="page-card">
-          <!-- London cherry blossom destination header -->
-          <div style="background:linear-gradient(90deg,#0277BD,#29B6F6);padding:18px 24px;text-align:center;font-family:var(--font-heading);color:white;font-size:1.3rem;border-radius:20px 20px 0 0;">
-            🌸 You made it to your 3rd destination! 🌸
+          <img src="assets/page10.png" style="width:100%;display:block;border-radius:20px 20px 0 0;" alt="Moment"/>
+          <div style="background:white;padding:8px 24px 20px;text-align:center;">
+            <span style="font-family:var(--font-heading);font-size:clamp(2.4rem,7vw,4rem);color:#1565C0;">Moment</span>
           </div>
           <div class="pad">
-            <!-- Calendar clock icon -->
-            <div style="text-align:center;font-size:2.8rem;margin-bottom:6px;">📅</div>
-            <!-- Dashes + Moment word -->
-            <div style="display:flex;align-items:center;gap:8px;margin:8px 0 20px;">
-              <div style="flex:1;height:5px;background:#1565C0;border-radius:4px;"></div>
-              <span style="font-family:var(--font-heading);font-size:clamp(2.4rem,7vw,4rem);color:#1565C0;white-space:nowrap;">Moment</span>
-              <div style="flex:1;height:5px;background:#1565C0;border-radius:4px;"></div>
-            </div>
             <p>You now know about your message, and who to give your message to, now let's discover <span style="color:#43A047;font-weight:800;">when</span> you should deliver that message.</p>
             <!-- Quote block -->
             <div style="border-left:5px solid #1565C0;background:#EBF5FF;padding:16px 20px;border-radius:0 12px 12px 0;margin:20px 0;font-style:italic;font-weight:700;font-size:1.05rem;color:#1565C0;">
@@ -2073,7 +2073,7 @@
       <!-- PAGE 11 – MAXIMIZING YOUR MOMENT -->
       <div class="section" id="maximize">
         <div class="page-card">
-          <div style="background:transparent;padding:0;display:flex;justify-content:center;align-items:center;">
+          <div style="background:transparent;padding:32px 28px 8px 28px;display:flex;justify-content:center;align-items:center;">
             <div class="video-wrapper">
               <video
                 id="question-video"
@@ -2167,7 +2167,7 @@
       <div class="section" id="wrap">
         <div class="page-card p13-bg">
           <div style="background:transparent;padding:20px 28px 0 28px;display:flex;justify-content:center;align-items:center;">
-            <div class="video-wrapper">
+            <div class="wrap-video-wrapper">
               <video
                 id="sleeping-video"
                 controls
@@ -2278,23 +2278,8 @@
               min-height: 520px;
             "
           >
-            <div
-              style="
-                border: 3px solid #22c55e;
-                border-radius: 30px;
-                padding: 10px 28px;
-                margin-bottom: 28px;
-                display: inline-block;
-              "
-            >
-              <span
-                style="
-                  font-family: var(--font-heading);
-                  color: #22c55e;
-                  font-size: 1.2rem;
-                "
-                >You've completed part one!</span
-              >
+            <div style="background:white;border:2.5px solid #43A047;border-radius:30px;padding:10px 28px;display:inline-block;font-family:var(--font-heading);color:#43A047;font-size:1.1rem;margin-bottom:28px;">
+              You've completed part one!
             </div>
             <div style="font-size: 5.5rem; margin-bottom: 16px; line-height: 1">
               🏅
