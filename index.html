@@ -916,7 +916,7 @@
 
       /* PAGE 14 */
       .p14-bg {
-        background: #EBF5FF;
+        background: #ebf5ff;
         min-height: 80vw;
         max-height: none;
         display: flex;
@@ -1125,7 +1125,7 @@
         position: fixed;
         inset: 0;
         z-index: 2000;
-        background: rgba(0,0,0,0.6);
+        background: rgba(0, 0, 0, 0.6);
         align-items: center;
         justify-content: center;
       }
@@ -1376,136 +1376,168 @@
         border: none;
         display: block;
       }
-    #mason-video {
-      cursor: pointer;
-    }
-    .video-wrapper {
-      position: relative;
-      width: 40%;
-      max-width: 220px;
-      margin: 0 auto;
-      border-radius: 16px;
-      overflow: hidden;
-      cursor: pointer;
-    }
-    .video-wrapper video {
-      width: 100%;
-      height: auto;
-      display: block;
-      background: transparent;
-      border-radius: 16px;
-    }
-    .video-wrapper video::-webkit-media-controls {
-      opacity: 0 !important;
-      visibility: hidden !important;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-    }
-    .video-wrapper:hover video::-webkit-media-controls {
-      opacity: 1 !important;
-      visibility: visible !important;
-    }
-    .video-wrapper video::-webkit-media-controls-enclosure {
-      opacity: 0 !important;
-      visibility: hidden !important;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-    }
-    .video-wrapper:hover video::-webkit-media-controls-enclosure {
-      opacity: 1 !important;
-      visibility: visible !important;
-    }
-    .video-wrapper video::-webkit-media-controls-panel {
-      opacity: 0 !important;
-      visibility: hidden !important;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-    }
-    .video-wrapper:hover video::-webkit-media-controls-panel {
-      opacity: 1 !important;
-      visibility: visible !important;
-    }
-    .research-video-wrapper {
-      width: 100%;
-      max-width: 420px;
-      aspect-ratio: 4 / 6;
-      overflow: hidden;
-      border-radius: 16px;
-      margin: 0 auto;
-    }
-    .research-video-wrapper video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
-      background: transparent;
-      border-radius: 16px;
-    }
-    .research-video-wrapper video::-webkit-media-controls {
-      opacity: 0 !important;
-      visibility: hidden !important;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-    }
-    .research-video-wrapper:hover video::-webkit-media-controls {
-      opacity: 1 !important;
-      visibility: visible !important;
-    }
-    .research-video-wrapper video::-webkit-media-controls-enclosure {
-      opacity: 0 !important;
-      visibility: hidden !important;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-    }
-    .research-video-wrapper:hover video::-webkit-media-controls-enclosure {
-      opacity: 1 !important;
-      visibility: visible !important;
-    }
-    .research-video-wrapper video::-webkit-media-controls-panel {
-      opacity: 0 !important;
-      visibility: hidden !important;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-    }
-    .research-video-wrapper:hover video::-webkit-media-controls-panel {
-      opacity: 1 !important;
-      visibility: visible !important;
-    }
-    .wrap-video-wrapper {
-      width: 100%;
-      max-width: 480px;
-      aspect-ratio: 1 / 1;
-      overflow: hidden;
-      border-radius: 16px;
-      margin: 0 auto;
-    }
-    .wrap-video-wrapper video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center center;
-      display: block;
-      background: transparent;
-      border-radius: 16px;
-    }
-    .wrap-video-wrapper video::-webkit-media-controls {
-      opacity: 0 !important;
-      visibility: hidden !important;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-    }
-    .wrap-video-wrapper:hover video::-webkit-media-controls {
-      opacity: 1 !important;
-      visibility: visible !important;
-    }
-    .wrap-video-wrapper video::-webkit-media-controls-enclosure {
-      opacity: 0 !important;
-      visibility: hidden !important;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-    }
-    .wrap-video-wrapper:hover video::-webkit-media-controls-enclosure {
-      opacity: 1 !important;
-      visibility: visible !important;
-    }
+      #mason-video {
+        cursor: pointer;
+      }
+      .video-wrapper {
+        position: relative;
+        width: 40%;
+        max-width: 220px;
+        margin: 0 auto;
+        border-radius: 16px;
+        overflow: hidden;
+        cursor: pointer;
+      }
+      .video-wrapper video {
+        width: 100%;
+        height: auto;
+        display: block;
+        background: transparent;
+        border-radius: 16px;
+      }
+      .video-wrapper video::-webkit-media-controls {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        transition:
+          opacity 0.3s ease,
+          visibility 0.3s ease;
+      }
+      .video-wrapper:hover video::-webkit-media-controls {
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+      .video-wrapper video::-webkit-media-controls-enclosure {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        transition:
+          opacity 0.3s ease,
+          visibility 0.3s ease;
+      }
+      .video-wrapper:hover video::-webkit-media-controls-enclosure {
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+      .video-wrapper video::-webkit-media-controls-panel {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        transition:
+          opacity 0.3s ease,
+          visibility 0.3s ease;
+      }
+      .video-wrapper:hover video::-webkit-media-controls-panel {
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+      .research-video-wrapper {
+        width: 100%;
+        max-width: 420px;
+        aspect-ratio: 4 / 6;
+        overflow: hidden;
+        border-radius: 16px;
+        margin: 0 auto;
+      }
+      .research-video-wrapper video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
+        background: transparent;
+        border-radius: 16px;
+      }
+      .research-video-wrapper video::-webkit-media-controls {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        transition:
+          opacity 0.3s ease,
+          visibility 0.3s ease;
+      }
+      .research-video-wrapper:hover video::-webkit-media-controls {
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+      .research-video-wrapper video::-webkit-media-controls-enclosure {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        transition:
+          opacity 0.3s ease,
+          visibility 0.3s ease;
+      }
+      .research-video-wrapper:hover video::-webkit-media-controls-enclosure {
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+      .research-video-wrapper video::-webkit-media-controls-panel {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        transition:
+          opacity 0.3s ease,
+          visibility 0.3s ease;
+      }
+      .research-video-wrapper:hover video::-webkit-media-controls-panel {
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+      .wrap-video-wrapper {
+        width: 100%;
+        max-width: 480px;
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+        border-radius: 16px;
+        margin: 0 auto;
+      }
+      .wrap-video-wrapper video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+        display: block;
+        background: transparent;
+        border-radius: 16px;
+      }
+      .wrap-video-wrapper video::-webkit-media-controls {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        transition:
+          opacity 0.3s ease,
+          visibility 0.3s ease;
+      }
+      .wrap-video-wrapper:hover video::-webkit-media-controls {
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+      .wrap-video-wrapper video::-webkit-media-controls-enclosure {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        transition:
+          opacity 0.3s ease,
+          visibility 0.3s ease;
+      }
+      .wrap-video-wrapper:hover video::-webkit-media-controls-enclosure {
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+      @media print {
+        * { visibility: hidden !important; }
+        #answers-summary, #answers-summary * { visibility: visible !important; }
+        #answers-summary {
+          position: fixed !important;
+          top: 0 !important;
+          left: 0 !important;
+          width: 100% !important;
+          display: block !important;
+          box-shadow: none !important;
+          border: none !important;
+          z-index: 99999 !important;
+          background: white !important;
+        }
+        #get-report-btn { display: none !important; visibility: hidden !important; }
+      }
     </style>
   </head>
   <body>
     <nav class="topnav">
-      <div class="topnav-title">📚 Mason's Marketing Adventure</div>
+      <div class="topnav-title">📚 What in the World is Marketing?</div>
       <div class="topnav-links">
         <a href="#" data-page="0">Cover</a>
         <a href="#" data-page="1">Meet Mason</a>
@@ -1548,7 +1580,15 @@
             <h2>Meet Mason</h2>
             <span style="font-size: 2.4rem">✅</span>
           </div>
-          <div style="background:transparent;padding:20px 28px 0 28px;display:flex;justify-content:center;align-items:center;">
+          <div
+            style="
+              background: transparent;
+              padding: 20px 28px 0 28px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            "
+          >
             <div class="video-wrapper">
               <video
                 id="mason-video"
@@ -1561,8 +1601,17 @@
                 Your browser does not support video playback.
               </video>
             </div>
-            <div id="video-error" style="display:none; color:red; margin-top:8px; font-size:0.9rem;">
-              ⚠️ Video could not be loaded. Make sure the file is in the assets folder.
+            <div
+              id="video-error"
+              style="
+                display: none;
+                color: red;
+                margin-top: 8px;
+                font-size: 0.9rem;
+              "
+            >
+              ⚠️ Video could not be loaded. Make sure the file is in the assets
+              folder.
             </div>
           </div>
           <div class="pad">
@@ -1622,7 +1671,17 @@
       <div class="section" id="takeoff">
         <div class="page-card">
           <div class="pad" style="background: #f4fbf4">
-            <img src="assets/takeoff.png" style="width:100%;display:block;border-radius:12px;margin-bottom:22px;mix-blend-mode:multiply;" alt="Time for Takeoff"/>
+            <img
+              src="assets/takeoff.png"
+              style="
+                width: 100%;
+                display: block;
+                border-radius: 12px;
+                margin-bottom: 22px;
+                mix-blend-mode: multiply;
+              "
+              alt="Time for Takeoff"
+            />
             <div class="quicktip">
               <div
                 style="
@@ -1705,36 +1764,202 @@
       <!-- PAGE 4 – DESTINATION 1: MESSAGE -->
       <div class="section" id="message">
         <div class="page-card">
-          <img src="assets/page4.png" style="width:100%;display:block;border-radius:20px 20px 0 0;" alt="Message" onerror="this.onerror=null;this.src='assets/page-04-message.png';" />
-          <div style="background:white;padding:8px 24px 20px;text-align:center;">
-            <span style="font-family:var(--font-heading);font-size:clamp(2.4rem,7vw,4rem);color:#C62828;">Message</span>
+          <img
+            src="assets/page4.png"
+            style="width: 100%; display: block; border-radius: 20px 20px 0 0"
+            alt="Message"
+            onerror="
+              this.onerror = null;
+              this.src = 'assets/page-04-message.png';
+            "
+          />
+          <div
+            style="
+              background: white;
+              padding: 8px 24px 20px;
+              text-align: center;
+            "
+          >
+            <span
+              style="
+                font-family: var(--font-heading);
+                font-size: clamp(2.4rem, 7vw, 4rem);
+                color: #c62828;
+              "
+              >Message</span
+            >
           </div>
           <div class="pad">
             <!-- Intro paragraph -->
-            <p>Our journey starts with <span style="color:#E65100;font-weight:800;">your message</span>. Your message should state <strong>what</strong> you are offering, <strong>why</strong> you're offering it and <strong>who</strong> benefits from it. It is relaying the value of your business's products or services in a way that best appeals to the potential customer.</p>
+            <p>
+              Our journey starts with
+              <span style="color: #e65100; font-weight: 800">your message</span
+              >. Your message should state <strong>what</strong> you are
+              offering, <strong>why</strong> you're offering it and
+              <strong>who</strong> benefits from it. It is relaying the value of
+              your business's products or services in a way that best appeals to
+              the potential customer.
+            </p>
             <!-- Quote block -->
-            <div style="border-left:5px solid #E65100;background:#FFF8F0;padding:16px 20px;border-radius:0 12px 12px 0;margin:20px 0;font-style:italic;font-weight:700;font-size:1.05rem;color:#E65100;">
-              "You don't need more content. You need a clearer message." — <em>Unknown</em>
+            <div
+              style="
+                border-left: 5px solid #e65100;
+                background: #fff8f0;
+                padding: 16px 20px;
+                border-radius: 0 12px 12px 0;
+                margin: 20px 0;
+                font-style: italic;
+                font-weight: 700;
+                font-size: 1.05rem;
+                color: #e65100;
+              "
+            >
+              "You don't need more content. You need a clearer message." —
+              <em>Unknown</em>
             </div>
             <!-- How do you know heading -->
-            <h3 style="color:#C62828;font-family:var(--font-heading);font-size:1.2rem;margin-bottom:10px;">How do you know it's the right message?</h3>
-            <p>It's all about what you say and how you say it. Above all, it should tell the people who are most likely to buy your product or service why they should care about it.</p>
-            <p>Think about a product or service that you wouldn't buy. Why wouldn't you buy it? Maybe because it's not something that matters to you. In Mason's dog washing business, he's not going to share the message about his Magic Suds with someone with no dog, but he would to someone with a dog. And, after learning about his customers' dog's needs, he might tell them all about why his shampoo is their answer.</p>
-            <p>That's how you determine that your message is right. It must appeal to the people who are most likely to buy your product, and tell how it meets their needs.</p>
-            <p>To make sure your message is the RIGHT one, <span style="color:#E65100;font-weight:800;">the message should be:</span></p>
+            <h3
+              style="
+                color: #c62828;
+                font-family: var(--font-heading);
+                font-size: 1.2rem;
+                margin-bottom: 10px;
+              "
+            >
+              How do you know it's the right message?
+            </h3>
+            <p>
+              It's all about what you say and how you say it. Above all, it
+              should tell the people who are most likely to buy your product or
+              service why they should care about it.
+            </p>
+            <p>
+              Think about a product or service that you wouldn't buy. Why
+              wouldn't you buy it? Maybe because it's not something that matters
+              to you. In Mason's dog washing business, he's not going to share
+              the message about his Magic Suds with someone with no dog, but he
+              would to someone with a dog. And, after learning about his
+              customers' dog's needs, he might tell them all about why his
+              shampoo is their answer.
+            </p>
+            <p>
+              That's how you determine that your message is right. It must
+              appeal to the people who are most likely to buy your product, and
+              tell how it meets their needs.
+            </p>
+            <p>
+              To make sure your message is the RIGHT one,
+              <span style="color: #e65100; font-weight: 800"
+                >the message should be:</span
+              >
+            </p>
             <!-- Checklist -->
-            <div style="margin:16px 0;border-top:1px solid #eee;">
-              <div style="display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid #eee;">
-                <div style="width:36px;height:36px;min-width:36px;border-radius:50%;background:#43A047;display:flex;align-items:center;justify-content:center;color:white;font-size:1.1rem;font-weight:900;">✓</div>
-                <div><div style="font-weight:900;font-size:1rem;">Clear and Concise</div><div style="font-size:.92rem;color:#444;margin-top:2px;">Your message should be to the point, and should not be confusing.</div></div>
+            <div style="margin: 16px 0; border-top: 1px solid #eee">
+              <div
+                style="
+                  display: flex;
+                  align-items: flex-start;
+                  gap: 14px;
+                  padding: 14px 0;
+                  border-bottom: 1px solid #eee;
+                "
+              >
+                <div
+                  style="
+                    width: 36px;
+                    height: 36px;
+                    min-width: 36px;
+                    border-radius: 50%;
+                    background: #43a047;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-size: 1.1rem;
+                    font-weight: 900;
+                  "
+                >
+                  ✓
+                </div>
+                <div>
+                  <div style="font-weight: 900; font-size: 1rem">
+                    Clear and Concise
+                  </div>
+                  <div style="font-size: 0.92rem; color: #444; margin-top: 2px">
+                    Your message should be to the point, and should not be
+                    confusing.
+                  </div>
+                </div>
               </div>
-              <div style="display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid #eee;">
-                <div style="width:36px;height:36px;min-width:36px;border-radius:50%;background:#43A047;display:flex;align-items:center;justify-content:center;color:white;font-size:1.1rem;font-weight:900;">✓</div>
-                <div><div style="font-weight:900;font-size:1rem;">Compelling</div><div style="font-size:.92rem;color:#444;margin-top:2px;">Your impact of your message should be powerful.</div></div>
+              <div
+                style="
+                  display: flex;
+                  align-items: flex-start;
+                  gap: 14px;
+                  padding: 14px 0;
+                  border-bottom: 1px solid #eee;
+                "
+              >
+                <div
+                  style="
+                    width: 36px;
+                    height: 36px;
+                    min-width: 36px;
+                    border-radius: 50%;
+                    background: #43a047;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-size: 1.1rem;
+                    font-weight: 900;
+                  "
+                >
+                  ✓
+                </div>
+                <div>
+                  <div style="font-weight: 900; font-size: 1rem">
+                    Compelling
+                  </div>
+                  <div style="font-size: 0.92rem; color: #444; margin-top: 2px">
+                    Your impact of your message should be powerful.
+                  </div>
+                </div>
               </div>
-              <div style="display:flex;align-items:flex-start;gap:14px;padding:14px 0;">
-                <div style="width:36px;height:36px;min-width:36px;border-radius:50%;background:#43A047;display:flex;align-items:center;justify-content:center;color:white;font-size:1.1rem;font-weight:900;">✓</div>
-                <div><div style="font-weight:900;font-size:1rem;">Center the Solution</div><div style="font-size:.92rem;color:#444;margin-top:2px;">Your message should tell your customer how it solves their problem.</div></div>
+              <div
+                style="
+                  display: flex;
+                  align-items: flex-start;
+                  gap: 14px;
+                  padding: 14px 0;
+                "
+              >
+                <div
+                  style="
+                    width: 36px;
+                    height: 36px;
+                    min-width: 36px;
+                    border-radius: 50%;
+                    background: #43a047;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-size: 1.1rem;
+                    font-weight: 900;
+                  "
+                >
+                  ✓
+                </div>
+                <div>
+                  <div style="font-weight: 900; font-size: 1rem">
+                    Center the Solution
+                  </div>
+                  <div style="font-size: 0.92rem; color: #444; margin-top: 2px">
+                    Your message should tell your customer how it solves their
+                    problem.
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1744,7 +1969,15 @@
       <!-- PAGE 5 – YOUR MESSAGE -->
       <div class="section" id="yourmsg">
         <div class="page-card">
-          <div style="background:transparent;padding:20px 28px 0 28px;display:flex;justify-content:center;align-items:center;">
+          <div
+            style="
+              background: transparent;
+              padding: 20px 28px 0 28px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            "
+          >
             <div class="video-wrapper">
               <video
                 id="yourmsg-video"
@@ -1767,6 +2000,7 @@
               Remember: A good message speaks directly to the right person.
             </p>
             <textarea
+              id="page5-message-input"
               class="write-textarea"
               rows="6"
               placeholder="Write your message here…"
@@ -1784,26 +2018,107 @@
 
       <!-- PAGE 6 – DESTINATION 2: MARKET -->
       <div class="section" id="market">
-        <div class="page-card" style="background:#FAF0DC;">
-          <img src="assets/page6.png" style="width:100%;display:block;border-radius:20px 20px 0 0;" alt="Market" onerror="this.onerror=null;this.src='assets/page-06-market.png';" />
-          <div style="background:#FAF0DC;padding:8px 24px 20px;text-align:center;">
-            <span style="font-family:var(--font-heading);font-size:clamp(2.4rem,7vw,4rem);color:#C17A3A;">Market</span>
+        <div class="page-card" style="background: #faf0dc">
+          <img
+            src="assets/page6.png"
+            style="width: 100%; display: block; border-radius: 20px 20px 0 0"
+            alt="Market"
+            onerror="
+              this.onerror = null;
+              this.src = 'assets/page-06-market.png';
+            "
+          />
+          <div
+            style="
+              background: #faf0dc;
+              padding: 8px 24px 20px;
+              text-align: center;
+            "
+          >
+            <span
+              style="
+                font-family: var(--font-heading);
+                font-size: clamp(2.4rem, 7vw, 4rem);
+                color: #c17a3a;
+              "
+              >Market</span
+            >
           </div>
-          <div class="pad" style="background:#FAF0DC;">
+          <div class="pad" style="background: #faf0dc">
             <!-- Italic quote -->
-            <div style="border-left:5px solid #F44336;background:#FFF5F5;padding:16px 20px;border-radius:0 12px 12px 0;margin:0 0 20px;font-style:italic;font-weight:800;color:#C62828;font-size:1.05rem;">
-              To be successful, businesses must identify a specific audience or market based on shared traits, needs, and behaviors.
+            <div
+              style="
+                border-left: 5px solid #f44336;
+                background: #fff5f5;
+                padding: 16px 20px;
+                border-radius: 0 12px 12px 0;
+                margin: 0 0 20px;
+                font-style: italic;
+                font-weight: 800;
+                color: #c62828;
+                font-size: 1.05rem;
+              "
+            >
+              To be successful, businesses must identify a specific audience or
+              market based on shared traits, needs, and behaviors.
             </div>
-            <p>Now that you understand the mechanics of the message, we need to <u>find out</u> <span style="border:2px solid #888;border-radius:50%;padding:1px 6px;">who</span> to give that message to.</p>
-            <p>The people you are trying to reach are called your <span style="color:#43A047;font-weight:800;">market.</span> These are the people you want to reach because they are people who are most likely to purchase your product or service.</p>
-            <p>We mentioned earlier that Mason shouldn't tell people who didn't have a dog his message about his Magic Suds. That's because they would have no need for a shampoo that is made for a dog. Simple enough.</p>
+            <p>
+              Now that you understand the mechanics of the message, we need to
+              <u>find out</u>
+              <span
+                style="
+                  border: 2px solid #888;
+                  border-radius: 50%;
+                  padding: 1px 6px;
+                "
+                >who</span
+              >
+              to give that message to.
+            </p>
+            <p>
+              The people you are trying to reach are called your
+              <span style="color: #43a047; font-weight: 800">market.</span>
+              These are the people you want to reach because they are people who
+              are most likely to purchase your product or service.
+            </p>
+            <p>
+              We mentioned earlier that Mason shouldn't tell people who didn't
+              have a dog his message about his Magic Suds. That's because they
+              would have no need for a shampoo that is made for a dog. Simple
+              enough.
+            </p>
             <p>But what about what dog owners?</p>
-            <p>Should all dog owners get the message about the Magic Suds that help keep dog hair detangled?</p>
-            <p>We may need to do some market research to better understand who the message should go to.</p>
+            <p>
+              Should all dog owners get the message about the Magic Suds that
+              help keep dog hair detangled?
+            </p>
+            <p>
+              We may need to do some market research to better understand who
+              the message should go to.
+            </p>
             <!-- Target market box -->
-            <div style="background:white;border:2px solid #E65100;border-radius:14px;padding:16px 20px;display:flex;align-items:center;gap:14px;font-weight:700;margin-top:20px;">
-              <span style="font-size:2rem;">🎯</span>
-              <p style="margin:0;">Your <span style="color:#1565C0;font-weight:800;">target market</span> = the people most likely to buy your product. Not everyone — <u>just the right ones!</u></p>
+            <div
+              style="
+                background: white;
+                border: 2px solid #e65100;
+                border-radius: 14px;
+                padding: 16px 20px;
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                font-weight: 700;
+                margin-top: 20px;
+              "
+            >
+              <span style="font-size: 2rem">🎯</span>
+              <p style="margin: 0">
+                Your
+                <span style="color: #1565c0; font-weight: 800"
+                  >target market</span
+                >
+                = the people most likely to buy your product. Not everyone —
+                <u>just the right ones!</u>
+              </p>
             </div>
           </div>
         </div>
@@ -1812,7 +2127,15 @@
       <!-- PAGE 7 – MARKET RESEARCH -->
       <div class="section" id="research">
         <div class="page-card">
-          <div style="background:transparent;padding:0 28px 0 28px;display:flex;justify-content:center;align-items:center;">
+          <div
+            style="
+              background: transparent;
+              padding: 0 28px 0 28px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            "
+          >
             <div class="video-wrapper research-video-wrapper">
               <video
                 id="research-video"
@@ -1908,26 +2231,99 @@
                   What's an example of staying aware of the changes in your
                   industry?
                 </div>
-                <button type="button" class="quiz-opt" data-correct="true" data-key="a" data-answer="a">
+                <button
+                  type="button"
+                  class="quiz-opt"
+                  data-correct="true"
+                  data-key="a"
+                  data-answer="a"
+                >
                   <span>📺</span> a) Attending webinars and workshops
                 </button>
-                <button type="button" class="quiz-opt" data-correct="false" data-key="b" data-answer="b">
+                <button
+                  type="button"
+                  class="quiz-opt"
+                  data-correct="false"
+                  data-key="b"
+                  data-answer="b"
+                >
                   <span>🙈</span> b) Only looking at your own product
                 </button>
-                <button type="button" class="quiz-opt" data-correct="true" data-key="c" data-answer="c">
+                <button
+                  type="button"
+                  class="quiz-opt"
+                  data-correct="true"
+                  data-key="c"
+                  data-answer="c"
+                >
                   <span>📊</span> c) Reviewing marketplace reports
                 </button>
-                <button type="button" class="quiz-opt" data-correct="false" data-key="d" data-answer="d">
+                <button
+                  type="button"
+                  class="quiz-opt"
+                  data-correct="false"
+                  data-key="d"
+                  data-answer="d"
+                >
                   <span>🚫</span> d) Ignoring customer complaints
                 </button>
-                <button type="button" class="quiz-check-btn" id="quiz-check-btn" style="display:none;">
+                <button
+                  type="button"
+                  class="quiz-check-btn"
+                  id="quiz-check-btn"
+                  style="display: none"
+                >
                   Check My Answer ✅
                 </button>
-                <div id="quiz-result" style="display:none;margin-top:16px;border-radius:14px;padding:18px 20px;text-align:center;transition:all 0.3s ease;">
-                  <div id="quiz-result-emoji" style="font-size:2.5rem;margin-bottom:8px;"></div>
-                  <div id="quiz-result-title" style="font-family:var(--font-heading);font-size:1.4rem;margin-bottom:8px;"></div>
-                  <div id="quiz-result-msg" style="font-size:0.95rem;font-weight:600;line-height:1.65;margin-bottom:16px;"></div>
-                  <button type="button" id="quiz-try-again" style="padding:10px 28px;border-radius:30px;border:none;font-family:var(--font-body);font-size:0.95rem;font-weight:800;cursor:pointer;background:var(--blue);color:white;">Try Again 🔄</button>
+                <div
+                  id="quiz-result"
+                  style="
+                    display: none;
+                    margin-top: 16px;
+                    border-radius: 14px;
+                    padding: 18px 20px;
+                    text-align: center;
+                    transition: all 0.3s ease;
+                  "
+                >
+                  <div
+                    id="quiz-result-emoji"
+                    style="font-size: 2.5rem; margin-bottom: 8px"
+                  ></div>
+                  <div
+                    id="quiz-result-title"
+                    style="
+                      font-family: var(--font-heading);
+                      font-size: 1.4rem;
+                      margin-bottom: 8px;
+                    "
+                  ></div>
+                  <div
+                    id="quiz-result-msg"
+                    style="
+                      font-size: 0.95rem;
+                      font-weight: 600;
+                      line-height: 1.65;
+                      margin-bottom: 16px;
+                    "
+                  ></div>
+                  <button
+                    type="button"
+                    id="quiz-try-again"
+                    style="
+                      padding: 10px 28px;
+                      border-radius: 30px;
+                      border: none;
+                      font-family: var(--font-body);
+                      font-size: 0.95rem;
+                      font-weight: 800;
+                      cursor: pointer;
+                      background: var(--blue);
+                      color: white;
+                    "
+                  >
+                    Try Again 🔄
+                  </button>
                 </div>
               </div>
             </div>
@@ -2035,36 +2431,170 @@
       <!-- PAGE 10 – DESTINATION 3: MOMENT -->
       <div class="section" id="moment">
         <div class="page-card">
-          <img src="assets/page10.png" style="width:100%;display:block;border-radius:20px 20px 0 0;" alt="Moment" onerror="this.onerror=null;this.src='assets/page-10-moment.png';" />
-          <div style="background:white;padding:8px 24px 20px;text-align:center;">
-            <span style="font-family:var(--font-heading);font-size:clamp(2.4rem,7vw,4rem);color:#1565C0;">Moment</span>
+          <img
+            src="assets/page10.png"
+            style="width: 100%; display: block; border-radius: 20px 20px 0 0"
+            alt="Moment"
+            onerror="
+              this.onerror = null;
+              this.src = 'assets/page-10-moment.png';
+            "
+          />
+          <div
+            style="
+              background: white;
+              padding: 8px 24px 20px;
+              text-align: center;
+            "
+          >
+            <span
+              style="
+                font-family: var(--font-heading);
+                font-size: clamp(2.4rem, 7vw, 4rem);
+                color: #1565c0;
+              "
+              >Moment</span
+            >
           </div>
           <div class="pad">
-            <p>You now know about your message, and who to give your message to, now let's discover <span style="color:#43A047;font-weight:800;">when</span> you should deliver that message.</p>
+            <p>
+              You now know about your message, and who to give your message to,
+              now let's discover
+              <span style="color: #43a047; font-weight: 800">when</span> you
+              should deliver that message.
+            </p>
             <!-- Quote block -->
-            <div style="border-left:5px solid #1565C0;background:#EBF5FF;padding:16px 20px;border-radius:0 12px 12px 0;margin:20px 0;font-style:italic;font-weight:700;font-size:1.05rem;color:#1565C0;">
+            <div
+              style="
+                border-left: 5px solid #1565c0;
+                background: #ebf5ff;
+                padding: 16px 20px;
+                border-radius: 0 12px 12px 0;
+                margin: 20px 0;
+                font-style: italic;
+                font-weight: 700;
+                font-size: 1.05rem;
+                color: #1565c0;
+              "
+            >
               Timing, or moment, is everything in marketing!
             </div>
-            <h3 style="color:#E65100;font-family:var(--font-heading);font-size:1.1rem;margin-bottom:10px;">Let's consider:</h3>
-            <p>Is a quiet Tuesday in your neighborhood the best time to market your popcorn business? Maybe—but only if lots of popcorn-loving people are actually around, and because it's quiet, it doesn't seem like there will be. Now consider a packed youth baseball game. That's a way better moment to share your message.</p>
-            <p>More people, more time, and more hungry fans means a much bigger chance they'll want your delicious popcorn while they watch the game.</p>
+            <h3
+              style="
+                color: #e65100;
+                font-family: var(--font-heading);
+                font-size: 1.1rem;
+                margin-bottom: 10px;
+              "
+            >
+              Let's consider:
+            </h3>
+            <p>
+              Is a quiet Tuesday in your neighborhood the best time to market
+              your popcorn business? Maybe—but only if lots of popcorn-loving
+              people are actually around, and because it's quiet, it doesn't
+              seem like there will be. Now consider a packed youth baseball
+              game. That's a way better moment to share your message.
+            </p>
+            <p>
+              More people, more time, and more hungry fans means a much bigger
+              chance they'll want your delicious popcorn while they watch the
+              game.
+            </p>
             <!-- Comparison cards -->
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;">
-              <div style="border-radius:14px;padding:20px;text-align:center;background:white;box-shadow:0 3px 12px rgba(0,0,0,.08);border:2px solid #43A047;">
-                <div style="font-size:2.4rem;margin-bottom:8px;">⚾</div>
-                <div style="font-weight:800;font-size:1rem;margin-bottom:4px;color:#1565C0;">Youth Baseball Game</div>
-                <div style="font-weight:800;font-size:.88rem;margin-bottom:8px;color:#43A047;">Great Moment for Popcorn!</div>
-                <div style="font-size:.82rem;color:#555;">Packed crowd + hungry fans = more sales</div>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+                margin: 20px 0;
+              "
+            >
+              <div
+                style="
+                  border-radius: 14px;
+                  padding: 20px;
+                  text-align: center;
+                  background: white;
+                  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+                  border: 2px solid #43a047;
+                "
+              >
+                <div style="font-size: 2.4rem; margin-bottom: 8px">⚾</div>
+                <div
+                  style="
+                    font-weight: 800;
+                    font-size: 1rem;
+                    margin-bottom: 4px;
+                    color: #1565c0;
+                  "
+                >
+                  Youth Baseball Game
+                </div>
+                <div
+                  style="
+                    font-weight: 800;
+                    font-size: 0.88rem;
+                    margin-bottom: 8px;
+                    color: #43a047;
+                  "
+                >
+                  Great Moment for Popcorn!
+                </div>
+                <div style="font-size: 0.82rem; color: #555">
+                  Packed crowd + hungry fans = more sales
+                </div>
               </div>
-              <div style="border-radius:14px;padding:20px;text-align:center;background:white;box-shadow:0 3px 12px rgba(0,0,0,.08);border:2px solid #EF9A9A;">
-                <div style="font-size:2.4rem;margin-bottom:8px;">🏠</div>
-                <div style="font-weight:800;font-size:1rem;margin-bottom:4px;color:#1565C0;">Quiet Tuesday at Home</div>
-                <div style="font-weight:800;font-size:.88rem;margin-bottom:8px;color:#C62828;">Not the Best Moment</div>
-                <div style="font-size:.82rem;color:#555;">Few people, low energy, less buying mood</div>
+              <div
+                style="
+                  border-radius: 14px;
+                  padding: 20px;
+                  text-align: center;
+                  background: white;
+                  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+                  border: 2px solid #ef9a9a;
+                "
+              >
+                <div style="font-size: 2.4rem; margin-bottom: 8px">🏠</div>
+                <div
+                  style="
+                    font-weight: 800;
+                    font-size: 1rem;
+                    margin-bottom: 4px;
+                    color: #1565c0;
+                  "
+                >
+                  Quiet Tuesday at Home
+                </div>
+                <div
+                  style="
+                    font-weight: 800;
+                    font-size: 0.88rem;
+                    margin-bottom: 8px;
+                    color: #c62828;
+                  "
+                >
+                  Not the Best Moment
+                </div>
+                <div style="font-size: 0.82rem; color: #555">
+                  Few people, low energy, less buying mood
+                </div>
               </div>
             </div>
-            <p>How about Mason? Do you think he can market his shampoos year round? Maybe, but perhaps his market would receive his message <em>better</em> in times where their dogs' hair gets tangled most often. Dog hair gets tangled much faster in times of high humidity. So his message sent to his market during times of high humidity — like the summertime — might be received <em>better.</em></p>
-            <p>Identifying when the BEST time is to present your message to your market — that is your moment. And for this reason, use everything you know about your product or service to maximize your moment!</p>
+            <p>
+              How about Mason? Do you think he can market his shampoos year
+              round? Maybe, but perhaps his market would receive his message
+              <em>better</em> in times where their dogs' hair gets tangled most
+              often. Dog hair gets tangled much faster in times of high
+              humidity. So his message sent to his market during times of high
+              humidity — like the summertime — might be received
+              <em>better.</em>
+            </p>
+            <p>
+              Identifying when the BEST time is to present your message to your
+              market — that is your moment. And for this reason, use everything
+              you know about your product or service to maximize your moment!
+            </p>
           </div>
         </div>
       </div>
@@ -2072,7 +2602,15 @@
       <!-- PAGE 11 – MAXIMIZING YOUR MOMENT -->
       <div class="section" id="maximize">
         <div class="page-card">
-          <div style="background:transparent;padding:32px 28px 8px 28px;display:flex;justify-content:center;align-items:center;">
+          <div
+            style="
+              background: transparent;
+              padding: 32px 28px 8px 28px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            "
+          >
             <div class="video-wrapper">
               <video
                 id="question-video"
@@ -2086,12 +2624,28 @@
               </video>
             </div>
           </div>
-          <p style="text-align:center;font-weight:700;color:#1a1a2e;padding:20px 28px 0 28px;font-size:1.05rem;line-height:1.8;">
-            That means, consider all of the ways you can best appeal to your market so that they can receive your message. <strong>That usually equals a sale!</strong>
+          <p
+            style="
+              text-align: center;
+              font-weight: 700;
+              color: #1a1a2e;
+              padding: 20px 28px 0 28px;
+              font-size: 1.05rem;
+              line-height: 1.8;
+            "
+          >
+            That means, consider all of the ways you can best appeal to your
+            market so that they can receive your message.
+            <strong>That usually equals a sale!</strong>
           </p>
-          <div class="max-header-box" style="margin:20px 28px;">
+          <div class="max-header-box" style="margin: 20px 28px">
             <h2>Maximizing Your Moment</h2>
-            <p>Identifying when the <strong>BEST time</strong> is to present your message to your market — that is your moment. And for this reason, use everything you know about your product or service to maximize your moment!</p>
+            <p>
+              Identifying when the <strong>BEST time</strong> is to present your
+              message to your market — that is your moment. And for this reason,
+              use everything you know about your product or service to maximize
+              your moment!
+            </p>
           </div>
           <div class="pad">
             <div class="bf-box">
@@ -2125,7 +2679,7 @@
           <div class="pad">
             <h2 class="dog-party-title">Mason's Dog Party Plan:</h2>
             <div class="dog-party-top">
-              <div class="video-wrapper" style="flex:1;">
+              <div class="video-wrapper" style="flex: 1">
                 <video
                   id="dogparty-video"
                   controls
@@ -2145,19 +2699,16 @@
                 style="color: #555; font-size: 0.92rem; margin-bottom: 16px"
               >
                 Test your timing! You know your moment — now let's see how much
-                hype you can actually create. Go to the Hype Machine in your
-                Marketing Lab and find out your Hype Impact score!
+                hype you can actually create.
               </p>
               <textarea
+                id="page12-moment-input"
                 class="write-textarea"
                 rows="4"
                 style="min-height: 170px"
                 placeholder="Describe your plan to maximize your moment…"
               ></textarea>
             </div>
-            <p style="text-align:center;font-weight:700;color:#1a1a2e;padding:20px 28px;font-size:1.05rem;line-height:1.8;">
-              Except when you're in a great place in your business. When your business is in a really good place, everything feels <strong>exciting</strong>—like anything is possible! And it is! But getting there takes more than luck. It takes smart, creative, and thoughtful marketing.
-            </p>
           </div>
         </div>
       </div>
@@ -2165,7 +2716,15 @@
       <!-- PAGE 13 – WRAP UP -->
       <div class="section" id="wrap">
         <div class="page-card p13-bg">
-          <div style="background:transparent;padding:20px 28px 0 28px;display:flex;justify-content:center;align-items:center;">
+          <div
+            style="
+              background: transparent;
+              padding: 20px 28px 0 28px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            "
+          >
             <div class="wrap-video-wrapper">
               <video
                 id="sleeping-video"
@@ -2179,19 +2738,44 @@
               </video>
             </div>
           </div>
+          <p
+            style="
+              text-align: center;
+              font-weight: 700;
+              color: #1a1a2e;
+              padding: 20px 28px 0 28px;
+              font-size: 1.05rem;
+              line-height: 1.8;
+            "
+          >
+            Except when you're in a great place in your business. When your
+            business is in a really good place, everything feels
+            <strong>exciting</strong>—like anything is possible! And it is! But
+            getting there takes more than luck. It takes smart, creative, and
+            thoughtful marketing.
+          </p>
           <div class="pad">
             <h2 class="p13-title">Good marketing starts with three Ms:</h2>
             <div class="m-row">
               <span class="ri">💬</span>
-              <span class="rt">Knowing exactly what you want to say (your <span class="txt-orange bold">Message</span>)</span>
+              <span class="rt"
+                >Knowing exactly what you want to say (your
+                <span class="txt-orange bold">Message</span>)</span
+              >
             </div>
             <div class="m-row">
               <span class="ri">🎯</span>
-              <span class="rt">Knowing who you're talking to (your <span class="txt-blue bold">Market</span>)</span>
+              <span class="rt"
+                >Knowing who you're talking to (your
+                <span class="txt-blue bold">Market</span>)</span
+              >
             </div>
             <div class="m-row">
               <span class="ri">📅</span>
-              <span class="rt">And knowing the best time to share it (your <span class="txt-amber bold">Moment</span>)</span>
+              <span class="rt"
+                >And knowing the best time to share it (your
+                <span class="txt-amber bold">Moment</span>)</span
+              >
             </div>
             <p class="txt-center" style="margin: 24px 0; font-weight: 700">
               Knowing your message, who your market is, and when your moment is
@@ -2221,10 +2805,6 @@
             >
               Message. Market. Moment.
             </p>
-            <p class="txt-center" style="font-weight: 600; margin-bottom: 20px">
-              You know all three. Go to your Marketing Lab with all four
-              complete modules, and generate your full Marketing Report!
-            </p>
             <div class="cta-wrap">
               <span class="cta-arrow">↙</span>
               <button id="open-lab-btn" class="cta-btn">
@@ -2241,9 +2821,24 @@
                 <textarea
                   id="answer-message"
                   placeholder="Type your marketing message here..."
-                  style="width:100%;min-height:100px;border:2px solid #BBDEFB;border-radius:12px;padding:12px 14px;font-family:var(--font-body);font-size:0.95rem;font-weight:600;color:#1a1a2e;resize:vertical;outline:none;line-height:1.7;background:white;box-sizing:border-box;"
-                  onfocus="this.style.borderColor='#1565C0'"
-                  onblur="this.style.borderColor='#BBDEFB'"
+                  style="
+                    width: 100%;
+                    min-height: 100px;
+                    border: 2px solid #bbdefb;
+                    border-radius: 12px;
+                    padding: 12px 14px;
+                    font-family: var(--font-body);
+                    font-size: 0.95rem;
+                    font-weight: 600;
+                    color: #1a1a2e;
+                    resize: vertical;
+                    outline: none;
+                    line-height: 1.7;
+                    background: white;
+                    box-sizing: border-box;
+                  "
+                  onfocus="this.style.borderColor = '#1565C0'"
+                  onblur="this.style.borderColor = '#BBDEFB'"
                 ></textarea>
               </div>
               <div class="answer-item">
@@ -2253,10 +2848,30 @@
                 <textarea
                   id="answer-moment"
                   placeholder="Type how you will maximize your moment here..."
-                  style="width:100%;min-height:100px;border:2px solid #BBDEFB;border-radius:12px;padding:12px 14px;font-family:var(--font-body);font-size:0.95rem;font-weight:600;color:#1a1a2e;resize:vertical;outline:none;line-height:1.7;background:white;box-sizing:border-box;"
-                  onfocus="this.style.borderColor='#1565C0'"
-                  onblur="this.style.borderColor='#BBDEFB'"
+                  style="
+                    width: 100%;
+                    min-height: 100px;
+                    border: 2px solid #bbdefb;
+                    border-radius: 12px;
+                    padding: 12px 14px;
+                    font-family: var(--font-body);
+                    font-size: 0.95rem;
+                    font-weight: 600;
+                    color: #1a1a2e;
+                    resize: vertical;
+                    outline: none;
+                    line-height: 1.7;
+                    background: white;
+                    box-sizing: border-box;
+                  "
+                  onfocus="this.style.borderColor = '#1565C0'"
+                  onblur="this.style.borderColor = '#BBDEFB'"
                 ></textarea>
+              </div>
+              <div style="padding:16px 20px;text-align:center;">
+                <button type="button" id="get-report-btn" style="background:linear-gradient(135deg,#1565C0,#1976D2);color:white;border:none;font-family:var(--font-body);font-size:1rem;font-weight:800;padding:14px 32px;border-radius:30px;cursor:pointer;box-shadow:0 4px 14px rgba(21,101,192,0.35);width:100%;">
+                  🖨️ Save as PDF / Print
+                </button>
               </div>
             </div>
           </div>
@@ -2277,7 +2892,19 @@
               flex: 1;
             "
           >
-            <div style="background:white;border:2.5px solid #43A047;border-radius:30px;padding:10px 28px;display:inline-block;font-family:var(--font-heading);color:#43A047;font-size:1.1rem;margin-bottom:28px;">
+            <div
+              style="
+                background: white;
+                border: 2.5px solid #43a047;
+                border-radius: 30px;
+                padding: 10px 28px;
+                display: inline-block;
+                font-family: var(--font-heading);
+                color: #43a047;
+                font-size: 1.1rem;
+                margin-bottom: 28px;
+              "
+            >
               You've completed part one!
             </div>
             <div style="font-size: 5.5rem; margin-bottom: 16px; line-height: 1">
@@ -2506,91 +3133,122 @@
           });
 
         /* QUIZ */
-        (function() {
-          var quizOpts = Array.from(document.querySelectorAll('.quiz-opt'));
-          var quizCheckBtn = document.getElementById('quiz-check-btn');
-          var quizResult = document.getElementById('quiz-result');
-          var quizResultEmoji = document.getElementById('quiz-result-emoji');
-          var quizResultTitle = document.getElementById('quiz-result-title');
-          var quizResultMsg = document.getElementById('quiz-result-msg');
-          var quizTryAgain = document.getElementById('quiz-try-again');
+        (function () {
+          var quizOpts = Array.from(document.querySelectorAll(".quiz-opt"));
+          var quizCheckBtn = document.getElementById("quiz-check-btn");
+          var quizResult = document.getElementById("quiz-result");
+          var quizResultEmoji = document.getElementById("quiz-result-emoji");
+          var quizResultTitle = document.getElementById("quiz-result-title");
+          var quizResultMsg = document.getElementById("quiz-result-msg");
+          var quizTryAgain = document.getElementById("quiz-try-again");
 
           function showResult(type, emoji, title, msg) {
             quizResultEmoji.textContent = emoji;
             quizResultTitle.textContent = title;
             quizResultMsg.textContent = msg;
-            if (type === 'green') {
-              quizResult.style.background = '#EBF5FF';
-              quizResult.style.border = '2.5px solid var(--blue)';
-              quizResultTitle.style.color = 'var(--blue)';
-              quizTryAgain.style.background = 'var(--blue)';
-            } else if (type === 'yellow') {
-              quizResult.style.background = '#FFF3E0';
-              quizResult.style.border = '2.5px solid #E65100';
-              quizResultTitle.style.color = '#E65100';
-              quizTryAgain.style.background = '#E65100';
+            if (type === "green") {
+              quizResult.style.background = "#EBF5FF";
+              quizResult.style.border = "2.5px solid var(--blue)";
+              quizResultTitle.style.color = "var(--blue)";
+              quizTryAgain.style.background = "var(--blue)";
+            } else if (type === "yellow") {
+              quizResult.style.background = "#FFF3E0";
+              quizResult.style.border = "2.5px solid #E65100";
+              quizResultTitle.style.color = "#E65100";
+              quizTryAgain.style.background = "#E65100";
             } else {
-              quizResult.style.background = '#FFEBEE';
-              quizResult.style.border = '2.5px solid var(--red)';
-              quizResultTitle.style.color = 'var(--red)';
-              quizTryAgain.style.background = 'var(--red)';
+              quizResult.style.background = "#FFEBEE";
+              quizResult.style.border = "2.5px solid var(--red)";
+              quizResultTitle.style.color = "var(--red)";
+              quizTryAgain.style.background = "var(--red)";
             }
-            quizResult.style.display = 'block';
-            quizResult.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            quizResult.style.display = "block";
+            quizResult.scrollIntoView({ behavior: "smooth", block: "nearest" });
           }
 
           function hideResult() {
-            quizResult.style.display = 'none';
+            quizResult.style.display = "none";
           }
 
-          quizOpts.forEach(function(btn) {
-            btn.addEventListener('click', function(e) {
+          quizOpts.forEach(function (btn) {
+            btn.addEventListener("click", function (e) {
               e.stopPropagation();
               e.preventDefault();
-              this.classList.toggle('selected');
+              this.classList.toggle("selected");
               hideResult();
-              var anySelected = quizOpts.some(function(b) {
-                return b.classList.contains('selected');
+              var anySelected = quizOpts.some(function (b) {
+                return b.classList.contains("selected");
               });
               if (quizCheckBtn) {
-                quizCheckBtn.style.display = anySelected ? 'block' : 'none';
+                quizCheckBtn.style.display = anySelected ? "block" : "none";
               }
             });
           });
 
           if (quizCheckBtn) {
-            quizCheckBtn.addEventListener('click', function(e) {
+            quizCheckBtn.addEventListener("click", function (e) {
               e.stopPropagation();
               e.preventDefault();
               var selected = quizOpts
-                .filter(function(b) { return b.classList.contains('selected'); })
-                .map(function(b) { return b.getAttribute('data-answer'); });
+                .filter(function (b) {
+                  return b.classList.contains("selected");
+                })
+                .map(function (b) {
+                  return b.getAttribute("data-answer");
+                });
 
-              var hasA = selected.indexOf('a') > -1;
-              var hasB = selected.indexOf('b') > -1;
-              var hasC = selected.indexOf('c') > -1;
-              var hasD = selected.indexOf('d') > -1;
+              var hasA = selected.indexOf("a") > -1;
+              var hasB = selected.indexOf("b") > -1;
+              var hasC = selected.indexOf("c") > -1;
+              var hasD = selected.indexOf("d") > -1;
 
               if (hasA && hasC && !hasB && !hasD) {
-                showResult('green', '🎉', 'Correct! Great Job!', 'Attending webinars and reviewing marketplace reports are both great ways to stay current in your industry!');
+                showResult(
+                  "green",
+                  "🎉",
+                  "Correct! Great Job!",
+                  "Attending webinars and reviewing marketplace reports are both great ways to stay current in your industry!",
+                );
               } else if ((hasA || hasC) && (hasB || hasD)) {
-                showResult('yellow', '🤔', 'Almost There!', 'You found some right answers but also picked some wrong ones. Remember — only A and C are correct!');
+                showResult(
+                  "yellow",
+                  "🤔",
+                  "Almost There!",
+                  "You found some right answers but also picked some wrong ones. Remember — only A and C are correct!",
+                );
               } else if (hasA && !hasC && !hasB && !hasD) {
-                showResult('yellow', '🌟', 'Half Right!', 'That\'s one correct answer! But there are TWO correct answers. Can you find the other one?');
+                showResult(
+                  "yellow",
+                  "🌟",
+                  "Half Right!",
+                  "That's one correct answer! But there are TWO correct answers. Can you find the other one?",
+                );
               } else if (hasC && !hasA && !hasB && !hasD) {
-                showResult('yellow', '🌟', 'Half Right!', 'That\'s one correct answer! But there are TWO correct answers. Can you find the other one?');
+                showResult(
+                  "yellow",
+                  "🌟",
+                  "Half Right!",
+                  "That's one correct answer! But there are TWO correct answers. Can you find the other one?",
+                );
               } else {
-                showResult('red', '❌', 'Not Quite!', 'Those are not the best ways to stay updated. Think about actions that keep you informed — try again!');
+                showResult(
+                  "red",
+                  "❌",
+                  "Not Quite!",
+                  "Those are not the best ways to stay updated. Think about actions that keep you informed — try again!",
+                );
               }
             });
           }
 
           if (quizTryAgain) {
-            quizTryAgain.addEventListener('click', function(e) {
+            quizTryAgain.addEventListener("click", function (e) {
               e.stopPropagation();
               hideResult();
-              quizOpts.forEach(function(b) { b.classList.remove('selected'); });
-              if (quizCheckBtn) quizCheckBtn.style.display = 'none';
+              quizOpts.forEach(function (b) {
+                b.classList.remove("selected");
+              });
+              if (quizCheckBtn) quizCheckBtn.style.display = "none";
             });
           }
         })();
@@ -2605,6 +3263,35 @@
           summary.style.display = "block";
           summary.scrollIntoView({ behavior: "smooth", block: "nearest" });
         });
+
+        var getReportBtn = document.getElementById('get-report-btn');
+        if (getReportBtn) {
+          getReportBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            window.print();
+          });
+        }
+
+        (function() {
+          function syncMoment() {
+            var page12Input = document.getElementById('page12-moment-input');
+            var page13Input = document.getElementById('answer-moment');
+            if (page12Input && page13Input) {
+              page12Input.addEventListener('input', function() {
+                page13Input.value = this.value;
+              });
+              page13Input.addEventListener('input', function() {
+                page12Input.value = this.value;
+              });
+            }
+          }
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', syncMoment);
+          } else {
+            syncMoment();
+          }
+        })();
 
         goTo(0);
       })();
@@ -2658,6 +3345,28 @@
           vid.addEventListener("canplay", function () {
             if (errDiv) errDiv.style.display = "none";
           });
+        }
+      })();
+    </script>
+    <script>
+      // Sync Page 5 message textarea to Page 13 answer-message textarea
+      (function() {
+        function syncMessage() {
+          var page5Input = document.getElementById('page5-message-input');
+          var page13Input = document.getElementById('answer-message');
+          if (page5Input && page13Input) {
+            page5Input.addEventListener('input', function() {
+              page13Input.value = this.value;
+            });
+            page13Input.addEventListener('input', function() {
+              page5Input.value = this.value;
+            });
+          }
+        }
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', syncMessage);
+        } else {
+          syncMessage();
         }
       })();
     </script>
